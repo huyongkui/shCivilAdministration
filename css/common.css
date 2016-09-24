@@ -82,12 +82,14 @@
 }
 
 .common_substationnav_wrapper .locationmenu {
+	display: none;
 	width: 715px;
 	height: 230px;
 	background-color: #eaeaea;
 	position: absolute;
 	top: 40px;
 	right: -100px;
+	z-index: 2;
 }
 
 .common_substationnav_wrapper .locationmenu .classification {

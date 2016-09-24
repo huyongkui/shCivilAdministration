@@ -1,8 +1,25 @@
 .index_carousel_wrapper {
 	width: 100%;
+	height: 350px;
 	overflow: hidden;
 }
+.index_carousel_wrapper a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.index_carousel_wrapper .carouselpagination_wrapper{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
 
+.index_carousel_wrapper .carouselpagination_wrapper .swiper-pagination{
+	width: 100%;
+
+	bottom: 0;
+}
 .index_mainmenu_container {
 	background-color: #fff;
 }
@@ -36,6 +53,7 @@
 	vertical-align: top;
 	position: relative;
 	top: -30px;
+	z-index: 1;
 }
 
 .index_datastatistic_wrapper div {
