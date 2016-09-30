@@ -110,7 +110,6 @@
 										<label for="exampleInputPassword1">Password</label>
 										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 									</div>
-									
 									<div class="checkbox">
 										<label>
 											<input type="checkbox"> Check me out
@@ -132,10 +131,18 @@
 </body>
 <script type="text/javascript">
 $(function() {
-	var saveBtn = $('.approlist_save_item');
-	saveBtn.click(function(e) {
-		$('#myModal').modal('toggle');
-	})
+	var preliminary = {
+		modal: function() {
+			var saveBtn = $('.approlist_save_item');
+			saveBtn.click(function(e) {
+				$('#myModal').modal('toggle');
+			});
+		},
+		init:function(){
+			this.init();
+		}
+	}
+	preliminary.init();
 })
 </script>
 
