@@ -1,0 +1,431 @@
+@charset "utf-8";
+body, *, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td, img, div, span {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+body {
+	background: #fff;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+ul, ol {
+	list-style-type: none;
+}
+a, a:visited, a:active, a:hover {
+	text-decoration: none;
+}
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+.bg {
+	width: 1259px;
+	height: 880px;
+	margin: auto
+}
+.leftarea {
+	width: 810px;
+	height: 880px;
+	float: left;
+	position: relative;
+	background: url(../img/mapimages/leftareabg1.png);
+}
+.map_bg_item {
+	position: absolute;
+	filter: Alpha(Opacity=0);
+	opacity: 0;
+}
+.mask {
+	position: absolute;
+	opacity: 0.01
+}
+.leftarea .area {
+	position: absolute;
+}
+.leftlist {
+	position: absolute;
+	width: 246px;
+	top: 80px;
+	left: 20px;
+}
+.leftlist li {
+	list-style: none;
+	font-size: 14px;
+	font-family: "黑体";
+	text-indent: 40px;
+	color: #4e6b9d
+}
+.leftareaDetail {
+	width: 810px;
+	height: 880px;
+	float: left
+}
+.leftareaDetail_page {
+	width: 810px;
+	height: 748px;
+	padding-top: 132px;
+	float: left;
+	background: #96bbe8 url(../img/mapimages/page_bk.png) no-repeat left top;
+}
+.gohome {
+	width: 47px;
+	padding: 308px 19px 0 19px;
+	float: left;
+}
+.rightarea {
+	width: 449px;
+	height: 880px;
+	background: url(../img/rightareabg.png);
+	float: left
+}
+.l1 {
+	background: url(../img/mapimages/l1.png) no-repeat 0 6px;
+	height: 35px;
+	line-height: 35px
+}
+.l2 {
+	background: url(../img/mapimages/l2.png) no-repeat 0 6px;
+	height: 35px;
+	line-height: 35px
+}
+.l3 {
+	background: url(../img/mapimages/l3.png) no-repeat 0 6px;
+	height: 35px;
+	line-height: 35px
+}
+.l4 {
+	background: url(../img/mapimages/l4.png) no-repeat 0 6px;
+	height: 35px;
+	line-height: 35px
+}
+.l5 {
+	background: url(../img/mapimages/l5.png) no-repeat 0 6px;
+	height: 35px;
+	line-height: 35px
+}
+#cm {
+	top: 54px;
+	left: 302px;
+	width: 476px;
+	height: 371px;
+}
+#jd {
+	top: 260px;
+	left: 189px;
+	width: 198px;
+	height: 222px;
+}
+#bs {
+	top: 254px;
+	left: 326px;
+	width: 169px;
+	height: 192px;
+}
+#pt {
+	top: 392px;
+	left: 324px;
+	width: 121px;
+	height: 92px;
+}
+#zb {
+	top: 374px;
+	left: 400px;
+	width: 68px;
+	height: 90px;
+}
+#hk {
+	top: 380px;
+	left: 436px;
+	width: 63px;
+	height: 85px;
+}
+#yp {
+	top: 354px;
+	left: 456px;
+	width: 84px;
+	height: 104px;
+}
+#pd {
+	top: 339px;
+	left: 433px;
+	width: 353px;
+	height: 423px;
+}
+#qp {
+	top: 409px;
+	left: 15px;
+	width: 328px;
+	height: 278px;
+}
+#sj {
+	top: 509px;
+	left: 133px;
+	width: 253px;
+	height: 211px;
+}
+#mh {
+	top: 439px;
+	left: 269px;
+	width: 250px;
+	height: 229px;
+}
+#cn {
+	top: 443px;
+	left: 332px;
+	width: 101px;
+	height: 76px;
+}
+#ja {
+	top: 374px;
+	left: 399px;
+	width: 72px;
+	height: 118px;
+}
+#hp {
+	top: 440px;
+	left: 435px;
+	width: 60px;
+	height: 71px;
+}
+#xh {
+	top: 462px;
+	left: 377px;
+	width: 89px;
+	height: 123px;
+}
+#js {
+	top: 653px;
+	left: 109px;
+	width: 343px;
+	height: 215px;
+}
+#fx {
+	top: 618px;
+	left: 362px;
+	width: 315px;
+	height: 189px;
+}
+.selecttype {
+	background: url(../img/mapimages/selecttypebg.png) no-repeat;
+	background-color: transparent;
+	border: 0;
+	width: 212px;
+	height: 33px;
+	margin: 32px 0 0 40px;
+	font-size: 16px;
+	color: #fff;
+	font-family: "黑体";
+	text-indent: 6px;
+}
+.querytxt {
+	background: url(../img/mapimages/searchtextbg.png) no-repeat;
+	background-color: transparent;
+	border: 0;
+	width: 212px;
+	height: 33px;
+	margin: 32px 0 0 6px;
+	font-size: 16px;
+	color: #fff;
+	font-family: "黑体";
+	text-indent: 30px;
+}
+.querybtn {
+	background: url(../img/mapimages/querybtn.png) no-repeat;
+	width: 63px;
+	height: 33px;
+	border: 0;
+	font-size: 16px;
+	color: #fff;
+	font-family: "黑体";
+	margin: 32px 0 0 6px;
+}
+.listb {
+	margin: 46px 0 46px 123px;
+	clear: both;
+}
+.title {
+	font-family: "黑体";
+	font-size: 22px;
+	color: #fff;
+	background: url(../img/mapimages/titlelogo.png) no-repeat;
+	text-indent: 36px;
+	margin-left: 40px
+}
+.school_lists ul {
+	width: 300px;
+	margin-bottom: 30px;
+}
+.school_lists li {
+	font-size: 16px;
+	line-height: 40px;
+	color: #fff;
+	border-bottom: dotted 1px #99b2da;
+	list-style: none;
+	width: 300px;
+}
+.school_lists li label {
+	margin-right: 10px
+}
+.school_lists li a {
+	color: #fff;
+	margin-right: 10px
+}
+.school_lists li a, .school_lists li a:visited, .school_lists li a:active {
+	color: #fff;
+	margin-right: 10px;
+}
+.school_lists li a:hover {
+	color: #d5ff70;
+	margin-right: 10px;
+}
+.nextpage {
+	width: 102px;
+	height: 33px;
+	background: url(../img/mapimages/nextpage.png) no-repeat;
+	border: 0;
+	font-size: 16px;
+	font-family: "黑体";
+	color: #fff;
+	float: right;
+	margin-right: 48px
+}
+.copyright {
+	text-align: center;
+	color: #3b619c;
+	line-height: 35px;
+	font-size: 12px;
+}
+.details {
+	font: normal 14px/30px "Lucida Sans Unicode", "Lucida Grande", sans-serif, "宋体";
+}
+.unit {
+	margin: 0 auto;
+	clear: both;
+}
+.unit_tit {
+	color: #577bb8;
+	float: left;
+}
+.unit_con {
+	float: right;
+}
+#name {
+	font-weight: bold;
+}
+#number {
+	background: url(../img/mapimages/icon_number.png) no-repeat 0 3px;
+	padding-left: 25px;
+}
+#address {
+	background: url(../img/mapimages/icon_address.png) no-repeat 0 3px;
+	padding-left: 25px;
+}
+#headmaster {
+	background: url(../img/mapimages/icon_headmaster.png) no-repeat 0 3px;
+	padding-left: 25px;
+}
+#type {
+	background: url(../img/mapimages/icon_type.png) no-repeat 0 3px;
+	padding-left: 25px;
+}
+#content {
+	background: url(../img/mapimages/icon_content.png) no-repeat 0 3px;
+	padding-left: 25px;
+}
+#division {
+	background: url(../img/mapimages/icon_division.png) no-repeat 0 3px;
+	padding-left: 25px;
+}
+#time {
+	background: url(../img/mapimages/icon_time.png) no-repeat 0 3px;
+	padding-left: 25px;
+}
+#remark {
+	background: url(../img/mapimages/icon_remark.png) no-repeat 0 3px;
+	padding-left: 25px;
+}
+.pages {
+	color: #264e8c;
+}
+.pages span {
+	color: #031128;
+}
+.pages a, .pages a:visited, .pages a:active {
+	color: #fff;
+}
+.pages a:hover {
+	color: #d5ff70;
+}
+a.off, a.off:visited, a.off:active {
+	color: #264e8c;
+}
+a.off:hover {
+	color: #264e8c;
+}
+.school_types {
+	width: 119px;
+	float: left;
+}
+.school_lists {
+	width: 330px;
+	float: left;
+}
+.types {
+	width: 104px;
+	height: 92px;
+}
+#all {
+	width: 94px;
+	height: 44px;
+	padding: 48px 0 0 10px;
+	color: #fff;
+	font-size: 14px;
+	background: url(../img/all.png) no-repeat left top;
+}
+#colleges {
+	width: 94px;
+	height: 44px;
+	padding: 48px 0 0 10px;
+	color: #fff;
+	font-size: 14px;
+	background: url(../img/colleges.png) no-repeat left top;
+}
+#primaryschool {
+	width: 94px;
+	height: 44px;
+	padding: 48px 0 0 10px;
+	color: #fff;
+	font-size: 14px;
+	background: url(../img/primaryschool.png) no-repeat left top;
+}
+#kindergarten {
+	width: 94px;
+	height: 34px;
+	padding: 58px 0 0 10px;
+	color: #fff;
+	font-size: 14px;
+	background: url(../img/kindergarten.png) no-repeat left top;
+}
+#train {
+	width: 94px;
+	height: 34px;
+	padding: 58px 0 0 10px;
+	color: #fff;
+	font-size: 14px;
+	background: url(../img/train.png) no-repeat left top;
+}
+.baidu {
+	color: #2755a3;
+	font: bold 14px/33px "Lucida Sans Unicode", "Lucida Grande", sans-serif, "宋体";
+	width: 110px;
+	height: 33px;
+	background: url(../img/mapimages/bdbk.png) no-repeat;
+	display: block;
+	text-align: center;
+}
+a.sh, a.sh:visited, a.sh:active {
+	color: #fff;
+}
+a.sh:hover {
+	color: #d5ff70;
+}
