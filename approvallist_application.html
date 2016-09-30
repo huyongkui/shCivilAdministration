@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<title>申请表格</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/approvallist.css">
+	<link rel="stylesheet" href="css/approvallist_bootstrap.css">
+	<script type="text/javascript" src='assets/js/jquery.min.js'></script>
+	<script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/applicationprocess.js'></script>
+</head>
+
+<body>
+	<div class='common_header_wrapper'>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="javascript:;">申请表格</a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="javascript:;">Dashboard</a></li>
+						<li><a href="javascript:;">Settings</a></li>
+						<li><a href="javascript:;">Profile</a></li>
+						<li><a href="javascript:;">Help</a></li>
+					</ul>
+					<form class="navbar-form navbar-right">
+						<input class="form-control" placeholder="Search..." type="text">
+					</form>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="common_process_wrapper main">
+				<h2 class="sub-header"></h2>
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label class="col-lg-2 control-label">基地名称</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">主要公益项目</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">岗位数</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">每年公益项目的总数</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">每天可容纳参与公益活动的总人数</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">是否有管理制度</label>
+						<div class="col-lg-10">
+							<div class="form-group col-lg-2">
+								<label>是</label>
+								<input type="radio" name='isfulltimestaff'>
+							</div>
+							<div class="form-group col-lg-2">
+								<label>否</label>
+								<input type="radio" name='isfulltimestaff'>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">是否有培训交流场地</label>
+						<div class="col-lg-10">
+							<div class="form-group col-lg-2">
+								<label>是</label>
+								<input type="radio" name='istrainingsite'>
+							</div>
+							<div class="form-group col-lg-2">
+								<label>否</label>
+								<input type="radio" name='istrainingsite'>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">是否有培训计划</label>
+						<div class="col-lg-10">
+							<div class="form-group col-lg-2">
+								<label>是</label>
+								<input type="radio" name='istrainingplan'>
+							</div>
+							<div class="form-group col-lg-2">
+								<label>否</label>
+								<input type="radio" name='istrainingplan'>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">是否有后勤保障措施</label>
+						<div class="col-lg-10">
+							<div class="form-group col-lg-2">
+								<label>是</label>
+								<input type="radio" name='islogisticfacility'>
+							</div>
+							<div class="form-group col-lg-2">
+								<label>否</label>
+								<input type="radio" name='islogisticfacility'>
+							</div>
+						</div>
+					</div>
+					<div class="application_isfulltimestaff_wrapper form-group">
+						<label class="col-lg-2 control-label">是否有专职工作人员及人数</label>
+						<div class="col-lg-10">
+							<div class="form-group col-lg-2">
+								<label>是</label>
+								<input type="radio" name='isfulltimestaff' alt='yes'>
+							</div>
+							<div class="form-group col-lg-2">
+								<label>否</label>
+								<input type="radio" name='isfulltimestaff' alt='no'>
+							</div>
+							<div class="form-group col-lg-2">
+								<input class='peoplenumber form-control' type="text" disabled>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">是否使用市志愿者信息平台</label>
+						<div class="col-lg-10">
+							<div class="form-group col-lg-2">
+								<label>是</label>
+								<input type="radio" name='isfulltimestaff'>
+							</div>
+							<div class="form-group col-lg-2">
+								<label>否</label>
+								<input type="radio" name='isfulltimestaff'>
+							</div>
+						</div>
+					</div>
+					<div class='form-group'>
+						<div class="form-group col-lg-5">
+							<label class="col-lg-5 control-label">单位分管领导</label>
+							<div class="col-lg-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group col-lg-4">
+							<label class="col-lg-3 control-label">职务</label>
+							<div class="col-lg-9">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group col-lg-4">
+							<label class="col-lg-3 control-label">手机</label>
+							<div class="col-lg-9">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+					</div>
+					<div class='form-group'>
+						<div class="form-group col-lg-5">
+							<label class="col-lg-5 control-label">基地负责人</label>
+							<div class="col-lg-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group col-lg-4">
+							<label class="col-lg-3 control-label">职务</label>
+							<div class="col-lg-9">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group col-lg-4">
+							<label class="col-lg-3 control-label">手机</label>
+							<div class="col-lg-9">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+					</div>
+					<div class='form-group'>
+						<div class="form-group col-lg-5">
+							<label class="col-lg-5 control-label">专职工作人员</label>
+							<div class="col-lg-7">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group col-lg-4">
+							<label class="col-lg-3 control-label">职务</label>
+							<div class="col-lg-9">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+						<div class="form-group col-lg-4">
+							<label class="col-lg-3 control-label">手机</label>
+							<div class="col-lg-9">
+								<input type="text" class="form-control">
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">传真</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">向社会公开电话</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">通讯地址</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">邮编</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">电话</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">挂牌地址</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">服务能力材料说明</label>
+						<div class="col-lg-10">
+							<textarea class="form-control"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">单位基本情况及主要公益项目特色</label>
+						<div class="col-lg-10">
+							<textarea class="form-control"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">主管部门意见</label>
+						<div class="col-lg-10">
+							<textarea class="form-control"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">审批部门第一轮审批意见</label>
+						<div class="col-lg-10">
+							<textarea class="form-control"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-lg-2 control-label">审批部门终审意见</label>
+						<div class="col-lg-10">
+							<textarea class="form-control"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-lg-offset-2 col-lg-10">
+							<button type="submit" class="btn btn-primary btn-lg btn-block">提交</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+$(function() {
+	var application = {
+		formsetting: function() {
+			var isfulltimestaffWrapperEl = $('.application_isfulltimestaff_wrapper');
+			isfulltimestaffWrapperEl.find('input[type=radio]').click(function() {
+				if ($(this).attr('alt') == 'no') {
+					isfulltimestaffWrapperEl.find('.peoplenumber').removeAttr('disabled');
+				} else {
+					isfulltimestaffWrapperEl.find('.peoplenumber').attr('disabled', 'disabled');
+				}
+			})
+		},
+		init: function() {
+			this.formsetting();
+		}
+	}
+	application.init();
+})
+</script>
+
+</html>
