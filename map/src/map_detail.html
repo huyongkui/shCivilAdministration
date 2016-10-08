@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<title>~~地图详情~~~</title>
+	<!-- build:css css/all.min.css -->
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+	<link rel="stylesheet" href="css/map.css" type="text/css" media="all">
+	<!-- endbuild -->
+</head>
+
+<body>
+	<div class="map_main_wrapper">
+		<div class="leftarea">
+			<img class="area" id="cm" name="cm" src="img/mapimages/cm.png">
+			<img class="area" id="jd" name="jd" src="img/mapimages/jd.png">
+			<img class="area" id="bs" name="bs" src="img/mapimages/bs.png">
+			<img class="area" id="pt" name="pt" src="img/mapimages/pt.png">
+			<img class="area" id="zb" name="zb" src="img/mapimages/zb.png">
+			<img class="area" id="hk" name="hk" src="img/mapimages/hk.png">
+			<img class="area" id="yp" name="yp" src="img/mapimages/yp.png">
+			<img class="area" id="pd" name="pd" src="img/mapimages/pd.png">
+			<img class="area" id="qp" name="qp" src="img/mapimages/qp.png">
+			<img class="area" id="sj" name="sj" src="img/mapimages/sj.png">
+			<img class="area" id="mh" name="mh" src="img/mapimages/mh.png">
+			<img class="area" id="cn" name="cn" src="img/mapimages/cn.png">
+			<img class="area" id="ja" name="ja" src="img/mapimages/ja.png">
+			<img class="area" id="hp" name="hp" src="img/mapimages/hp.png">
+			<img class="area" id="xh" name="xh" src="img/mapimages/xh.png">
+			<img class="area" id="js" name="js" src="img/mapimages/js.png">
+			<img class="area" id="fx" name="fx" src="img/mapimages/fx.png">
+			<img id="Map" class="map_bg_item" src="img/mapimages/leftareabg1.png" usemap="#mapelement" width="810" height="880" border="0">
+			<map name="mapelement" id="mapelement">
+				<area shape="poly" coords="309,115,335,141,352,152,381,169,400,185,424,203,449,213,499,237,556,265,585,267,660,304,688,312,713,308,740,295,756,277,760,259,761,259,746,243,730,232,714,222,689,211,655,206,608,194,524,144,490,126,451,114,435,87,396,64,375,55,325,84,302,101,308,114" href="javascript:;" name="cm">
+				<area shape="poly" coords="292,275,284,263,279,273,272,276,267,273,258,281,244,296,227,298,220,308,230,312,219,321,224,328,220,340,198,351,188,360,196,374,207,379,213,388,205,395,209,411,218,406,226,418,226,422,245,424,252,439,264,434,267,439,276,433,282,440,289,438,293,445,304,444,309,459,327,462,341,457,338,450,348,444,354,446,360,442,368,441,371,432,355,433,353,421,337,420,333,413,328,406,350,395,358,393,362,395,361,390,357,380,360,377,355,374,358,362,338,332,351,326,353,310,348,302,348,294,339,294,341,279,331,264" href="javascript:;" name="jd">
+				<area shape="poly" coords="328,261,337,269,341,278,341,290,350,295,350,304,355,312,355,325,339,332,359,361,356,374,362,376,357,384,362,392,357,403,369,403,376,398,393,410,390,416,399,414,399,419,403,424,405,408,402,403,405,396,409,392,413,379,421,378,423,380,431,380,435,374,448,380,460,383,467,383,464,375,467,361,468,353,476,342,473,331,468,330,461,323,451,317,428,301,417,292,406,284,398,283,399,277,391,276,376,266,358,257,346,258,336,259,333,258" href="javascript:;" name="bs">
+				<area shape="poly" coords="328,406,355,394,360,395,359,402,369,404,380,396,393,412,391,417,398,417,405,423,407,417,421,422,430,433,431,443,429,440,425,444,410,445,396,459,387,464,368,464,355,452,349,447,360,443,368,441,371,434,357,434,355,423,339,420" href="javascript:;" name="pt">
+				<area shape="poly" coords="447,381,447,391,441,393,442,399,440,404,439,414,455,434,457,442,467,443,485,442,485,436,477,428,476,420,467,414,474,407,471,399,462,401,460,387,449,380" href="javascript:;" name="hk">
+				<area shape="poly" coords="475,356,465,367,464,379,469,386,462,386,462,401,470,398,474,406,470,411,476,418,478,427,482,435,484,442,498,440,525,422,527,414,525,404,521,398,522,377,517,367,492,357,486,361" href="javascript:;" name="yp">
+				<area shape="poly" coords="468,362,469,355,479,342,491,342,511,351,534,356,541,366,553,369,569,384,584,389,591,392,604,404,618,415,623,415,641,435,639,444,645,449,652,451,658,469,664,470,696,511,721,537,725,547,724,564,770,644,772,679,768,711,759,725,731,730,715,738,704,735,695,734,670,739,657,743,653,741,653,716,660,704,658,696,662,682,650,669,649,665,639,660,621,644,605,635,579,631,549,629,544,622,502,630,505,612,501,609,493,611,498,598,491,592,483,591,493,581,501,576,501,567,488,568,500,562,498,550,492,546,485,546,477,540,468,542,463,539,456,539,443,538,436,532,437,524,448,517,442,507,443,499,451,492,466,490,479,470,479,461,466,449,470,443,484,441,476,422,468,413,476,407,471,398,463,399,463,384,467,386,466,375" href="javascript:;" name="pd">
+				<area shape="poly" coords="227,422,219,423,204,416,198,416,192,421,191,421,183,408,176,414,173,422,175,425,160,429,157,441,161,477,166,485,169,502,164,511,156,512,150,508,147,513,147,517,146,523,138,518,127,522,115,526,81,518,54,524,37,522,25,534,16,547,24,555,30,553,40,556,49,563,44,571,44,597,49,598,46,602,53,617,68,616,78,618,78,611,87,613,85,605,89,603,92,612,98,611,101,614,111,613,111,627,115,629,118,639,112,645,114,654,121,659,129,658,126,664,139,664,142,656,147,654,149,646,155,646,160,654,170,653,175,651,183,647,184,642,187,642,184,631,190,625,189,615,177,605,185,602,188,598,181,588,174,587,179,576,192,581,202,578,206,580,197,567,186,566,185,553,196,541,203,544,213,552,222,553,226,559,227,547,235,552,234,545,238,540,239,537,245,537,243,521,252,521,264,525,275,522,276,526,273,539,280,538,281,532,287,531,288,526,296,527,304,524,312,527,317,523,310,518,314,512,329,512,310,484,302,491,290,488,287,476,281,461,277,456,270,455,271,450,281,441,276,434,268,439,263,436,251,439,245,425" href="javascript:;" name="qp">
+				<area shape="poly" coords="137,665,146,655,150,649,152,645,159,652,170,654,182,647,184,644,186,644,184,632,190,625,189,614,181,606,187,599,181,588,175,586,178,577,190,583,206,579,198,569,187,568,186,554,197,542,212,552,219,552,226,558,229,548,236,553,235,545,240,538,247,537,244,521,263,525,274,524,274,539,280,538,282,532,288,532,290,527,299,527,302,525,313,527,319,523,311,517,313,513,329,512,341,533,343,541,359,561,361,570,354,575,351,583,340,581,335,587,335,619,338,622,331,630,329,638,336,646,359,648,372,642,370,668,365,675,366,687,356,693,338,689,328,692,321,683,321,696,311,701,303,693,289,691,286,683,276,674,262,684,246,687,225,680,227,689,216,685,218,692,217,696,206,695,197,698,194,693,201,685,193,683,185,680,182,685,188,688,186,695,167,694,157,696,151,698,132,686" href="javascript:;" name="sj">
+				<area shape="poly" coords="281,442,273,449,271,455,279,457,286,475,292,488,302,491,310,487,321,497,330,513,342,529,344,540,358,561,362,569,354,576,351,584,340,581,336,584,334,619,338,622,334,629,330,635,337,645,357,648,378,640,398,634,410,626,424,626,437,620,446,621,449,629,462,626,469,632,482,634,490,637,503,629,504,612,503,611,496,610,497,597,492,593,483,592,494,579,502,576,500,568,491,568,499,562,498,552,492,546,481,547,477,542,471,544,465,544,463,541,457,543,443,538,448,547,443,556,443,566,434,567,428,562,428,555,419,555,420,547,417,543,408,546,388,523,388,514,381,515,380,499,390,498,391,496,396,495,396,491,379,488,361,492,351,497,343,498,337,499,334,489,339,484,339,474,339,467,340,459,329,462,315,461,309,460,303,450,302,445,292,445,289,442" href="javascript:;" name="mh">
+				<area shape="poly" coords="340,456,337,449,347,447,355,452,366,462,386,464,400,458,412,460,417,477,413,481,408,480,395,489,377,489,364,491,350,497,337,497,334,491,339,483" href="javascript:;" name="cn">
+				<area shape="poly" coords="413,380,410,394,403,401,407,406,407,417,417,420,430,432,431,441,436,446,443,441,449,444,456,444,455,432,438,412,438,403,442,400,441,393,446,390,446,382,437,376,430,381,401,457,410,445,425,443,431,441,435,445,443,441,445,449,447,452,447,462,434,463,433,469,417,472,413,460" href="javascript:;" name="ja">
+				<area shape="poly" coords="446,465,447,452,443,442,455,444,468,444,464,449,479,461,479,472,467,490,450,492,445,485,444,479,436,481,436,462" href="javascript:;" name="hp">
+				<area shape="poly" coords="380,515,381,500,397,495,397,489,409,481,414,481,420,478,416,470,433,468,435,465,436,481,441,481,448,492,441,502,448,514,437,522,437,532,444,540,448,547,443,554,443,566,429,566,429,554,420,554,419,543,409,546,389,522,390,515" href="javascript:;" name="xh">
+				<area shape="poly" coords="113,654,113,661,113,666,117,674,116,686,120,691,112,694,113,706,121,706,124,708,131,714,127,721,126,724,119,736,117,736,112,742,111,756,117,751,125,745,134,747,141,759,151,758,147,751,150,748,160,745,161,736,175,735,184,728,189,734,197,731,202,735,202,742,209,742,213,748,207,759,206,785,223,785,240,789,250,785,256,790,257,783,267,778,270,783,279,789,278,800,306,819,304,833,305,847,311,850,324,847,333,845,344,845,353,845,383,813,434,787,423,761,417,756,410,759,402,755,397,747,384,748,381,743,381,735,383,722,383,714,371,709,365,692,356,692,339,690,328,692,322,687,323,696,313,699,303,694,290,692,278,676,262,683,255,687,240,687,226,684,226,688,216,687,218,691,216,697,208,696,198,698,196,694,202,686,194,683,186,682,183,683,187,688,187,695,171,694,159,695,145,696,133,686,137,665,127,664,129,658,120,659" href="javascript:;" name="js">
+				<area shape="poly" coords="372,643,370,668,365,676,367,687,365,690,373,709,382,713,380,745,391,749,397,746,408,759,417,755,436,787,463,775,460,769,504,754,554,745,611,739,653,737,654,717,660,703,658,696,659,681,648,671,646,663,637,659,615,640,597,632,549,630,543,623,502,629,490,636,471,633,464,627,449,632,446,623,440,620,426,624,410,625,397,633" href="javascript:;" name="fx">
+			</map>
+		</div>
+		<div class="rightarea">
+			<div id="upanle">
+				<input type="hidden" name="hfjx" id="hfjx">
+				<input type="hidden" name="hfSelectDis" id="hfSelectDis">
+				<input type="submit" name="Button1" value="Button" id="Button1" style="height:0px;width:0px;">
+				<div class='map_searchbar_wrapper'>
+					<input name="tbKey" type="text" id="tbKey" class="querytxt" value="">
+					<input type="submit" name="btnSea" value="搜索" id="btnSea" class="querybtn">
+				</div>
+				<div class="listb">
+					<h1 class="title">
+					<a href="javascript:;" class="sh">上海市</a>—上海市</h1>
+				</div>
+				<div class="school_types">
+					<ul>
+						<li class='all active'>
+							<a href="javascript:;">
+								<p>
+									<span></span>
+									<label>所</label>
+								</p>
+								<img src="img/all_on.png">
+							</a>
+						</li>
+						<li class='colleges'>
+							<a href="javascript:;">
+								<p>
+									<span></span>
+									<label>所</label>
+								</p>
+								<img src="img/colleges_off.png">
+							</a>
+						</li>
+						<li class='primaryschool'>
+							<a href="javascript:;">
+								<p>
+									<span></span>
+									<label>所</label>
+								</p>
+								<img src="img/primaryschool_off.png">
+							</a>
+						</li>
+						<li class='kindergarten'>
+							<a href="javascript:;">
+								<p>
+									<span></span>
+									<label>所</label>
+								</p>
+								<img src="img/kindergarten_off.png">
+							</a>
+						</li>
+						<li class='training'>
+							<a href="javascript:;">
+								<p>
+									<span></span>
+									<label>所</label>
+								</p>
+								<img src="img/training_off.png">
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="school_lists">
+					<a id="lnkQH" class="baidu" href="javascript:__doPostBack('lnkQH','')">进入百度地图</a>
+					<ul>
+						<li>
+							<label>
+								15.</label>
+							<a onclick=" if('1'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl0_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl0$ImageButton1','')">上海工商外国语职业学院</a>
+							<input type="hidden" name="lvSch$ctrl0$hdAddr" id="lvSch_ctrl0_hdAddr" value="1">
+							<input type="hidden" name="lvSch$ctrl0$hdSL" id="lvSch_ctrl0_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								16.</label>
+							<a onclick=" if('1'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl1_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl1$ImageButton1','')">上海邦德职业技术学院</a>
+							<input type="hidden" name="lvSch$ctrl1$hdAddr" id="lvSch_ctrl1_hdAddr" value="1">
+							<input type="hidden" name="lvSch$ctrl1$hdSL" id="lvSch_ctrl1_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								17.</label>
+							<a onclick=" if('1'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl2_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl2$ImageButton1','')">上海中侨职业技术学院</a>
+							<input type="hidden" name="lvSch$ctrl2$hdAddr" id="lvSch_ctrl2_hdAddr" value="1">
+							<input type="hidden" name="lvSch$ctrl2$hdSL" id="lvSch_ctrl2_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								18.</label>
+							<a onclick=" if('1'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl3_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl3$ImageButton1','')">上海电影艺术职业学院</a>
+							<input type="hidden" name="lvSch$ctrl3$hdAddr" id="lvSch_ctrl3_hdAddr" value="1">
+							<input type="hidden" name="lvSch$ctrl3$hdSL" id="lvSch_ctrl3_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								19.</label>
+							<a onclick=" if('4'>'2') {alert('许可证正在更换中。'); return false;} ;" id="lvSch_ctrl4_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl4$ImageButton1','')">上海中华职业技术学院</a>
+							<input type="hidden" name="lvSch$ctrl4$hdAddr" id="lvSch_ctrl4_hdAddr" value="4">
+							<input type="hidden" name="lvSch$ctrl4$hdSL" id="lvSch_ctrl4_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								20.</label>
+							<a onclick=" if('1'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl5_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl5$ImageButton1','')">上海医药职工大学</a>
+							<input type="hidden" name="lvSch$ctrl5$hdAddr" id="lvSch_ctrl5_hdAddr" value="1">
+							<input type="hidden" name="lvSch$ctrl5$hdSL" id="lvSch_ctrl5_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								21.</label>
+							<a onclick=" if('2'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl6_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl6$ImageButton1','')">上海民办洋泾外国语学校</a>
+							<input type="hidden" name="lvSch$ctrl6$hdAddr" id="lvSch_ctrl6_hdAddr" value="2">
+							<input type="hidden" name="lvSch$ctrl6$hdSL" id="lvSch_ctrl6_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								22.</label>
+							<a onclick=" if('2'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl7_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl7$ImageButton1','')">上海徐汇区培蕾幼稚园</a>
+							<input type="hidden" name="lvSch$ctrl7$hdAddr" id="lvSch_ctrl7_hdAddr" value="2">
+							<input type="hidden" name="lvSch$ctrl7$hdSL" id="lvSch_ctrl7_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								23.</label>
+							<a onclick=" if('2'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl8_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl8$ImageButton1','')">上海闵行区哈弗士幼儿园</a>
+							<input type="hidden" name="lvSch$ctrl8$hdAddr" id="lvSch_ctrl8_hdAddr" value="2">
+							<input type="hidden" name="lvSch$ctrl8$hdSL" id="lvSch_ctrl8_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								24.</label>
+							<a onclick=" if('2'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl9_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl9$ImageButton1','')">上海徐汇区蓓蕾幼稚园</a>
+							<input type="hidden" name="lvSch$ctrl9$hdAddr" id="lvSch_ctrl9_hdAddr" value="2">
+							<input type="hidden" name="lvSch$ctrl9$hdSL" id="lvSch_ctrl9_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								25.</label>
+							<a onclick=" if('2'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl10_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl10$ImageButton1','')">上海市徐汇区康乐托儿所</a>
+							<input type="hidden" name="lvSch$ctrl10$hdAddr" id="lvSch_ctrl10_hdAddr" value="2">
+							<input type="hidden" name="lvSch$ctrl10$hdSL" id="lvSch_ctrl10_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								26.</label>
+							<a onclick=" if('2'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl11_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl11$ImageButton1','')">上海市徐汇区杜鹃园幼稚园</a>
+							<input type="hidden" name="lvSch$ctrl11$hdAddr" id="lvSch_ctrl11_hdAddr" value="2">
+							<input type="hidden" name="lvSch$ctrl11$hdSL" id="lvSch_ctrl11_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								27.</label>
+							<a onclick=" if('2'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl12_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl12$ImageButton1','')">上海徐汇区汇城苑幼稚园</a>
+							<input type="hidden" name="lvSch$ctrl12$hdAddr" id="lvSch_ctrl12_hdAddr" value="2">
+							<input type="hidden" name="lvSch$ctrl12$hdSL" id="lvSch_ctrl12_hdSL" value="1">
+						</li>
+						<li>
+							<label>
+								28.</label>
+							<a onclick=" if('2'>'2') {alert('许可证正常显示。'); return false;} ;" id="lvSch_ctrl13_ImageButton1" alt="查看" href="javascript:__doPostBack('lvSch$ctrl13$ImageButton1','')">上海闵行区金孔雀幼儿园</a>
+							<input type="hidden" name="lvSch$ctrl13$hdAddr" id="lvSch_ctrl13_hdAddr" value="2">
+							<input type="hidden" name="lvSch$ctrl13$hdSL" id="lvSch_ctrl13_hdSL" value="1">
+						</li>
+					</ul>
+					<font class="pages">
+						<span id="lvSch_Pager"><a href="javascript:__doPostBack('lvSch$Pager$ctl00$ctl00','')">上一页</a>&nbsp;<a href="javascript:__doPostBack('lvSch$Pager$ctl00$ctl01','')">下一页</a>&nbsp;</span> 共
+						<span>189</span>页 当前第<span>2</span>页</font>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="js/map.js"></script>
+
+</html>

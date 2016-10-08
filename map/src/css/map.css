@@ -23,12 +23,25 @@ table {
 	height: 880px;
 	margin: auto
 }
+.map_main_wrapper{
+	margin: 0 auto;
+	width: 1260px;
+}
+.map_searchbar_wrapper{
+	width: 100%;
+	text-align: center;
+	
+}
+.map_searchbar_wrapper input{
+	background-color: #84bde7;
+	border-radius: 5px;
+}
 .leftarea {
 	width: 810px;
 	height: 880px;
 	float: left;
 	position: relative;
-	background: url(../img/mapimages/leftareabg1.png);
+	
 }
 .map_bg_item {
 	position: absolute;
@@ -218,7 +231,6 @@ table {
 	text-indent: 6px;
 }
 .querytxt {
-	background: url(../img/mapimages/searchtextbg.png) no-repeat;
 	background-color: transparent;
 	border: 0;
 	width: 212px;
@@ -230,7 +242,6 @@ table {
 	text-indent: 30px;
 }
 .querybtn {
-	background: url(../img/mapimages/querybtn.png) no-repeat;
 	width: 63px;
 	height: 33px;
 	border: 0;
@@ -247,15 +258,15 @@ table {
 	font-family: "黑体";
 	font-size: 22px;
 	color: #fff;
-	background: url(../img/mapimages/titlelogo.png) no-repeat;
+	background: url(../img/titlelogo.png) no-repeat;
 	text-indent: 36px;
 	margin-left: 40px
 }
-.school_lists ul {
+.map_schoollist_wrapper ul {
 	width: 300px;
 	margin-bottom: 30px;
 }
-.school_lists li {
+.map_schoollist_wrapper li {
 	font-size: 16px;
 	line-height: 40px;
 	color: #fff;
@@ -263,21 +274,73 @@ table {
 	list-style: none;
 	width: 300px;
 }
-.school_lists li label {
+.map_schoollist_wrapper li label {
 	margin-right: 10px
 }
-.school_lists li a {
+.map_schoollist_wrapper li a {
 	color: #fff;
 	margin-right: 10px
 }
-.school_lists li a, .school_lists li a:visited, .school_lists li a:active {
+.map_schoollist_wrapper li a, .map_schoollist_wrapper li a:visited, .map_schoollist_wrapper li a:active {
 	color: #fff;
 	margin-right: 10px;
 }
-.school_lists li a:hover {
+.map_schoollist_wrapper li a:hover {
 	color: #d5ff70;
 	margin-right: 10px;
 }
+.map_mapselector_wrapper{
+	width: 100%;
+	height: 100%;
+	background: url(../img/mapimages/leftareabg1.png);
+}
+.map_mapdetail_wrapper{
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: url(../img/page_bk.png) #96bbe8;
+}
+.map_mapdetail_wrapper .mapdetail{
+	margin: 0 auto;
+	width: 675px;
+	height: 717px;
+	position: relative;
+	left: 13px;
+	top: 127px;
+	
+}
+.map_mapdetail_wrapper .back{
+	position: absolute;
+	left: 10px;
+	top: 460px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .nextpage {
 	width: 102px;
 	height: 33px;
@@ -380,7 +443,7 @@ a.off:hover {
 	font-size: 12px;
 }
 
-.school_lists {
+.map_schoollist_wrapper {
 	width: 330px;
 	float: left;
 }
@@ -433,7 +496,8 @@ a.off:hover {
 	font: bold 14px/33px "Lucida Sans Unicode", "Lucida Grande", sans-serif, "宋体";
 	width: 110px;
 	height: 33px;
-	background: url(../img/mapimages/bdbk.png) no-repeat;
+	background: #fdd859;
+	border-radius: 5px;
 	display: block;
 	text-align: center;
 }
