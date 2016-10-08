@@ -366,6 +366,20 @@ a.off:hover {
 	width: 119px;
 	float: left;
 }
+.school_types li{
+	position: relative;
+}
+.school_types li a{
+	display: block;
+}
+.school_types li a p{
+	color: #fff;
+	position: absolute;
+	bottom: 15px;
+	left: 10px;
+	font-size: 12px;
+}
+
 .school_lists {
 	width: 330px;
 	float: left;
