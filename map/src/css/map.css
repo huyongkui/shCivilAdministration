@@ -341,17 +341,16 @@ table {
 
 
 
-.nextpage {
+/*.nextpage {
 	width: 102px;
 	height: 33px;
-	background: url(../img/mapimages/nextpage.png) no-repeat;
 	border: 0;
 	font-size: 16px;
 	font-family: "黑体";
 	color: #fff;
 	float: right;
 	margin-right: 48px
-}
+}*/
 .copyright {
 	text-align: center;
 	color: #3b619c;
@@ -407,16 +406,19 @@ table {
 	background: url(../img/mapimages/icon_remark.png) no-repeat 0 3px;
 	padding-left: 25px;
 }
-.pages {
+.map_schoollist_wrapper .pagination {
 	color: #264e8c;
 }
-.pages span {
+.map_schoollist_wrapper .pagination p{
+	display: inline-block;
+}
+.map_schoollist_wrapper .pagination label {
 	color: #031128;
 }
-.pages a, .pages a:visited, .pages a:active {
+.map_schoollist_wrapper .pagination a, .pagination a:visited, .pagination a:active {
 	color: #fff;
 }
-.pages a:hover {
+.map_schoollist_wrapper .pagination a:hover {
 	color: #d5ff70;
 }
 a.off, a.off:visited, a.off:active {
@@ -425,17 +427,17 @@ a.off, a.off:visited, a.off:active {
 a.off:hover {
 	color: #264e8c;
 }
-.school_types {
+.map_schooltypelist_wrapper {
 	width: 119px;
 	float: left;
 }
-.school_types li{
+.map_schooltypelist_wrapper li{
 	position: relative;
 }
-.school_types li a{
+.map_schooltypelist_wrapper li a{
 	display: block;
 }
-.school_types li a p{
+.map_schooltypelist_wrapper li a p{
 	color: #fff;
 	position: absolute;
 	bottom: 15px;

@@ -75,9 +75,9 @@
 					<h1 class="title">
 					<a href="javascript:;" class="sh">上海市</a>—上海市</h1>
 				</div>
-				<div class="school_types">
+				<div class="map_schooltypelist_wrapper">
 					<ul>
-						<li class='all active'>
+						<li class='all'>
 							<a href="javascript:;">
 								<p>
 									<span></span>
@@ -86,13 +86,13 @@
 								<img src="img/all_on.png">
 							</a>
 						</li>
-						<li class='colleges'>
+						<li class='college'>
 							<a href="javascript:;">
 								<p>
 									<span></span>
 									<label>所</label>
 								</p>
-								<img src="img/colleges_off.png">
+								<img src="img/college_off.png">
 							</a>
 						</li>
 						<li class='primaryschool'>
@@ -113,13 +113,13 @@
 								<img src="img/kindergarten_off.png">
 							</a>
 						</li>
-						<li class='training'>
+						<li class='institute'>
 							<a href="javascript:;">
 								<p>
 									<span></span>
 									<label>所</label>
 								</p>
-								<img src="img/training_off.png">
+								<img src="img/institute_off.png">
 							</a>
 						</li>
 					</ul>
@@ -127,24 +127,18 @@
 				<div class="map_schoollist_wrapper">
 					<a id="lnkQH" class="baidu" href="javascript:__doPostBack('lnkQH','')">进入百度地图</a>
 					<ul>
-						<li>
-							<label>
-								15.</label>
-							<a id="lvSch_ctrl0_ImageButton1" alt="查看">上海工商外国语职业学院</a>
-							<input type="hidden" name="lvSch$ctrl0$hdAddr" id="lvSch_ctrl0_hdAddr" value="1">
-							<input type="hidden" name="lvSch$ctrl0$hdSL" id="lvSch_ctrl0_hdSL" value="1">
-						</li>
-						<li>
-							<label>
-								16.</label>
-							<a id="lvSch_ctrl1_ImageButton1" alt="查看">上海邦德职业技术学院</a>
-							<input type="hidden" name="lvSch$ctrl1$hdAddr" id="lvSch_ctrl1_hdAddr" value="1">
-							<input type="hidden" name="lvSch$ctrl1$hdSL" id="lvSch_ctrl1_hdSL" value="1">
-						</li>
+						<!-- <li>
+							<label>15.</label>
+							<a href='javascript:;'>上海工商外国语职业学院</a>
+						</li> -->
 					</ul>
-					<font class="pages">
-						<span id="lvSch_Pager"><a href="javascript:__doPostBack('lvSch$Pager$ctl00$ctl00','')">上一页</a>&nbsp;<a href="javascript:;">下一页</a>&nbsp;</span> 共
-						<span>189</span>页 当前第<span>2</span>页</font>
+					<div class="pagination">
+						<a class='prevpage' href="javascript:;">上一页</a>
+						<a class='nextpage' href="javascript:;">下一页</a>
+						<p>
+							共<label class='totalpages'></label>页，当前第<label class='currentpage'></label>页
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -152,6 +146,6 @@
 </body>
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="js/map.js"></script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=B6WCZHuijrOOPL9m7ncBQrbz1Twjp1Ip"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=zUFzIA24qme28V6fTZPPObYDseC5G6Mp"></script>
 
 </html>
