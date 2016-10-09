@@ -3,11 +3,11 @@
 		mapHover: function() {
 			$('.area').hide();
 			$('#mapelement area').hover(function() {
-				$('.leftarea #' + $(this).attr('name')).show().siblings(".area").hide();
+				$('.leftarea .' + $(this).attr('name')).show().siblings(".area").hide();
 			});
 		},
 		schoolMap: function() {
-			$('.map_mapdetail_wrapper .back').one('click', function() {
+			$('.map_mapdetail_wrapper .back').on('click', function() {
 				$('.map_mapselector_wrapper').show();
 				$('.map_mapdetail_wrapper').hide();
 			});
@@ -22,6 +22,7 @@
 		queryOptions: {
 			query: '民办院校',
 			region: '上海市',
+			district: '',
 			pagesize: 10,
 			pageNumber: 1,
 			ak: 'zUFzIA24qme28V6fTZPPObYDseC5G6Mp'
@@ -73,9 +74,15 @@
 				$('.map_mapdetail_wrapper').show();
 				that.schoolMap();
 			});
+			$('.map_mapselector_wrapper area').click(function(){
+				alert(this.attr('name'))l
+			})
 		},
 		getPlace: function(queryArgu) {
 			var that = this,
+				querySchool,
+				queryPage,
+				queryDistrict,
 				thisQueryOptions = this.queryOptions;
 			switch (queryArgu) {
 				case 'all':
@@ -113,16 +120,120 @@
 					if (prevpageNum < 1) {
 						prevpageNum = 1;
 					};
-					this.queryOptions = $.extend(this.queryOptions, {
+					queryPage = {
 						pageNumber: prevpageNum
-					});
+					}
+					this.queryOptions = $.extend(this.queryOptions, queryPage);
 					break;
 				case 'nextpage':
 					var nextpageNum = thisQueryOptions.pageNumber + 1;
 					console.log(nextpageNum)
-					thisQueryOptions = $.extend(this.queryOptions, {
+					queryPage = {
 						pageNumber: nextpageNum
-					});
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryPage);
+					break;
+				case 'chongming':
+					queryDistrict = {
+						district: '崇明区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'jiading':
+					queryDistrict = {
+						district: '嘉定区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'baoshan':
+					queryDistrict = {
+						district: '宝山区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'putuo':
+					queryDistrict = {
+						district: '普陀区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'jingan':
+					queryDistrict = {
+						district: '静安区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'hongkou':
+					queryDistrict = {
+						district: '虹口区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'yangpu':
+					queryDistrict = {
+						district: '杨浦区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'changnin':
+					queryDistrict = {
+						district: '长宁区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'huangpu':
+					queryDistrict = {
+						district: '黄浦区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'yangpu':
+					queryDistrict = {
+						district: '杨浦区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'xuhui':
+					queryDistrict = {
+						district: '徐汇区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'qingpu':
+					queryDistrict = {
+						district: '青浦区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'songjiang':
+					queryDistrict = {
+						district: '松江区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'minhang':
+					queryDistrict = {
+						district: '闵行区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'pudong':
+					queryDistrict = {
+						district: '浦东新区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'jinshan':
+					queryDistrict = {
+						district: '金山区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
+					break;
+				case 'fengxian':
+					queryDistrict = {
+						district: '奉贤区'
+					}
+					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
 					break;
 				default:
 					querySchool = '民办学校';
@@ -155,7 +266,6 @@
 						// console.log(data.results[i].name);
 						schoollistEl.append(listItem(data));
 					};
-
 				}
 			});
 		},
