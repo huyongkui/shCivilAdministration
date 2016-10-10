@@ -278,6 +278,12 @@
 	height: 100%;
 	background: url(../img/mapimages/leftareabg1.png);
 }
+.map_mapselector_wrapper .area{
+	display: none;
+}
+.map_mapselector_wrapper .active, .map_mapselector_wrapper .hover{
+	display: block;
+}
 .map_mapdetail_wrapper{
 	display: none;
 	width: 100%;

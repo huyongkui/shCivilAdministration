@@ -1,9 +1,8 @@
 (function() {
 	var map = {
 		mapHover: function() {
-			$('.area').hide();
 			$('#mapelement area').hover(function() {
-				$('.leftarea .' + $(this).attr('name')).show().siblings(".area").hide();
+				$('.map_mapselector_wrapper .' + $(this).attr('name')).addClass('hover').siblings(".area").removeClass('hover');
 			});
 		},
 		schoolMap: function() {
@@ -41,32 +40,19 @@
 					return $(this).attr('src').replace(/_on/, '_off');
 				});
 				//筛选数据
-				switch (thisType) {
-					case 'all':
-						that.getPlace('all');
-						break;
-					case 'college':
-						that.getPlace('college');
-						break;
-					case 'primaryschool':
-						that.getPlace('primaryschool');
-						break;
-					case 'kindergarten':
-						that.getPlace('kindergarten');
-						break;
-					case 'institute':
-						that.getPlace('institute');
-						break;
-					default:
-						alert('nono');
-				}
+				that.assembleUrl(thisType);
+				that.assembleUrl('page1');
+				that.getPlace();
+
 			});
 
 			$('.pagination .prevpage').click(function() {
-				that.getPlace('prevpage');
+				that.assembleUrl('prevpage')
+				that.getPlace();
 			});
 			$('.pagination .nextpage').click(function() {
-				that.getPlace('nextpage');
+				that.assembleUrl('nextpage')
+				that.getPlace();
 			});
 
 			$('.map_schoollist_wrapper').on('click', ' li a', function() {
@@ -74,184 +60,183 @@
 				$('.map_mapdetail_wrapper').show();
 				that.schoolMap();
 			});
-			$('.map_mapselector_wrapper area').click(function(){
-				alert(this.attr('name'))l
+			//地图上选择区县
+			$('.map_mapselector_wrapper map area').click(function() {
+				var $this = $(this),
+					thisType = $this.attr('name');
+				$('.map_mapselector_wrapper .' + thisType).addClass('active').siblings().removeClass('active');
+				//筛选数据
+				that.assembleUrl(thisType)
+				that.getPlace();
 			})
 		},
-		getPlace: function(queryArgu) {
+		assembleUrl: function(queryArgu) {
 			var that = this,
 				querySchool,
 				queryPage,
 				queryDistrict,
-				thisQueryOptions = this.queryOptions;
-			switch (queryArgu) {
-				case 'all':
-					querySchool = {
-						query: '民办学校'
+				thisQueryOptions = that.queryOptions;
+			var query = {
+				querySchool: function(queryArgu) {
+					switch (queryArgu) {
+						case 'all':
+							querySchool = {
+								query: '民办学校'
+							}
+							break;
+						case 'college':
+							querySchool = {
+								query: '大学'
+							}
+							break;
+						case 'primaryschool':
+							querySchool = {
+								query: '民办中学民办小学'
+							}
+							break;
+						case 'kindergarten':
+							querySchool = {
+								query: '民办幼儿园'
+							}
+							break;
+						case 'institute':
+							querySchool = {
+								query: '培训机构'
+							}
+							break;
 					}
-					this.queryOptions = $.extend(this.queryOptions, querySchool);
-					break;
-				case 'college':
-					querySchool = {
-						query: '大学'
+					thisQueryOptions = $.extend(thisQueryOptions, querySchool);
+				},
+				queryNav: function(queryArgu) {
+					switch (queryArgu) {
+						case 'prevpage':
+							if (thisQueryOptions.pageNumber == 0) {
+								return;
+							}else{
+								thisQueryOptions.pageNumber--;
+							}
+							break;
+						case 'nextpage':
+							thisQueryOptions.pageNumber++;
+							break;
+						case 'page1':
+							thisQueryOptions.pageNumber = 0;
+							break;
 					}
-					this.queryOptions = $.extend(this.queryOptions, querySchool);
-					break;
-				case 'primaryschool':
-					querySchool = {
-						query: '民办中学民办小学'
+					console.log(thisQueryOptions.pageNumber)
+				},
+				queryDistrict: function(queryArgu) {
+					switch (queryArgu) {
+						case 'chongming':
+							queryDistrict = {
+								district: '崇明县'
+							}
+							break;
+						case 'jiading':
+							queryDistrict = {
+								district: '嘉定区'
+							}
+							break;
+						case 'baoshan':
+							queryDistrict = {
+								district: '宝山区'
+							}
+							break;
+						case 'putuo':
+							queryDistrict = {
+								district: '普陀区'
+							}
+							break;
+						case 'jingan':
+							queryDistrict = {
+								district: '静安区'
+							}
+							break;
+						case 'hongkou':
+							queryDistrict = {
+								district: '虹口区'
+							}
+							break;
+						case 'yangpu':
+							queryDistrict = {
+								district: '杨浦区'
+							}
+							break;
+						case 'changnin':
+							queryDistrict = {
+								district: '长宁区'
+							}
+							break;
+						case 'huangpu':
+							queryDistrict = {
+								district: '黄浦区'
+							}
+							break;
+						case 'yangpu':
+							queryDistrict = {
+								district: '杨浦区'
+							}
+							break;
+						case 'xuhui':
+							queryDistrict = {
+								district: '徐汇区'
+							}
+							break;
+						case 'qingpu':
+							queryDistrict = {
+								district: '青浦区'
+							}
+							break;
+						case 'songjiang':
+							queryDistrict = {
+								district: '松江区'
+							}
+							break;
+						case 'minhang':
+							queryDistrict = {
+								district: '闵行区'
+							}
+							break;
+						case 'pudong':
+							queryDistrict = {
+								district: '浦东新区'
+							}
+							break;
+						case 'jinshan':
+							queryDistrict = {
+								district: '金山区'
+							}
+							break;
+						case 'fengxian':
+							queryDistrict = {
+								district: '奉贤区'
+							}
+							break;
+						default:
+							querySchool = '民办学校';
 					}
-					this.queryOptions = $.extend(this.queryOptions, querySchool);
-					break;
-				case 'kindergarten':
-					querySchool = {
-						query: '民办幼儿园'
-					}
-					this.queryOptions = $.extend(this.queryOptions, querySchool);
-					break;
-				case 'institute':
-					querySchool = {
-						query: '培训机构'
-					}
-					this.queryOptions = $.extend(this.queryOptions, querySchool);
-					break;
-				case 'prevpage':
-					var prevpageNum = thisQueryOptions.pageNumber - 1;
-					if (prevpageNum < 1) {
-						prevpageNum = 1;
-					};
-					queryPage = {
-						pageNumber: prevpageNum
-					}
-					this.queryOptions = $.extend(this.queryOptions, queryPage);
-					break;
-				case 'nextpage':
-					var nextpageNum = thisQueryOptions.pageNumber + 1;
-					console.log(nextpageNum)
-					queryPage = {
-						pageNumber: nextpageNum
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryPage);
-					break;
-				case 'chongming':
-					queryDistrict = {
-						district: '崇明区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'jiading':
-					queryDistrict = {
-						district: '嘉定区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'baoshan':
-					queryDistrict = {
-						district: '宝山区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'putuo':
-					queryDistrict = {
-						district: '普陀区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'jingan':
-					queryDistrict = {
-						district: '静安区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'hongkou':
-					queryDistrict = {
-						district: '虹口区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'yangpu':
-					queryDistrict = {
-						district: '杨浦区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'changnin':
-					queryDistrict = {
-						district: '长宁区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'huangpu':
-					queryDistrict = {
-						district: '黄浦区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'yangpu':
-					queryDistrict = {
-						district: '杨浦区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'xuhui':
-					queryDistrict = {
-						district: '徐汇区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'qingpu':
-					queryDistrict = {
-						district: '青浦区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'songjiang':
-					queryDistrict = {
-						district: '松江区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'minhang':
-					queryDistrict = {
-						district: '闵行区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'pudong':
-					queryDistrict = {
-						district: '浦东新区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'jinshan':
-					queryDistrict = {
-						district: '金山区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				case 'fengxian':
-					queryDistrict = {
-						district: '奉贤区'
-					}
-					thisQueryOptions = $.extend(this.queryOptions, queryDistrict);
-					break;
-				default:
-					querySchool = '民办学校';
+
+					thisQueryOptions = $.extend(thisQueryOptions, queryDistrict);
+				}
 			}
 
-			this.queryOptions = thisQueryOptions;
-			var url = function(newqueryOptions) {
-				this.queryOptions = $.extend(this.queryOptions, newqueryOptions)
-				var encode = function(string) {
-					return encodeURIComponent(string);
-				}
-				var result = 'http://api.map.baidu.com/place/v2/search?q=' + encode(this.queryOptions.query) + '&page_size=' + encode(this.queryOptions.pagesize) + '&region=' + encode(this.queryOptions.region) + '&page_num=' + this.queryOptions.pageNumber + '&output=json&ak=' + this.queryOptions.ak;
-				return result;
-			};
+			query.querySchool(queryArgu);
+			query.queryNav(queryArgu);
+			query.queryDistrict(queryArgu);
 
+			var encode = function(string) {
+				return string;
+				// return encodeURIComponent(string);
+			}
+			var result = 'http://api.map.baidu.com/place/v2/search?q=' + encode(thisQueryOptions.district) + encode(thisQueryOptions.query) + '&page_size=' + encode(thisQueryOptions.pagesize) + '&region=' + encode(thisQueryOptions.region) + '&page_num=' + thisQueryOptions.pageNumber + '&output=json&ak=' + thisQueryOptions.ak;
+			console.log(result)
+			return result;
+		},
+		ajaxQuery: function(url) {
+			var thisQueryOptions = this.queryOptions;
 			$.ajax({
 				type: 'GET',
-				url: url(this.queryOptions),
+				url: url,
 				dataType: 'jsonp',
 				success: function(data) {
 					var schoollistWrapperEl = $('.map_schoollist_wrapper'),
@@ -260,7 +245,7 @@
 							return "<li><label>" + data + "</label><a href='javascript:;'>" + data.results[i].name + "</a></li>";
 						}
 					console.log(data);
-					schoollistWrapperEl.find('.totalpages').html(data.total).end().find('.currentpage').html(that.queryOptions.pageNumber);
+					schoollistWrapperEl.find('.totalpages').html(~~(Math.floor(data.total/data.page_size))).end().find('.currentpage').html(thisQueryOptions.pageNumber+1);
 					schoollistEl.html('');
 					for (var i = 0; i < data.results.length; i++) {
 						// console.log(data.results[i].name);
@@ -269,10 +254,14 @@
 				}
 			});
 		},
+		getPlace: function() {
+			this.ajaxQuery(this.assembleUrl(this.queryOptions));
+		},
 		init: function() {
 			this.mapHover();
 			this.schoolList();
 		}
+
 	}
 	map.init();
 })(jQuery);
