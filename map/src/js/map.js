@@ -1,23 +1,5 @@
 (function() {
 	var map = {
-		mapHover: function() {
-			$('#mapelement area').hover(function() {
-				$('.map_mapselector_wrapper .' + $(this).attr('name')).addClass('hover').siblings(".area").removeClass('hover');
-			});
-		},
-		schoolMap: function() {
-			$('.map_mapdetail_wrapper .back').on('click', function() {
-				$('.map_mapselector_wrapper').show();
-				$('.map_mapdetail_wrapper').hide();
-			});
-			// 百度地图API功能
-			var map = new BMap.Map("mapdetail");
-			map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
-			var local = new BMap.LocalSearch(map, {
-				renderOptions: { map: map }
-			});
-			local.search("上海工商外国语职业学院");
-		},
 		queryOptions: {
 			query: '民办院校',
 			region: '上海市',
@@ -26,39 +8,58 @@
 			pageNumber: 0,
 			ak: 'zUFzIA24qme28V6fTZPPObYDseC5G6Mp'
 		},
+		mapHover: function() {
+			$('#mapelement area').hover(function() {
+				$('.map_mapselector_wrapper .' + $(this).attr('name')).addClass('hover').siblings(".area").removeClass('hover');
+			});
+		},
+		schoolMap: function(lat,lng,name) {
+			$('.map_mapdetail_wrapper .back').one('click', function() {
+				$('.map_mapselector_wrapper').show();
+				$('.map_mapdetail_wrapper').hide();
+			});
+			var map = new BMap.Map("mapdetail");
+			map.centerAndZoom(new BMap.Point(lat,lng), 11);
+			var local = new BMap.LocalSearch(map, {
+				renderOptions: { map: map }
+			});
+			local.search(name);
+
+		},
 		schoolList: function() {
-			var that = this;
-			//选择学校类别
+			var that = this,
+				thislat,
+				thisLng;
 			$('.map_schooltypelist_wrapper li').click(function() {
 				var $this = $(this),
 					thisType = $this.attr('class'),
 					thisSrc = $this.find('img').attr('src');
-				//标签切换效果
-				$this.find('img').attr('src', function() {
+				$this.addClass('active').find('img').attr('src', function() {
 					return thisSrc.replace(/_off/, '_on');
-				}).end().siblings().find('img').attr('src', function() {
+				}).end().siblings().removeClass('active').find('img').attr('src', function() {
 					return $(this).attr('src').replace(/_on/, '_off');
 				});
-				//筛选数据
 				that.assembleUrl(thisType);
 				that.assembleUrl('page1');
 				that.getPlace();
-
 			});
 
 			$('.pagination .prevpage').click(function() {
-				that.assembleUrl('prevpage')
+				that.assembleUrl('prevpage');
 				that.getPlace();
 			});
 			$('.pagination .nextpage').click(function() {
-				that.assembleUrl('nextpage')
+				that.assembleUrl('nextpage');
 				that.getPlace();
 			});
 
 			$('.map_schoollist_wrapper').on('click', ' li a', function() {
+				var $this=$(this);
 				$('.map_mapselector_wrapper').hide();
 				$('.map_mapdetail_wrapper').show();
-				that.schoolMap();
+				thisLat=$this.attr('lat');
+				thisLng=$this.attr('lng');
+				that.schoolMap(thisLat, thisLng, $this.html());
 			});
 			//地图上选择区县
 			$('.map_mapselector_wrapper map area').click(function() {
@@ -70,6 +71,9 @@
 				// that.assembleUrl('page1');
 				that.getPlace();
 			})
+		},
+		showMap: function() {
+
 		},
 		assembleUrl: function(queryArgu) {
 			var that = this,
@@ -215,7 +219,6 @@
 						default:
 							querySchool = '民办学校';
 					}
-
 					thisQueryOptions = $.extend(thisQueryOptions, queryDistrict);
 				}
 			}
@@ -229,12 +232,7 @@
 				// return encodeURIComponent(string);
 			}
 			var result = 'http://api.map.baidu.com/place/v2/search?q=' + encode(thisQueryOptions.district) + encode(thisQueryOptions.query) + '&page_size=' + encode(thisQueryOptions.pagesize) + '&region=' + encode(thisQueryOptions.region) + '&page_num=' + thisQueryOptions.pageNumber + '&output=json&ak=' + thisQueryOptions.ak;
-
 			return result;
-		},
-		getPlace: function() {
-			console.log(this.queryOptions)
-			this.ajaxRequest(this.assembleUrl(this.queryOptions));
 		},
 		ajaxRequest: function(url) {
 			console.log(url)
@@ -247,11 +245,12 @@
 					var schoollistWrapperEl = $('.map_schoollist_wrapper'),
 						schoollistEl = $('.map_schoollist_wrapper ul'),
 						totalPages = Math.ceil(data.total / thisQueryOptions.pagesize),
-						currentPage = thisQueryOptions.pageNumber;
-					listItem = function(data, index) {
-						return "<li><label>" + Number(currentPage * 10 + index + 1) + "</label><a href='javascript:;'>" + data.results[i].name + "</a></li>";
+						currentPage = thisQueryOptions.pageNumber,
+						listItem = function(data, index) {
+						return "<li><label>" + Number(currentPage * 10 + index + 1) + "</label><a href='javascript:;' lat=" + data.results[i].location.lat + " lng=" + data.results[i].location.lng + ">" + data.results[i].name + "</a></li>";
 					}
 					console.log(data);
+					$('.map_schooltypelist_wrapper .active').find('span').html(data.total).end().siblings().find('span').html('');
 					schoollistWrapperEl.find('.totalpages').html(totalPages).end().find('.currentpage').html(currentPage + 1);
 					schoollistEl.html('');
 					for (var i = 0; i < data.results.length; i++) {
@@ -260,6 +259,10 @@
 					};
 				}
 			});
+		},
+		getPlace: function() {
+			console.log(this.queryOptions)
+			this.ajaxRequest(this.assembleUrl(this.queryOptions));
 		},
 		init: function() {
 			this.mapHover();
