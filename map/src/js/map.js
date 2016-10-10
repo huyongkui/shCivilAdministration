@@ -13,13 +13,13 @@
 				$('.map_mapselector_wrapper .' + $(this).attr('name')).addClass('hover').siblings(".area").removeClass('hover');
 			});
 		},
-		schoolMap: function(lat,lng,name) {
+		schoolMap: function(lat, lng, name) {
 			$('.map_mapdetail_wrapper .back').one('click', function() {
 				$('.map_mapselector_wrapper').show();
 				$('.map_mapdetail_wrapper').hide();
 			});
 			var map = new BMap.Map("mapdetail");
-			map.centerAndZoom(new BMap.Point(lat,lng), 11);
+			map.centerAndZoom(new BMap.Point(lat, lng), 11);
 			var local = new BMap.LocalSearch(map, {
 				renderOptions: { map: map }
 			});
@@ -54,11 +54,11 @@
 			});
 
 			$('.map_schoollist_wrapper').on('click', ' li a', function() {
-				var $this=$(this);
+				var $this = $(this);
 				$('.map_mapselector_wrapper').hide();
 				$('.map_mapdetail_wrapper').show();
-				thisLat=$this.attr('lat');
-				thisLng=$this.attr('lng');
+				thisLat = $this.attr('lat');
+				thisLng = $this.attr('lng');
 				that.schoolMap(thisLat, thisLng, $this.html());
 			});
 			//地图上选择区县
@@ -228,8 +228,8 @@
 			query.queryDistrict(queryArgu);
 
 			var encode = function(string) {
-				return string;
-				// return encodeURIComponent(string);
+				// return string;
+				return encodeURIComponent(string);
 			}
 			var result = 'http://api.map.baidu.com/place/v2/search?q=' + encode(thisQueryOptions.district) + encode(thisQueryOptions.query) + '&page_size=' + encode(thisQueryOptions.pagesize) + '&region=' + encode(thisQueryOptions.region) + '&page_num=' + thisQueryOptions.pageNumber + '&output=json&ak=' + thisQueryOptions.ak;
 			return result;
@@ -247,8 +247,8 @@
 						totalPages = Math.ceil(data.total / thisQueryOptions.pagesize),
 						currentPage = thisQueryOptions.pageNumber,
 						listItem = function(data, index) {
-						return "<li><label>" + Number(currentPage * 10 + index + 1) + "</label><a href='javascript:;' lat=" + data.results[i].location.lat + " lng=" + data.results[i].location.lng + ">" + data.results[i].name + "</a></li>";
-					}
+							return "<li><label>" + Number(currentPage * 10 + index + 1) + "</label><a href='javascript:;' lat=" + data.results[i].location.lat + " lng=" + data.results[i].location.lng + ">" + data.results[i].name + "</a></li>";
+						}
 					console.log(data);
 					$('.map_schooltypelist_wrapper .active').find('span').html(data.total).end().siblings().find('span').html('');
 					schoollistWrapperEl.find('.totalpages').html(totalPages).end().find('.currentpage').html(currentPage + 1);
