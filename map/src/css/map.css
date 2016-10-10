@@ -70,8 +70,8 @@
 	float: left;
 }
 .rightarea {
+	padding: 0 0 50px 0;
 	width: 449px;
-	height: 880px;
 	background: url(../img/rightareabg.png);
 	float: left
 }
