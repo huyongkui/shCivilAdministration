@@ -8,6 +8,23 @@
 			pageNumber: 0,
 			ak: 'zUFzIA24qme28V6fTZPPObYDseC5G6Mp'
 		},
+		mapInstance: function() {
+			//新建地图实例
+			var map;
+			if (map == null) {
+				map = new BMap.Map("mapdetail");
+				return map;
+			} else {
+				return map;
+			}
+			// return (function() {
+			//  if (!map) {
+			//      map = new BMap.Map("mapdetail");
+			//  } else {
+			//      return map;
+			//  }
+			// })
+		},
 		mapHover: function() {
 			$('#mapelement area').hover(function() {
 				$('.map_mapselector_wrapper .' + $(this).attr('name')).addClass('hover').siblings(".area").removeClass('hover');
@@ -18,13 +35,41 @@
 				$('.map_mapselector_wrapper').show();
 				$('.map_mapdetail_wrapper').hide();
 			});
-			var map = new BMap.Map("mapdetail");
+			var map = this.mapInstance();
+			//
 			map.centerAndZoom(new BMap.Point(lat, lng), 11);
+			//打开各种地图控件
+			map.addControl(new BMap.MapTypeControl());
+			map.addControl(new BMap.NavigationControl());
+			//打开滚轮操作
+			map.enableScrollWheelZoom(true);
+			//设置当前城市
+			map.setCurrentCity("上海");
 			var local = new BMap.LocalSearch(map, {
-				renderOptions: { map: map }
+				renderOptions: {
+					map: map
+				}
 			});
 			local.search(name);
 
+		},
+		searching: function() {
+			var that = this,
+				searchText,
+				serarchbarWrapper = $('.map_searchbar_wrapper'),
+				searchBtn = serarchbarWrapper.find('.querybtn');
+			searchBtn.click(function() {
+				searchText = serarchbarWrapper.find('.querytxt').val();
+				if (searchText == '') {
+					return;
+				} else {
+					that.queryOptions.query = 'searching:' + searchText
+						//that.assembleUrl(that.queryOptions.query);
+					console.log(that.queryOptions.query)
+					that.getPlace(that.queryOptions.query);
+
+				}
+			})
 		},
 		schoolList: function() {
 			var that = this,
@@ -40,17 +85,17 @@
 					return $(this).attr('src').replace(/_on/, '_off');
 				});
 				that.assembleUrl(thisType);
-				that.assembleUrl('page1');
-				that.getPlace();
+
+				that.getPlace('page1');
 			});
 
 			$('.pagination .prevpage').click(function() {
-				that.assembleUrl('prevpage');
-				that.getPlace();
+
+				that.getPlace('prevpage');
 			});
 			$('.pagination .nextpage').click(function() {
-				that.assembleUrl('nextpage');
-				that.getPlace();
+
+				that.getPlace('nextpage');
 			});
 
 			$('.map_schoollist_wrapper').on('click', ' li a', function() {
@@ -67,9 +112,8 @@
 					thisType = $this.attr('name');
 				$('.map_mapselector_wrapper .' + thisType).addClass('active').siblings().removeClass('active');
 				//筛选数据
-				that.assembleUrl(thisType);
 				// that.assembleUrl('page1');
-				that.getPlace();
+				that.getPlace(thisType);
 			})
 		},
 		showMap: function() {
@@ -79,8 +123,18 @@
 			var that = this,
 				querySchool,
 				queryPage,
+				queryArgu,
 				queryDistrict,
 				thisQueryOptions = that.queryOptions;
+
+			var getResult = function(argument) {
+				var encode = function(string) {
+					return string;
+					// return encodeURIComponent(string);
+				}
+				var result = 'http://api.map.baidu.com/place/v2/search?q=' + encode(thisQueryOptions.district) + encode(thisQueryOptions.query) + '&page_size=' + encode(thisQueryOptions.pagesize) + '&region=' + encode(thisQueryOptions.region) + '&page_num=' + thisQueryOptions.pageNumber + '&output=json&ak=' + thisQueryOptions.ak;
+				return result;
+			}
 			var query = {
 				querySchool: function(queryArgu) {
 					switch (queryArgu) {
@@ -222,17 +276,17 @@
 					thisQueryOptions = $.extend(thisQueryOptions, queryDistrict);
 				}
 			}
-
+			console.log(queryArgu)
 			query.querySchool(queryArgu);
 			query.queryNav(queryArgu);
 			query.queryDistrict(queryArgu);
-
-			var encode = function(string) {
-				// return string;
-				return encodeURIComponent(string);
+			if (queryArgu.indexOf('searching:') != -1) {
+				queryArgu = queryArgu.replace(/searching:/, '');
+				thisQueryOptions = $.extend(thisQueryOptions, { query: queryArgu });
+				return getResult(thisQueryOptions)
+			} else {
+				return getResult(thisQueryOptions)
 			}
-			var result = 'http://api.map.baidu.com/place/v2/search?q=' + encode(thisQueryOptions.district) + encode(thisQueryOptions.query) + '&page_size=' + encode(thisQueryOptions.pagesize) + '&region=' + encode(thisQueryOptions.region) + '&page_num=' + thisQueryOptions.pageNumber + '&output=json&ak=' + thisQueryOptions.ak;
-			return result;
 		},
 		ajaxRequest: function(url) {
 			console.log(url)
@@ -243,7 +297,7 @@
 				dataType: 'jsonp',
 				success: function(data) {
 					var schoollistWrapperEl = $('.map_schoollist_wrapper'),
-						schoollistEl = $('.map_schoollist_wrapper ul'),
+						schoollistEl = schoollistWrapperEl.find('ul'),
 						totalPages = Math.ceil(data.total / thisQueryOptions.pagesize),
 						currentPage = thisQueryOptions.pageNumber,
 						listItem = function(data, index) {
@@ -260,11 +314,14 @@
 				}
 			});
 		},
-		getPlace: function() {
-			console.log(this.queryOptions)
-			this.ajaxRequest(this.assembleUrl(this.queryOptions));
+		getPlace: function(para) {
+			this.ajaxRequest(this.assembleUrl(para));
+		},
+		firstLoad: function() {
+
 		},
 		init: function() {
+			this.searching();
 			this.mapHover();
 			this.schoolList();
 		}
