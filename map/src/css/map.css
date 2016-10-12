@@ -1,15 +1,17 @@
-.map_main_wrapper{
-	margin: 0 auto;
-	width: 1260px;
-}
 .bg {
 	width: 1259px;
 	height: 880px;
 	margin: auto
 }
 .map_main_wrapper{
-	margin: 0 auto;
+	margin: 50px auto;
 	width: 1260px;
+	font-size: 0;
+}
+.map_main_wrapper:after{
+	content: '';
+	display: block;
+	clear: both;
 }
 .map_searchbar_wrapper{
 	width: 100%;
@@ -21,10 +23,12 @@
 	border-radius: 5px;
 }
 .leftarea {
+	display: inline-block;
 	width: 810px;
 	height: 880px;
-	float: left;
+	
 	position: relative;
+	vertical-align: top;
 	
 }
 .map_bg_item {
@@ -38,6 +42,7 @@
 }
 .leftarea .area {
 	position: absolute;
+/*	z-index: 1;*/
 }
 .leftlist {
 	position: absolute;
@@ -70,10 +75,12 @@
 	float: left;
 }
 .rightarea {
+	display: inline-block;
 	padding: 0 0 50px 0;
 	width: 449px;
+	min-height: 850px;
 	background: url(../img/rightareabg.png);
-	float: left
+	vertical-align: top;
 }
 .l1 {
 	background: url(../img/mapimages/l1.png) no-repeat 0 6px;
@@ -393,6 +400,7 @@
 }
 .map_schoollist_wrapper .pagination {
 	color: #264e8c;
+	font-size: 17px;
 }
 .map_schoollist_wrapper .pagination p{
 	display: inline-block;
