@@ -67,7 +67,7 @@
 	height: 748px;
 	padding-top: 132px;
 	float: left;
-	background: #96bbe8 url(../img/mapimages/page_bk.png) no-repeat left top;
+	background: #96bbe8 url(../img/map/page_bk.png) no-repeat left top;
 }
 .gohome {
 	width: 47px;
@@ -79,31 +79,31 @@
 	padding: 0 0 50px 0;
 	width: 449px;
 	min-height: 850px;
-	background: url(../img/rightareabg.png);
+	background: url(../img/map/rightareabg.png);
 	vertical-align: top;
 }
 .l1 {
-	background: url(../img/mapimages/l1.png) no-repeat 0 6px;
+	background: url(../img/map/l1.png) no-repeat 0 6px;
 	height: 35px;
 	line-height: 35px
 }
 .l2 {
-	background: url(../img/mapimages/l2.png) no-repeat 0 6px;
+	background: url(../img/map/l2.png) no-repeat 0 6px;
 	height: 35px;
 	line-height: 35px
 }
 .l3 {
-	background: url(../img/mapimages/l3.png) no-repeat 0 6px;
+	background: url(../img/map/l3.png) no-repeat 0 6px;
 	height: 35px;
 	line-height: 35px
 }
 .l4 {
-	background: url(../img/mapimages/l4.png) no-repeat 0 6px;
+	background: url(../img/map/l4.png) no-repeat 0 6px;
 	height: 35px;
 	line-height: 35px
 }
 .l5 {
-	background: url(../img/mapimages/l5.png) no-repeat 0 6px;
+	background: url(../img/map/l5.png) no-repeat 0 6px;
 	height: 35px;
 	line-height: 35px
 }
@@ -210,7 +210,7 @@
 	height: 189px;
 }
 .selecttype {
-	background: url(../img/mapimages/selecttypebg.png) no-repeat;
+	background: url(../img/map/selecttypebg.png) no-repeat;
 	background-color: transparent;
 	border: 0;
 	width: 212px;
@@ -249,7 +249,7 @@
 	font-family: "黑体";
 	font-size: 22px;
 	color: #fff;
-	background: url(../img/titlelogo.png) no-repeat;
+	background: url(../img/map/titlelogo.png) no-repeat;
 	text-indent: 36px;
 	margin-left: 40px
 }
@@ -283,7 +283,7 @@
 .map_mapselector_wrapper{
 	width: 100%;
 	height: 100%;
-	background: url(../img/mapimages/leftareabg1.png);
+	background: url(../img/map/leftareabg1.png);
 }
 .map_mapselector_wrapper .area{
 	display: none;
@@ -295,7 +295,7 @@
 	display: none;
 	width: 100%;
 	height: 100%;
-	background: url(../img/page_bk.png) #96bbe8;
+	background: url(../img/map/page_bk.png) #96bbe8;
 }
 .map_mapdetail_wrapper .mapdetail{
 	margin: 0 auto;
@@ -367,35 +367,35 @@
 	font-weight: bold;
 }
 #number {
-	background: url(../img/mapimages/icon_number.png) no-repeat 0 3px;
+	background: url(../img/map/icon_number.png) no-repeat 0 3px;
 	padding-left: 25px;
 }
 #address {
-	background: url(../img/mapimages/icon_address.png) no-repeat 0 3px;
+	background: url(../img/map/icon_address.png) no-repeat 0 3px;
 	padding-left: 25px;
 }
 #headmaster {
-	background: url(../img/mapimages/icon_headmaster.png) no-repeat 0 3px;
+	background: url(../img/map/icon_headmaster.png) no-repeat 0 3px;
 	padding-left: 25px;
 }
 #type {
-	background: url(../img/mapimages/icon_type.png) no-repeat 0 3px;
+	background: url(../img/map/icon_type.png) no-repeat 0 3px;
 	padding-left: 25px;
 }
 #content {
-	background: url(../img/mapimages/icon_content.png) no-repeat 0 3px;
+	background: url(../img/map/icon_content.png) no-repeat 0 3px;
 	padding-left: 25px;
 }
 #division {
-	background: url(../img/mapimages/icon_division.png) no-repeat 0 3px;
+	background: url(../img/map/icon_division.png) no-repeat 0 3px;
 	padding-left: 25px;
 }
 #time {
-	background: url(../img/mapimages/icon_time.png) no-repeat 0 3px;
+	background: url(../img/map/icon_time.png) no-repeat 0 3px;
 	padding-left: 25px;
 }
 #remark {
-	background: url(../img/mapimages/icon_remark.png) no-repeat 0 3px;
+	background: url(../img/map/icon_remark.png) no-repeat 0 3px;
 	padding-left: 25px;
 }
 .map_schoollist_wrapper .pagination {
@@ -452,7 +452,7 @@ a.off:hover {
 	padding: 48px 0 0 10px;
 	color: #fff;
 	font-size: 14px;
-	background: url(../img/all.png) no-repeat left top;
+	background: url(../img/map/all.png) no-repeat left top;
 }
 #colleges {
 	width: 94px;
@@ -460,7 +460,7 @@ a.off:hover {
 	padding: 48px 0 0 10px;
 	color: #fff;
 	font-size: 14px;
-	background: url(../img/colleges.png) no-repeat left top;
+	background: url(../img/map/colleges.png) no-repeat left top;
 }
 #primaryschool {
 	width: 94px;
@@ -468,7 +468,7 @@ a.off:hover {
 	padding: 48px 0 0 10px;
 	color: #fff;
 	font-size: 14px;
-	background: url(../img/primaryschool.png) no-repeat left top;
+	background: url(../img/map/primaryschool.png) no-repeat left top;
 }
 #kindergarten {
 	width: 94px;
@@ -476,7 +476,7 @@ a.off:hover {
 	padding: 58px 0 0 10px;
 	color: #fff;
 	font-size: 14px;
-	background: url(../img/kindergarten.png) no-repeat left top;
+	background: url(../img/map/kindergarten.png) no-repeat left top;
 }
 #train {
 	width: 94px;
@@ -484,7 +484,7 @@ a.off:hover {
 	padding: 58px 0 0 10px;
 	color: #fff;
 	font-size: 14px;
-	background: url(../img/train.png) no-repeat left top;
+	background: url(../img/map/train.png) no-repeat left top;
 }
 .baidu {
 	color: #2755a3;
