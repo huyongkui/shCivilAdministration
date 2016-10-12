@@ -82,6 +82,17 @@
 	background: url(../img/map/rightareabg.png);
 	vertical-align: top;
 }
+.map_returntohome_item{
+	padding: 20px;
+	font-size: 16px;
+	text-align: right;
+}
+.map_returntohome_item a{
+	color: #fff;
+}
+.map_returntohome_item a:hover{
+	color: #ddd;
+}
 .l1 {
 	background: url(../img/map/l1.png) no-repeat 0 6px;
 	height: 35px;
