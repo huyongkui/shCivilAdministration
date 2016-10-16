@@ -5,7 +5,7 @@
 			region: '上海市',
 			district: '',
 			pagesize: 10,
-			pagination: 0,
+			pagination: 1,
 			currentpage: 0,
 			ak: 'zUFzIA24qme28V6fTZPPObYDseC5G6Mp'
 		},
