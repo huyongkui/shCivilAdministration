@@ -1,11 +1,12 @@
 (function() {
 	var map = {
-		queryOptions: {
-			query: '民办院校',
+		globalQueryOptions: {
+			query: '民办学校',
 			region: '上海市',
 			district: '',
 			pagesize: 10,
-			pageNumber: 0,
+			pagination: 0,
+			currentpage: 0,
 			ak: 'zUFzIA24qme28V6fTZPPObYDseC5G6Mp'
 		},
 		mapInstance: function() {
@@ -66,8 +67,7 @@
 					that.queryOptions.query = 'searching:' + searchText
 						//that.assembleUrl(that.queryOptions.query);
 					console.log(that.queryOptions.query)
-					that.getPlace(that.queryOptions.query);
-
+					that.getList(that.queryOptions.query);
 				}
 			})
 		},
@@ -86,16 +86,16 @@
 				});
 				that.assembleUrl(thisType);
 
-				that.getPlace('page1');
+				that.getList('page1');
 			});
 
 			$('.pagination .prevpage').click(function() {
 
-				that.getPlace('prevpage');
+				that.getList('prevpage');
 			});
 			$('.pagination .nextpage').click(function() {
 
-				that.getPlace('nextpage');
+				that.getList('nextpage');
 			});
 
 			$('.map_schoollist_wrapper').on('click', ' li a', function() {
@@ -112,8 +112,7 @@
 					thisType = $this.attr('name');
 				$('.map_mapselector_wrapper .' + thisType).addClass('active').siblings().removeClass('active');
 				//筛选数据
-				// that.assembleUrl('page1');
-				that.getPlace(thisType);
+				that.getList(thisType);
 			})
 		},
 		showMap: function() {
@@ -124,15 +123,14 @@
 				querySchool,
 				queryPage,
 				queryArgu,
-				queryDistrict,
-				thisQueryOptions = that.queryOptions;
+				queryDistrict;
 
-			var getResult = function(argument) {
+			var getResult = function(globalQueryOptions) {
 				var encode = function(string) {
 					return string;
 					// return encodeURIComponent(string);
 				}
-				var result = 'http://api.map.baidu.com/place/v2/search?q=' + encode(thisQueryOptions.district) + encode(thisQueryOptions.query) + '&page_size=' + encode(thisQueryOptions.pagesize) + '&region=' + encode(thisQueryOptions.region) + '&page_num=' + thisQueryOptions.pageNumber + '&output=json&ak=' + thisQueryOptions.ak;
+				var result = 'http://api.map.baidu.com/place/v2/search?q=' + encode(that.globalQueryOptions.district) + encode(that.globalQueryOptions.query) + '&page_size=' + encode(that.globalQueryOptions.pagesize) + '&region=' + encode(that.globalQueryOptions.region) + '&page_num=' + that.globalQueryOptions.currentpage + '&output=json&ak=' + that.globalQueryOptions.ak;
 				return result;
 			}
 			var query = {
@@ -164,26 +162,30 @@
 							}
 							break;
 					}
-					thisQueryOptions = $.extend(thisQueryOptions, querySchool);
+					that.globalQueryOptions = $.extend(that.globalQueryOptions, querySchool);
 				},
 				queryNav: function(queryArgu) {
 					switch (queryArgu) {
 						case 'prevpage':
-							if (thisQueryOptions.pageNumber == 0) {
-								return;
-							} else {
-								thisQueryOptions.pageNumber--;
-							}
+							that.globalQueryOptions.currentpage--;
 							break;
 						case 'nextpage':
-							thisQueryOptions.pageNumber++;
+							that.globalQueryOptions.currentpage++;
 							break;
 						case 'page1':
-							thisQueryOptions.pageNumber = 0;
+							that.globalQueryOptions.currentpage = 0;
 							break;
+					}
+
+					if (that.globalQueryOptions.currentpage >= that.globalQueryOptions.pagination) {
+						that.globalQueryOptions.currentpage = that.globalQueryOptions.pagination - 1;
+						return;
+					} else if (that.globalQueryOptions.currentpage <= 0) {
+						that.globalQueryOptions.currentpage = 0;
 					}
 				},
 				queryDistrict: function(queryArgu) {
+					console.log(queryArgu)
 					switch (queryArgu) {
 						case 'chongming':
 							queryDistrict = {
@@ -270,60 +272,80 @@
 								district: '奉贤'
 							}
 							break;
-						default:
-							querySchool = '民办学校';
 					}
-					thisQueryOptions = $.extend(thisQueryOptions, queryDistrict);
+					that.globalQueryOptions = $.extend(that.globalQueryOptions, queryDistrict);
+				},
+				queryDefault: function(queryArgu) {
+
+					switch (queryArgu) {
+						case '':
+							alert('queryDefault')
+							querySchool = {
+								query: '民办学校'
+							}
+					}
+					that.globalQueryOptions = $.extend(that.globalQueryOptions, querySchool);
 				}
 			}
-			console.log(queryArgu)
 			query.querySchool(queryArgu);
 			query.queryNav(queryArgu);
 			query.queryDistrict(queryArgu);
+			query.queryDefault(queryArgu)
 			if (queryArgu.indexOf('searching:') != -1) {
 				queryArgu = queryArgu.replace(/searching:/, '');
-				thisQueryOptions = $.extend(thisQueryOptions, { query: queryArgu });
-				return getResult(thisQueryOptions)
+				that.globalQueryOptions = $.extend(that.globalQueryOptions, { query: queryArgu });
+
+				return getResult(that.globalQueryOptions);
 			} else {
-				return getResult(thisQueryOptions)
+				console.log(getResult(that.globalQueryOptions))
+				return getResult(that.globalQueryOptions);
 			}
 		},
-		ajaxRequest: function(url) {
-			console.log(url)
-			var thisQueryOptions = this.queryOptions;
+		ajaxRequest: function(url, callback) {
 			$.ajax({
 				type: 'GET',
 				url: url,
 				dataType: 'jsonp',
 				success: function(data) {
-					var schoollistWrapperEl = $('.map_schoollist_wrapper'),
-						schoollistEl = schoollistWrapperEl.find('ul'),
-						totalPages = Math.ceil(data.total / thisQueryOptions.pagesize),
-						currentPage = thisQueryOptions.pageNumber,
-						listItem = function(data, index) {
-							return "<li><label>" + Number(currentPage * 10 + index + 1) + "</label><a href='javascript:;' lat=" + data.results[i].location.lat + " lng=" + data.results[i].location.lng + ">" + data.results[i].name + "</a></li>";
-						}
-					console.log(data);
-					$('.map_schooltypelist_wrapper .active').find('span').html(data.total).end().siblings().find('span').html('');
-					schoollistWrapperEl.find('.totalpages').html(totalPages).end().find('.currentpage').html(currentPage + 1);
-					schoollistEl.html('');
-					for (var i = 0; i < data.results.length; i++) {
-						// console.log(data.results[i].name);
-						schoollistEl.append(listItem(data, i));
-					};
+					callback(data)
 				}
 			});
 		},
-		getPlace: function(para) {
-			this.ajaxRequest(this.assembleUrl(para));
+		getList: function(para) {
+			var that = this,
+				globalLocationlistData;
+			this.ajaxRequest(this.assembleUrl(para), function(data) {
+				var globalLocationlistData = data,
+					schoollistWrapperEl = $('.map_schoollist_wrapper'),
+					schoollistEl = schoollistWrapperEl.find('ul'),
+					totalPages = Math.ceil(data.total / that.globalQueryOptions.pagesize),
+					currentPage = that.globalQueryOptions.currentpage,
+					listItem = function(globalLocationlistData, index) {
+						return "<li><label>" + Number(currentPage * 10 + index + 1) + "</label><a href='javascript:;' lat=" + globalLocationlistData.results[index].location.lat + " lng=" + globalLocationlistData.results[index].location.lng + ">" + globalLocationlistData.results[index].name + "</a></li>";
+					};
+				that.globalQueryOptions.pagination = totalPages;
+				console.log(that.globalQueryOptions);
+				bulidList();
+
+				function bulidList() {
+					$('.map_schooltypelist_wrapper .active').find('span').html(globalLocationlistData.total).end().siblings().find('span').html('');
+					schoollistWrapperEl.find('.totalpages').html(totalPages).end().find('.currentpage').html(currentPage + 1);
+					schoollistEl.html('');
+					for (var i = 0; i < globalLocationlistData.results.length; i++) {
+						schoollistEl.append(listItem(globalLocationlistData, i));
+					};
+				}
+
+			});
 		},
 		firstLoad: function() {
-
+			this.getList(this.globalQueryOptions.query);
 		},
 		init: function() {
 			this.searching();
 			this.mapHover();
 			this.schoolList();
+			this.firstLoad();
 		}
 	}
 	map.init();
