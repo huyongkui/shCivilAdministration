@@ -64,10 +64,10 @@
 				if (searchText == '') {
 					return;
 				} else {
-					that.queryOptions.query = 'searching:' + searchText
-						//that.assembleUrl(that.queryOptions.query);
-					console.log(that.queryOptions.query)
-					that.getList(that.queryOptions.query);
+					that.globalQueryOptions.query = 'searching:' + searchText
+						//that.assembleUrl(that.globalQueryOptions.query);
+					console.log(that.globalQueryOptions.query)
+					that.getList(that.globalQueryOptions.query);
 				}
 			})
 		},
