@@ -1,0 +1,14 @@
+.common_btn_item{
+	min-width: 70px;
+}
+.common_list_wrapper{
+
+}
+.common_listcontent_item{
+	display: inline-block;
+	width: 90%;
+}
+.common_process_wrapper{
+	margin: 0 auto;
+	width: 50%;
+}
