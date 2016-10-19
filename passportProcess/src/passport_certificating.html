@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<title>公益护照审核列表</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/approvallist.css">
+	<link rel="stylesheet" href="css/approvallist_bootstrap.css">
+	<script type="text/javascript" src='assets/js/jquery.min.js'></script>
+	<script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/applicationprocess.js'></script>
+</head>
+
+<body>
+	<div class='common_header_wrapper'>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="javascript:;">公益护照审核列表</a>
+				</div>
+				<div class='common_headeruserinfo_wrapper'>
+					<span class='avatar'>
+						<img src="img/timg.jpg">
+					</span>
+					<label>审核人</label>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li><a href="javascript:;">待制证</a></li>
+					<li class="active"><a href="javascript:;">待发证</a></li>
+					<li><a href="javascript:;">已发证</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header"></h2>
+				<ul class="common_list_wrapper list-group">
+					<li class="list-group-item">
+						<p class='common_listcontent_item'>
+							Cras justo odio
+						</p>
+						<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+							发证
+						</button>
+					</li>
+					<li class="list-group-item">
+						<p class='common_listcontent_item'>
+							Cras justo odio
+						</p>
+						<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+							发证
+						</button>
+					</li>
+					<li class="list-group-item">
+						<p class='common_listcontent_item'>
+							Cras justo odio
+						</p>
+						<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+							发证
+						</button>
+					</li>
+				</ul>
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="passport_certidetail_wrapper modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel"></h4>
+							</div>
+							<div class="modal-body">
+								<p class='text-center'>请确认证件是否已发给申请人？</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+								<button type="button" class="approlist_save_item btn btn-primary">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+$(function() {
+	var preliminary = {
+		modal: function() {
+			var saveBtn = $('.approlist_save_item');
+			saveBtn.click(function(e) {
+				$('#myModal').modal('toggle');
+			});
+		},
+		init: function() {
+			this.modal();
+		}
+	}
+	preliminary.init();
+})
+</script>
+
+</html>

@@ -1,0 +1,12 @@
+.passport_certidetail_wrapper .figure{
+	width: 200px;
+	max-height: 220px;
+}
+
+.passport_certidetail_wrapper .figure img{
+	width: 100%;
+}
+.passport_certidetail_wrapper dt{
+	display: inline-block;
+	vertical-align: middle;
+}
