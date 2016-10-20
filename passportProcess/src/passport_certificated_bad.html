@@ -40,14 +40,14 @@
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
 					<li><a href="javascript:;">&nbsp;待制证</a></li>
-					<li  class="active"><a href="javascript:;">&nbsp;待发证</a></li>
+					<li><a href="javascript:;">&nbsp;待发证</a></li>
 					<li><a href="javascript:;">&nbsp;已发证</a></li>
-					<li><a href="javascript:;">已制坏证</a></li>
+					<li  class="active"><a href="javascript:;">已制坏证</a></li>
 				</ul>
-				
+
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-					<h2 class="sub-header"></h2>
+									<h2 class="sub-header"></h2>
 				<div class="form-group">
                     <div class="col-lg-4">
                         <input type="text" value="请输入关键字搜索" class="form-control">
@@ -74,9 +74,8 @@
 					       <td>在线</td>
 					       <td></td>
 					       <td>
-					        	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" 
-					        	data-target="#myModal">发证</button>
-					     	 	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">重新制证</button>
+					        	
+					     	 	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">查看详情</button>
 							</td>
 					    </tr>
 					    <tr>
@@ -85,9 +84,8 @@
 					       <td>在线</td>
 					        <td></td>
 					        <td>
-					        	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" 
-					        	data-target="#myModal">发证</button>
-					     	 	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">重新制证</button>
+					  
+					     	 	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">查看详情</button>
 							</td>
 						
 					    </tr>
@@ -97,9 +95,8 @@
 					       <td>现场</td>
 					        <td></td>
 					       <td>
-					        	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" 
-					        	data-target="#myModal">发证</button>
-					     	 	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">重新制证</button>
+					        	
+					     	 	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">查看详情</button>
 							</td>
 					    </tr>
 					</tbody>
@@ -109,37 +106,31 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-								<h4 class="modal-title" id="myModalLabel"></h4>
+								<h4 class="modal-title" id="myModalLabel">申请人详情</h4>
 							</div>
 							<div class="modal-body">
-								<p class='text-center'>请确认证件是否已发给申请人？</p>
+								<dl class="dl-horizontal lead ">
+									
+									<dt>手机号</dt>
+									<dd>121212121212</dd>
+									<dt>姓名</dt>
+									<dd>张三</dd>
+									<dt>性别</dt>
+									<dd>男</dd>
+									<dt>证件类型</dt>
+									<dd>身份证</dd>
+									<dt>证件编号</dt>
+									<dd>121212121212121212</dd>
+									<dt>坏证来源</dt>
+									<dd>制证退回</dd>
+								</dl>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-								<button type="button" class="approlist_save_item btn btn-primary">确定</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 							</div>
 						</div>
 					</div>
 				</div>
-
-				<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="passport_certidetail_wrapper modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-								<h4 class="modal-title" id="myModalLabel"></h4>
-							</div>
-							<div class="modal-body">
-								<p class='text-center'>请确认重新制证？</p>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-								<button type="button" class="approlist_save_item btn btn-primary">确定</button>
-							</div>
-						</div>
-					</div>
-				</div>
- -->
 			</div>
 		</div>
 	</div>
