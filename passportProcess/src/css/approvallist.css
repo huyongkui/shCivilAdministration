@@ -10,3 +10,9 @@
 	display: inline-block;
 	vertical-align: middle;
 }
+.reissueform_wrapper{
+	display: none;
+}
+.guardianinformation_wrapper{
+	display: none;
+}
