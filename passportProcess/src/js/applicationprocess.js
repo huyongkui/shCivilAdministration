@@ -5,7 +5,7 @@ $(function(){
 		$('.leftarea #'+$(this).attr('name')).show().siblings(".area").hide();
 	})
 //	$('.hid').hide();
-	$('.huzhao').val('2').click(function(){
-		
+	$('.huzhao').find(':selected').click(function(){
+		$(this).val();
 	});
 })
