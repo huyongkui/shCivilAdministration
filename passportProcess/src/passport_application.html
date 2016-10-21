@@ -60,28 +60,28 @@
 					</div>
 					<!--姓名-->
 					<div class="form-group">
-						<div class="form-group">
-							<label class="col-lg-2 control-label">姓</label>
-							<div class="col-lg-3">
-								<input type="text" class="form-control">
-							</div>
-							<label class="col-lg-2 control-label">名字</label>
-							<div class="col-lg-3">
-								<input type="text" class="form-control">
-							</div>
+						<label class="col-lg-2 control-label">姓</label>
+						<div class="col-lg-3">
+							<input type="text" class="form-control">
+						</div>
+						<label class="col-lg-2 control-label">名字</label>
+						<div class="col-lg-3">
+							<input type="text" class="form-control">
 						</div>
 					</div>
 					<!--性别-->
 					<div class="form-group">
 						<label class="col-lg-2 control-label">性别</label>
 						<div class="col-lg-10">
-							<div class="form-group col-lg-2">
-								<input id='male' type="radio" name='gender'>
-								<label for='male'>男</label>
+							<div class="col-lg-2">
+								<label class="radio-inline">
+									<input type="radio" name="gender">男
+								</label>
 							</div>
-							<div class="form-group col-lg-2">
-								<input id='female' type="radio" name='gender'>
-								<label for='female'>女</label>
+							<div class="col-lg-2">
+								<label class="radio-inline">
+									<input type="radio" name="gender"> 女
+								</label>
 							</div>
 						</div>
 					</div>
@@ -146,82 +146,82 @@
 					<!--</div>-->
 					<!--未成年人申请填写-->
 					<div class="form-group">
-						<label class="col-lg-2 control-label ">
-							<input class="minor_checkbox" type="checkbox" value="0"> 未成年人申请填写
+						<label class="col-lg-3 control-label ">
+							<input class="minor_checkbox pull-left" id='juvenile' type="checkbox">
+							<label class='pull-left' for='juvenile'>未成年人申请填写</label>
 						</label>
 					</div>
+					<!--监护人信息-->
+
 					<div class="guardianinformation_wrapper">
-						<!--监护人信息-->
-						<div class="form-group">
-							<label class="radio-inline">
-								<input type="radio" value="">监护人信息
-							</label>
-						</div>
-						<div class="form-group">
-							<label class="col-lg-2 control-label">姓名</label>
-							<div class="col-lg-3">
-								<input type="text" class="form-control">
+						<label class="radio-inline">
+							<input class='guardiantype' type="radio" data="guardian" name='guardiantype'>监护人信息
+						</label>
+						<div class='guardian_wrapper'>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">姓名</label>
+								<div class="col-lg-3">
+									<input type="text" class="form-control" disabled>
+								</div>
+								<label class="col-lg-2 control-label">电话</label>
+								<div class="col-lg-4">
+									<input type="text" class="form-control" disabled>
+								</div>
 							</div>
-							<label class="col-lg-2 control-label">电话</label>
-							<div class="col-lg-4">
-								<input type="text" class="form-control">
+							<div class="form-group">
+								<label class="col-lg-2 control-label">性别</label>
+								<div class="col-lg-2">
+									<label class="radio-inline">
+										<input type="radio" name="gender" disabled>男
+									</label>
+								</div>
+								<div class="col-lg-2">
+									<label class="radio-inline">
+										<input type="radio" name="gender" disabled> 女
+									</label>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-lg-2 control-label">性别</label>
-							<div class="col-lg-2">
-								<label class="radio-inline">
-									<input type="radio" name="gender" id="male">男
-								</label>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">证件类型</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" disabled>
+								</div>
 							</div>
-							<div class="col-lg-2">
-								<label class="radio-inline">
-									<input type="radio" name="gender" id="female"> 女
-								</label>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-lg-2 control-label">证件类型</label>
-							<div class="col-lg-9">
-								<input type="text" class="form-control">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-lg-2 control-label">证件编号</label>
-							<div class="col-lg-9">
-								<input type="text" class="form-control">
+							<div class="form-group">
+								<label class="col-lg-2 control-label">证件编号</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" disabled>
+								</div>
 							</div>
 						</div>
 						<!--监护单位信息-->
-						<div class="guardian_company">
-							<label class="radio-inline">
-								<input type="radio" value="">监护单位信息
-							</label>
+						<label class="radio-inline">
+							<input class='guardiantype' type="radio" data="monitoringinstitutions" name='guardiantype'>监护单位信息
+						</label>
+						<div class="monitoringinstitutions_wrapper">
 							<div class="form-group">
 								<label class="col-lg-2 control-label">单位名称</label>
 								<div class="col-lg-9">
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" disabled>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">组织机构代码</label>
 								<div class="col-lg-9">
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" disabled>
 								</div>
 							</div>
 						</div>
 					</div>
+					<!--提交-->
+					<div class="form-group summitbtn">
+						<div class="col-lg-offset-2 col-lg-10">
+							<a href='passport_pickdataandbase.html' class="btn btn-primary btn-lg btn-block">开始预约</a>
+						</div>
+					</div>
 				</form>
 			</div>
-			<!--提交-->
-			<div class="form-group summitbtn">
-				<div class="col-lg-offset-2 col-lg-10">
-					<a href='passport_pickdataandbase.html' class="btn btn-primary btn-lg btn-block">开始预约</a>
-				</div>
-			</div>
-			</form>
 		</div>
-	</div>
 	</div>
 </body>
 <script type="text/javascript">
@@ -240,6 +240,24 @@ $(function() {
 					$('.guardianinformation_wrapper').show();
 				} else {
 					$('.guardianinformation_wrapper').hide();
+				}
+			});
+			$('.guardiantype').click(function() {
+				var $this = $(this);
+				if ($this.attr('data') == 'guardian') {
+					$('.monitoringinstitutions_wrapper').find('input').each(function() {
+						$(this).attr('disabled', 'disabled');
+					})
+					$('.guardian_wrapper').find('input').each(function() {
+						$(this).removeAttr('disabled');
+					})
+				} else if ($this.attr('data') == 'monitoringinstitutions'){
+					$('.guardian_wrapper').find('input').each(function() {
+						$(this).attr('disabled', 'disabled');
+					})
+					$('.monitoringinstitutions_wrapper').find('input').each(function() {
+						$(this).removeAttr('disabled');
+					})
 				}
 			})
 		},
