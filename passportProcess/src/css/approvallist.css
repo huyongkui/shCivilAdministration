@@ -16,3 +16,57 @@
 .guardianinformation_wrapper{
 	display: none;
 }
+
+/*passport_appointment_success .html*/
+.order_number{
+	width: 600px;
+	margin: 50px auto 30px;
+	color: red;
+}
+
+
+.appointment_success{
+	width:800px;
+	margin: 70px auto 0;
+	position: relative;
+}
+.success p{
+	width: 200px;
+	margin:10px auto 0;
+	font-size: 20px;
+	font-family: "黑体";
+}
+.appointment_success .information{
+	width: 600px;
+	margin: 50px auto 50px;
+	font-size: 18px;
+}
+.appointment_success .prompt{
+	margin:10px 120px;
+}
+.appointment_success .prompt p{
+	width: 450px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.appointment_success .appointment_back{
+	margin-top: 20px; 
+	margin-right: 150px;
+	float: right;
+}
+.qr_code{
+	width: 230px;
+	height: 160px;
+	margin:10px auto;
+	position: absolute;
+	left: 550px;
+	top: -15px;
+	color: red;
+	font-family: "黑体";
+	font-size: 16px;
+}
+.qr_code img{
+	display: block;
+
+	margin: 0px auto ;
+}
