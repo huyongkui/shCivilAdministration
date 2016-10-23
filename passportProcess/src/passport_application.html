@@ -98,7 +98,7 @@
 							</div>
 							<div class="col-lg-2">
 								<label class="radio-inline">
-									<input type="radio" name="gender"> 女
+									<input type="radio" name="gender">女
 								</label>
 							</div>
 						</div>
@@ -141,7 +141,7 @@
 						</div>
 						<label class="col-lg-2 control-label">电话</label>
 						<div class="col-lg-4">
-							<input type="text" class="form-control" id="urgent_phone">
+							<input  type="text" class="form-control" id="urgent_phone">
 						</div>
 					</div>
 					<div class="form-group">
@@ -173,12 +173,12 @@
 								<div class="col-lg-4">
 									<div class="col-lg-3">
 										<label class="radio-inline">
-											<input type="radio" name="gender" disabled checked>男
+											<input type="radio" name="gender1" disabled checked>男
 										</label>
 									</div>
 									<div class="col-lg-2">
 										<label class="radio-inline">
-											<input type="radio" name="gender" disabled> 女
+											<input type="radio" name="gender1" disabled> 女
 										</label>
 									</div>
 								</div>
@@ -190,13 +190,13 @@
 								</div>
 								<label class="col-lg-2 control-label">电话</label>
 								<div class="col-lg-4">
-									<input type="text" class="form-control" disabled id="guardian_phone">
+									<input  type="text" class="form-control" disabled id="guardian_phone">
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">证件类型</label>
 								<div class="col-lg-9">
-									<select class='form-control' disabled>
+									<select class='form-control' id="ID_type1" disabled>
 										<option>身份证</option>
 									</select>
 								</div>
@@ -204,7 +204,7 @@
 							<div class="form-group">
 								<label class="col-lg-2 control-label">证件编号</label>
 								<div class="col-lg-9">
-									<input type="text" class="form-control" disabled id="guardian_number">
+									<input id="ID_number1" type="text" class="form-control" disabled id="guardian_number">
 								</div>
 								<!--监护单位信息-->
 								<label class="radio-inline">
@@ -220,9 +220,9 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-2 control-label" id="unit_code">组织机构代码</label>
+								<label class="col-lg-2 control-label" >组织机构代码</label>
 								<div class="col-lg-9">
-									<input type="text" class="form-control" disabled>
+									<input id="unit_code" type="text" value="" class="form-control" disabled>
 								</div>
 							</div>
 						</div>
@@ -332,6 +332,29 @@ function authentication() {
 			}
 		})
 	}
+	// ----监护人证件编号----
+	if ($("#ID_type1").val() == "身份证") {
+		$("#ID_number1").blur(function() {
+			var IDNumber = $("#ID_number1").val();
+			var birth_date = "";
+			if (pattern.test(IDNumber)) {
+				if (IDNumber.length == 18) {
+					birth_date = IDNumber.substring(6, 14);
+				}
+				// $("#birth_date").val(birth_date);
+			} else {
+				alert("请填写正确的身份证号码");
+			}
+		})
+	}
+	// $("#guardian_phone").blur(function() {
+	// 			var phone_pattern = /^\d{11}$/;
+	// 			if (!phone_pattern.test($("#guardian_phone").val())) {
+	// 				alert("手机号填写错误");
+	// 			}
+	// 		})
+
+
 }
 
 /*提交页面时的一些判断*/
@@ -379,7 +402,7 @@ $("#summitbtn").click(function() {
 		if ($("#unit_name").val() == "") {
 			alert("监护单位名称不能为空");
 			$("#summitbtn").attr("href", "#");
-		} else if ($("#unit_code").val() == "") {
+		} else if ($("#unit_code").val() =="") {
 			alert("组织机构代码不能为空");
 			$("#summitbtn").attr("href", "#");
 		}
