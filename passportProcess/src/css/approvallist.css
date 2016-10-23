@@ -86,12 +86,14 @@
 }
 
 
-
-
 /*passport_certificating.html查询框*/
 .query_passport{
 	text-align: center;
-	margin:0px 300px 100px;
+	margin:0px 200px 100px;
+}
+/*passport_certificating.html按钮*/
+.government_back{
+	margin-left: 130px;
 }
 /*passport_certificating.html查询结果框*/
 .personal_information_box{

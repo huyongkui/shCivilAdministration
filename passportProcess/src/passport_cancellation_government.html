@@ -40,10 +40,10 @@
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
 					<li><a href="javascript:;">&nbsp;待制证</a></li>
-					<li class="active"><a href="javascript:;">&nbsp;待发证</a></li>
+					<li><a href="javascript:;">&nbsp;待发证</a></li>
 					<li><a href="javascript:;">&nbsp;已发证</a></li>
 					<li><a href="javascript:;">&nbsp;已激活</a></li>
-					<li><a href="javascript:;">&nbsp;待注销</a></li>
+					<li class="active"><a href="javascript:;">&nbsp;待注销</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -67,64 +67,39 @@
 						</div>
 					</div>
 				</form>
-				<table class="table table-hover">
+                <h2 class="sub-header"></h2>
+                <table class="table table-hover">
 					<thead>
-						<tr>
-							<th class="col-lg-2">订单编号</th>
-							<th class="col-lg-2">订单类型</th>
-							<th class="col-lg-2 center-block">申请方式</th>
-							<th class="col-lg-1">姓名</th>
-							<th class="col-lg-3">证件编号</th>
-							<th class="col-lg-3">发证基地</th>
-						</tr>
-					</thead>
-					<tbody>
+					    <tr>
+					     	<th class="col-lg-2">订单编号</th>
+							<th class="col-lg-3 center-block">护照编号</th>
+							<th class="col-lg-2">发证时间</th>
+							<th class="col-lg-2">发证基地</th>							
+					    </tr>
+					  </thead>
+					  <tbody>
 						<tr>
 							<td>3020161020A001</td>
-							<td>首次申请</td>
-							<td>在线</td>
-							<td>张三</td>
-							<td>3020161020A00200</td>
-							<td>上海坤泰苑小区居委会</td>
+							<td>29081982395738749235791</td>
+							<td>2016-10-29</td>
+							<td>上海坤秦苑居民区志愿服务站</td>
 						</tr>
 						<tr>
 							<td>3020161020A002</td>
-							<td>遗失补办</td>
-							<td>在线</td>
-							<td>张三</td>
-							<td>3020161020A00200</td>
-							<td>上海坤泰苑小区居委会</td>
+							<td>21978324210939882342432</td>
+							<td>2016-08-12</td>
+							<td>上海坤秦苑居民区志愿服务站</td>
 						</tr>
 						<tr>
 							<td>3020161020A003</td>
-							<td>退回重制</td>
-							<td>现场</td>
-							<td>张三</td>
-							<td>3020161020A00200</td>
-							<td>上海坤泰苑小区居委会</td>
-						</tr>
+							<td>8218638432989102383484</td>
+							<td>2016-08-12</td>
+							<td>上海坤秦苑居民区志愿服务站</td>
+					    </tr>
 					</tbody>
-				</table>
-				
+				</table>				
 			</div>
 		</div>
 	</div>
 </body>
-<!-- <script type="text/javascript">
-$(function() {
-	var preliminary = {
-		modal: function() {
-			var saveBtn = $('.approlist_save_item');
-			saveBtn.click(function(e) {
-				$('#myModal').modal('toggle');
-			});
-		},
-		init: function() {
-			this.modal();
-		}
-	}
-	preliminary.init();
-})
-</script> -->
-
 </html>
