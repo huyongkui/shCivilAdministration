@@ -16,3 +16,107 @@
 .guardianinformation_wrapper{
 	display: none;
 }
+
+/*passport_appointment_success .html*/
+.order_number{
+	width: 600px;
+	margin: 50px auto 30px;
+	color: red;
+}
+
+
+.appointment_success{
+	width:800px;
+	margin: 70px auto 0;
+	position: relative;
+}
+.success p{
+	width: 200px;
+	margin:10px auto 0;
+	font-size: 20px;
+	font-family: "黑体";
+}
+.appointment_success .information{
+	width: 600px;
+	margin: 50px auto 50px;
+	font-size: 18px;
+}
+.appointment_success .prompt{
+	margin:10px 120px;
+}
+.appointment_success .prompt p{
+	width: 450px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.appointment_success .appointment_back{
+	margin-top: 20px; 
+	margin-right: 150px;
+	float: right;
+}
+.qr_code{
+	width: 230px;
+	height: 160px;
+	margin:10px auto;
+	position: absolute;
+	left: 550px;
+	top: -15px;
+	color: red;
+	font-family: "黑体";
+	font-size: 16px;
+}
+.qr_code img{
+	display: block;
+
+	margin: 0px auto ;
+}
+/*passport_cancellation.html*/
+.modal-body .zhuxiaotanchu{
+	display: inline-block;
+	width: 432px;
+}
+.modal-body .zhuxiaotanchu .zhuxiaoxinxi{
+	border: 1px solid #999999;
+}
+#juzhong{
+	text-align: center;
+}
+#juzhong button{
+	width: 200px;
+}
+
+
+/*passport_certificating.html查询框*/
+.query_passport{
+	text-align: center;
+	margin:0px 200px 100px;
+}
+/*passport_certificating.html按钮*/
+.government_back{
+	margin-left: 130px;
+}
+/*passport_certificating.html查询结果框*/
+.personal_information_box{
+		float: left;
+		margin:20px 15px;
+}
+.personal_information_box1{
+	
+	border: 1px solid #999999;
+	width: 400px;
+	height: 200px;
+	margin-top: 5px;
+	padding-top: 5px;
+}
+.personal_information_box1 dt,.personal_information_box1 dd{
+	margin-bottom: 5px;
+}
+.personal_information_box1 input,.personal_information_box1 select{
+	margin-bottom: 8px;
+}
+.personal_information_button{
+	text-align: center;
+}
+.personal_information_button button{
+	width: 200px;
+}

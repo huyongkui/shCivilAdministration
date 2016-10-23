@@ -17,6 +17,7 @@
 	<script type="text/javascript" src='assets/js/jquery.min.js'></script>
 	<script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
 	<script type="text/javascript" src='js/applicationprocess.js'></script>
+	<script type="text/javascript" src='assets/My97DatePicker/WdatePicker.js'></script>
 </head>
 
 <body>
@@ -56,10 +57,22 @@
 								<input type="text" placeholder="请输入护照编号" class="form-control">
 							</div>
 						</div>
+						<div>
+							<label for="firstname" class="col-sm-1 control-label">发证日期</label>
+							<div class="col-lg-2">
+								<input type="text" placeholder="请选择发证日期" onclick="WdatePicker()" class="Wdate form-control ">
+							</div>
+						</div>
+						<div>
+							<label for="firstname" class="col-sm-1 control-label">发证基地</label>
+							<div class="col-lg-2">
+								<input type="text" placeholder="请输入发证基地" class="form-control">
+							</div>
+						</div>
 						<div class="col-lg-1">
 							<button type="submit" class="btn btn-primary btn-sm btn-block">查询</button>
 						</div>
-						<div class="col-lg-2 col-lg-offset-6">
+						<div class="col-lg-2">
 							<p class="all_amount">共计：20条</p>
 						</div>
 					</div>
@@ -67,38 +80,38 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th class="col-lg-1">订单编号</th>
 							<th class="col-lg-1">订单类型</th>
 							<th class="col-lg-1 center-block">申请方式</th>
-							<th class="col-lg-1">发证时间</th>
 							<th class="col-lg-1">姓名</th>
 							<th class="col-lg-2">护照编号</th>
+							<th class="col-lg-2">发证时间</th>
+							<th class="col-lg-2">发证基地</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>3020161020A001</td>
 							<td>首次申请</td>
 							<td>在线</td>
-							<td>2016-05-15</td>
-							<td>张三</td>
-							<td>121212121212121212</td>
+							<td>宋雨</td>
+							<td>3020161020A001</td>
+							<td>2015-11-15</td>
+							<td>上海坤泰苑小区居委会</td>
 						</tr>
 						<tr>
-							<td>3020161020A001</td>
 							<td>首次申请</td>
 							<td>在线</td>
-							<td>2016-05-15</td>
-							<td>张三</td>
-							<td>121212121212121212</td>
+							<td>宋雨</td>
+							<td>3020161020A001</td>
+							<td>2015-11-15</td>
+							<td>上海坤泰苑小区居委会</td>
 						</tr>
 						<tr>
-							<td>3020161020A001</td>
 							<td>首次申请</td>
 							<td>在线</td>
-							<td>2016-05-15</td>
-							<td>张三</td>
-							<td>121212121212121212</td>
+							<td>宋雨</td>
+							<td>3020161020A001</td>
+							<td>2015-11-15</td>
+							<td>上海坤泰苑小区居委会</td>
 						</tr>
 					</tbody>
 				</table>
