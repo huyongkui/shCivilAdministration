@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<title>公益护照订单列表</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/approvallist.css">
+	<link rel="stylesheet" href="css/approvallist_bootstrap.css">
+	<script type="text/javascript" src='assets/js/jquery.min.js'></script>
+	<script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/applicationprocess.js'></script>
+</head>
+
+<body>
+	<div class='common_header_wrapper'>
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="javascript:;">公益护照订单列表</a>
+				</div>
+				<div class='common_headeruserinfo_wrapper'>
+					<span class='avatar'>
+						<img src="img/timg.jpg">
+					</span>
+					<label>审核人</label>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="javascript:;">&nbsp;待制证</a></li>
+					<li><a href="javascript:;">&nbsp;待发证</a></li>
+					<li><a href="javascript:;">&nbsp;已发证</a></li>
+					<li><a href="javascript:;">&nbsp;已激活</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h2 class="sub-header"></h2>
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<div>
+							<label for="firstname" class="col-sm-1 control-label">证件编号</label>
+							<div class="col-lg-2">
+								<input type="text" placeholder="请输入证件编号" class="form-control">
+							</div>
+						</div>
+						<div>
+							<label for="firstname" class="col-sm-1 control-label">订单编号</label>
+							<div class="col-lg-2">
+								<input type="text" placeholder="请输入订单编号" class="form-control">
+							</div>
+						</div>
+						<div>
+							<label for="firstname" class="col-sm-1 control-label">姓名</label>
+							<div class="col-lg-2">
+								<input type="text" placeholder="请输入姓名" class="form-control">
+							</div>
+						</div>
+						<div class="col-lg-1">
+							<button type="submit" class="btn btn-primary btn-sm btn-block">查询</button>
+						</div>
+					</div>
+				</form>
+                <h2 class="sub-header"></h2>
+                <table class="table table-hover">
+					<thead>
+					    <tr>
+					     	<th class="col-lg-2">订单编号</th>
+							<th class="col-lg-2">订单类型</th>
+							<th class="col-lg-2 center-block">申请方式</th>
+							<th class="col-lg-2">姓名</th>
+							<th class="col-lg-3">证件编号</th>
+							<th class="col-lg-2"></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>3020161020A001</td>
+					      <td>首次申请</td>
+					       <td>在线</td>
+					       <td>张三</td>
+					    	<td>3020161020A001</td>
+					       <td>
+					     	 	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">重新分配基地</button>
+							</td>
+					    </tr>
+					    <tr>
+					      <td>3020161020A002</td>
+					      <td>遗失补办</td>
+					       <td>在线</td>
+					       <td>张三</td>
+					        <td>3020161020A001</td>
+					        <td>
+					     	 	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">重新分配基地</button>
+							</td>
+						
+					    </tr>
+					     <tr>
+					      <td>3020161020A003</td>
+					      <td>退回重制</td>
+					       <td>现场</td>
+					       <td>张三</td>
+					        <td>3020161020A001</td>
+					       <td>
+					     	 	<button type="button" class="common_btn_item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">重新分配基地</button>
+							</td>
+					    </tr>
+					</tbody>
+				</table>
+
+
+				<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="passport_certidetail_wrapper modal-dialog">
+						<div class="modal-content modal-lg">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel">申请人详情</h4>
+							</div>
+							<div class="modal-body col-lg-12">
+								<div class="form-group col-lg-12">
+									<label class="col-lg-2 control-label">选择区域</label>
+										<div class="col-lg-2">
+											<select class="form-control ">
+													<option>上海市</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+											</select>
+										</div>
+										<div class="col-lg-2">
+											<select class="form-control ">
+													<option>长宁区</option>
+													<option>2</option>
+													<option>3</option>
+													<option>4</option>
+													<option>5</option>
+											</select>
+										</div>
+										<form class="form-horizontal" role="form">
+											<div class="form-group">
+												<div>
+													<label for="firstname" class="col-sm-2 control-label">基地名称</label>
+													<div class="col-lg-3">
+														<input type="text" placeholder="请输入基地名称" class="form-control">
+													</div>
+												</div>
+												<div class="col-lg-1">
+													<button type="button" class="btn btn-primary btn-sm btn-block">查询</button>
+												</div>
+											</div>
+										</form>
+								</div>
+								<div class="form-group col-lg-12">
+									<label class="col-lg-2 control-label">预约基地</label>
+									<div class="col-lg-10">
+										<input class='form-control' type="text" placeholder="基地名称" >
+									</div>
+								</div>
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="approlist_save_item btn btn-primary">分配</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+$(function() {
+	var preliminary = {
+		modal: function() {
+			var saveBtn = $('.approlist_save_item');
+			saveBtn.click(function(e) {
+				$('#myModal').modal('toggle');
+			});
+		},
+		init: function() {
+			this.modal();
+		}
+	}
+	preliminary.init();
+})
+</script>
+
+</html>
