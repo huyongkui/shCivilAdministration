@@ -70,3 +70,51 @@
 
 	margin: 0px auto ;
 }
+/*passport_cancellation.html*/
+.modal-body .zhuxiaotanchu{
+	display: inline-block;
+	width: 432px;
+}
+.modal-body .zhuxiaotanchu .zhuxiaoxinxi{
+	border: 1px solid #999999;
+}
+#juzhong{
+	text-align: center;
+}
+#juzhong button{
+	width: 200px;
+}
+
+
+
+
+/*passport_certificating.html查询框*/
+.query_passport{
+	text-align: center;
+	margin:0px 300px 100px;
+}
+/*passport_certificating.html查询结果框*/
+.personal_information_box{
+		float: left;
+		margin:20px 15px;
+}
+.personal_information_box1{
+	
+	border: 1px solid #999999;
+	width: 400px;
+	height: 200px;
+	margin-top: 5px;
+	padding-top: 5px;
+}
+.personal_information_box1 dt,.personal_information_box1 dd{
+	margin-bottom: 5px;
+}
+.personal_information_box1 input,.personal_information_box1 select{
+	margin-bottom: 8px;
+}
+.personal_information_button{
+	text-align: center;
+}
+.personal_information_button button{
+	width: 200px;
+}

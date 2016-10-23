@@ -40,9 +40,10 @@
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
 					<li><a href="javascript:;">&nbsp;待制证</a></li>
-					<li><a href="javascript:;">&nbsp;待发证</a></li>
+					<li class="active"><a href="javascript:;">&nbsp;待发证</a></li>
 					<li><a href="javascript:;">&nbsp;已发证</a></li>
-					<li class="active"><a href="javascript:;">&nbsp;已激活</a></li>
+					<li><a href="javascript:;">&nbsp;已激活</a></li>
+					<li><a href="javascript:;">&nbsp;待注销</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -61,12 +62,6 @@
 								<input type="text" placeholder="请输入订单编号" class="form-control">
 							</div>
 						</div>
-						<div>
-							<label for="firstname" class="col-sm-1 control-label">姓名</label>
-							<div class="col-lg-2">
-								<input type="text" placeholder="请输入姓名" class="form-control">
-							</div>
-						</div>
 						<div class="col-lg-1">
 							<button type="submit" class="btn btn-primary btn-sm btn-block">查询</button>
 						</div>
@@ -76,13 +71,11 @@
 					<thead>
 						<tr>
 							<th class="col-lg-2">订单编号</th>
-							<th class="col-lg-1">订单类型</th>
-							<th class="col-lg-1 center-block">申请方式</th>
+							<th class="col-lg-2">订单类型</th>
+							<th class="col-lg-2 center-block">申请方式</th>
 							<th class="col-lg-1">姓名</th>
-							<th class="col-lg-2">证件编号</th>
-							<th class="col-lg-2">制证部门</th>
-							<th class="col-lg-2">发证基地</th>
-							<th class="col-lg-2">激活时间</th>
+							<th class="col-lg-3">证件编号</th>
+							<th class="col-lg-3">制证部门</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -93,8 +86,6 @@
 							<td>张三</td>
 							<td>3020161020A00200</td>
 							<td>上海坤泰苑小区居委会</td>
-							<td>上海坤泰苑小区居委会</td>
-							<td>2016-10-21</td>
 						</tr>
 						<tr>
 							<td>3020161020A002</td>
@@ -103,8 +94,6 @@
 							<td>张三</td>
 							<td>3020161020A00200</td>
 							<td>上海坤泰苑小区居委会</td>
-							<td>上海坤泰苑小区居委会</td>
-							<td>2016-10-21</td>
 						</tr>
 						<tr>
 							<td>3020161020A003</td>
@@ -113,45 +102,15 @@
 							<td>张三</td>
 							<td>3020161020A00200</td>
 							<td>上海坤泰苑小区居委会</td>
-							<td>上海坤泰苑小区居委会</td>
-							<td>2016-10-21</td>
 						</tr>
 					</tbody>
 				</table>
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="passport_certidetail_wrapper modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-								<h4 class="modal-title" id="myModalLabel">申请人详情</h4>
-							</div>
-							<div class="modal-body">
-								<dl class="dl-horizontal lead ">
-									<dt>手机号</dt>
-									<dd>121212121212</dd>
-									<dt>姓名</dt>
-									<dd>张三</dd>
-									<dt>性别</dt>
-									<dd>男</dd>
-									<dt>证件类型</dt>
-									<dd>身份证</dd>
-									<dt>证件编号</dt>
-									<dd>121212121212121212</dd>
-									<dt>坏证来源</dt>
-									<dd>制证退回</dd>
-								</dl>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-							</div>
-						</div>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>
 </body>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(function() {
 	var preliminary = {
 		modal: function() {
@@ -166,6 +125,6 @@ $(function() {
 	}
 	preliminary.init();
 })
-</script>
+</script> -->
 
 </html>
