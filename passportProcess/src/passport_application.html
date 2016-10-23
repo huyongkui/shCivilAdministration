@@ -55,29 +55,16 @@
 					<div class="form-group">
 						<label class="col-lg-2 control-label">验证码</label>
 						<div class="col-lg-10">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" id="phone_verification">
 						</div>
 					</div>
 					<!--姓名-->
 					<div class="form-group">
 						<label class="col-lg-2 control-label">姓名</label>
-						<div class="col-lg-3">
+						<div class="col-lg-10">
 							<input type="text" class="form-control" id="user_name">
 						</div>
-						<!--性别-->
-						<label class="col-lg-2 control-label">性别</label>
-						<div class="col-lg-5">
-							<div class="col-lg-3">
-								<label class="radio-inline">
-									<input type="radio" name="gender">男
-								</label>
-							</div>
-							<div class="col-lg-2">
-								<label class="radio-inline">
-									<input type="radio" name="gender"> 女
-								</label>
-							</div>
-						</div>
+						
 					</div>
 					<!--证件类型-->
 					<div class="form-group">
@@ -98,8 +85,22 @@
 					<!--出生日期-->
 					<div class="form-group">
 						<label class="col-lg-2 control-label">出生日期</label>
-						<div class="col-lg-10">
+						<div class="col-lg-3">
 							<input id="birth_date" type="text" class="form-control">
+						</div>
+						<!--性别-->
+						<label class="col-lg-2 control-label">性别</label>
+						<div class="col-lg-5">
+							<div class="col-lg-3">
+								<label class="radio-inline">
+									<input type="radio" name="gender" checked="checked">男
+								</label>
+							</div>
+							<div class="col-lg-2">
+								<label class="radio-inline">
+									<input type="radio" name="gender"> 女
+								</label>
+							</div>
 						</div>
 					</div>
 					<!--申请类别-->
@@ -108,19 +109,25 @@
 						<div class="col-lg-10">
 							<select class='applicationtype_select form-control'>
 								<option>首次申领</option>
-								<option data="reissue">换发普通护照</option>
-								<option data="reissue">补发普通护照</option>
+								<option data="reissue">换发护照</option>
+								<option data="reissue">补发护照</option>
 							</select>
 						</div>
 					</div>
-					<div class="reissueform_wrapper form-group">
-						<label class="col-lg-2 control-label">原因</label>
-						<label class="col-lg-3 control-label">
-							<input type="checkbox" value="0">原护照丢失
-						</label>
-						<label class="col-lg-3 control-label">
-							<input type="checkbox" value="0">原护照被盗、损毁
-						</label>
+					<div class="reissueform_wrapper">
+					<label class="col-lg-2 control-label ">原因</label>
+						<div class="col-lg-10">
+							<div class="col-lg-5">
+								<label class="radio-inline">
+									<input type="radio" name="passport" checked="checked">原护照丢失
+								</label>
+							</div>
+							<div class="col-lg-5">
+								<label class="radio-inline">
+									<input type="radio" name="passport">原护照被盗、损毁
+								</label>
+							</div>
+						</div>
 					</div>
 					<!--紧急联系人-->
 					<div class="form-group">
@@ -140,7 +147,7 @@
 					<div class="form-group">
 						<label class="col-lg-2 control-label">住址</label>
 						<div class="col-lg-9">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" id="urgent_address">
 						</div>
 					</div>
 					<!--</div>-->
@@ -160,7 +167,7 @@
 							<div class="form-group">
 								<label class="col-lg-2 control-label">姓名</label>
 								<div class="col-lg-3">
-									<input type="text" class="form-control" disabled>
+									<input type="text" class="form-control" disabled id="guardian_name">
 								</div>
 								<label class="col-lg-2 control-label">性别</label>
 								<div class="col-lg-4">
@@ -273,17 +280,34 @@ $(function() {
 						})
 					}
 				})
-				/*身份证验证*/
-			$("#ID_type").change(function() {
-					authentication();
-				})
-				/*判断其他字段是否为空*/
+//				/*身份证验证*/
+//			$("#ID_type").change(function() {
+//					authentication();
+//				})
+			/*判断手机号是否为空*/
 			$("#phone_number").blur(function() {
 				var phone_pattern = /^\d{11}$/;
 				if (!phone_pattern.test($("#phone_number").val())) {
 					alert("手机号填写错误");
 				}
 			})
+			/*监护人证件编号*/
+			if($("#guardian_name").val()=="身份证"){
+				$("#guardian_number").blur(function(){
+					var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
+					if(!pattern.test($("#guardian_number").val())){
+						alert("请填写正确的证件编号")
+					}
+				})
+			}
+			/*出生日期*/
+			$("#birth_date").blur(function(){
+				var birth=/^\d{8}$/;
+				if(($("#birth_date").val().length!==8) && !(birth.test($("#birth_date").val()))){
+					alert("出生日期的长度必须为8位数");
+				}				
+			})
+				
 		},
 		init: function() {
 			this.choosePassportType();
@@ -292,17 +316,14 @@ $(function() {
 	authentication();
 	application.init();
 })
-
 function authentication() {
+	var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
 	if ($("#ID_type").val() == "身份证") {
-		var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
 		$("#ID_number").blur(function() {
 			var IDNumber = $("#ID_number").val();
 			var birth_date = "";
 			if (pattern.test(IDNumber)) {
-				if (IDNumber.length == 15) {
-					birth_date = IDNumber.substring(6, 12);
-				} else {
+				if (IDNumber.length == 18) {
 					birth_date = IDNumber.substring(6, 14);
 				}
 				$("#birth_date").val(birth_date);
@@ -318,7 +339,10 @@ $("#summitbtn").click(function() {
 	if ($("#phone_number").val() == "") {
 		alert("手机号不能为空");
 		$("#summitbtn").attr("href", "#");
-	} else if ($("#user_name").val() == "") {
+	}else if ($("#phone_verification").val() == "") {
+		alert("验证码不能为空");
+		$("#summitbtn").attr("href", "#");
+	}else if ($("#user_name").val() == "") {
 		alert("姓名不能为空");
 		$("#summitbtn").attr("href", "#");
 	} else if ($("#ID_number").val() == "") {
@@ -333,30 +357,34 @@ $("#summitbtn").click(function() {
 	} else if ($("#urgent_phone").val() == "") {
 		alert("紧急联系人电话不能为空");
 		$("#summitbtn").attr("href", "#");
+	}else if ($("#urgent_address").val() == "") {
+		alert("紧急联系人住址不能为空");
+		$("#summitbtn").attr("href", "#");
 	}
-	if ($("#guardiantype").attr("checked") == "checked") {
-		if ($("#guardian_name").val()) {
+	 else if ($("#guardiantype").is(":checked")) {
+		if($("#guardian_name").val() == "") {
 			alert("监护人信息不能为空");
 			$("#summitbtn").attr("href", "#");
-		} else if ($("#guardian_relation").val()) {
+		}else if ($("#guardian_relation").val() == "") {
 			alert("监护人关系不能为空");
 			$("#summitbtn").attr("href", "#");
-		} else if ($("#guardian_phone").val()) {
+		} else if ($("#guardian_phone").val() == "") {
 			alert("监护人电话不能为空");
 			$("#summitbtn").attr("href", "#");
-		} else if ($("#guardian_number").val()) {
+		} else if ($("#guardian_number").val() == "") {
 			alert("监护人证件编号不能为空");
 			$("#summitbtn").attr("href", "#");
 		}
-	}
-	if ($("#unit_info").attr("checked") == "checked") {
-		if ($("#unit_name").val()) {
+	}else if ($("#unit_info").is(":checked")) {
+		if ($("#unit_name").val() == "") {
 			alert("监护单位名称不能为空");
 			$("#summitbtn").attr("href", "#");
-		} else if ($("#unit_code").val()) {
+		} else if ($("#unit_code").val() == "") {
 			alert("组织机构代码不能为空");
 			$("#summitbtn").attr("href", "#");
 		}
+	}else{
+		$("#summitbtn").attr("href", "passport_pickdataandbase.html");
 	}
 })
 

@@ -134,15 +134,15 @@
 										
 										<dl class="dl-horizontal lead ">
 										<dt>姓名</dt>
-										<dd>张三</dd>
+										<dd id="native_name">张三</dd>
 										<dt>性别</dt>
-										<dd>男</dd>
+										<dd id="native_sex">男</dd>
 										<dt>证件类型</dt>
-										<dd>身份证</dd>
+										<dd id="native_card">身份证</dd>
 										<dt>证件编号</dt>
-										<dd>121212121212121212</dd>
+										<dd id="native_ID">121212121212121212</dd>
 										<dt>出生日期</dt>
-										<dd>1995-05-05</dd>
+										<dd id="native_birth">19950505</dd>
 									</dl>
 									</div>
 								</div>
@@ -154,33 +154,34 @@
 										<form class="form-horizontal" role="form">
 												<label for="firstname" class="col-lg-4 control-label">姓名</label>
 												<div class="col-lg-6">
-													<input type="text" placeholder="请输入姓名" class="form-control">
+													<input type="text" placeholder="请输入姓名" class="form-control" id="update_name">
 												</div>
 												<label class="col-lg-4 control-label">性别</label>
+													<div id="update_sex">
 														<div class="col-lg-3">
 															<label class="radio-inline">
-																<input type="radio" name="gender">男
+																<input type="radio" name="gender" value="man">男
 															</label>
 														</div>
 														<div class="col-lg-2">
 															<label class="radio-inline">
-																<input type="radio" name="gender"> 女
+																<input type="radio" name="gender" value="woman"> 女
 															</label>
 														</div>
+													</div>
 												<label class="col-lg-4 control-label">证件类型</label>
 													<div class="col-lg-6">
-														<select class="form-control ">
-																<option>身份证</option>
-																<option>2</option>
+														<select class="form-control " id="update_card">
+																<option value="0">身份证</option>
 														</select>
 													</div>
 												<label for="firstname" class="col-lg-4 control-label">证件编号</label>
 												<div class="col-lg-6">
-													<input type="text" placeholder="请输入证件编号" class="form-control">
+													<input type="text" placeholder="请输入证件编号" class="form-control" id="update_ID">
 												</div>
 												<label for="firstname" class="col-lg-4 control-label">出生日期</label>
 												<div class="col-lg-6">
-													<input type="text" placeholder="请输入出生日期" class="form-control">
+													<input type="text" placeholder="请输入出生日期" class="form-control"  id="update_birth">
 												</div>
 										</form>
 									</div>
@@ -188,7 +189,7 @@
 							</div>
 							<div class="modal-footer personal_information_button">
 								<button type="button" class="btn btn-default btn-primary" data-dismiss="modal">取消</button>
-								<button type="button" class="approlist_save_item2 btn btn-primary">确定</button>
+								<button type="button" class="approlist_save_item2 btn btn-primary" id="summit_OK">确定</button>
 							</div>
 						</div>
 					</div>
@@ -215,8 +216,49 @@ $(function() {
 			this.modal();
 		}
 	}
+	inputVerify();
 	preliminary.init();
+
 })
+function inputVerify(){
+	$("#update_name").attr("placeholder",$("#native_name").text());
+	$("#update_ID").attr("placeholder",$("#native_ID").text());
+	$("#update_birth").attr("placeholder",$("#native_birth").text());
+	if($("#native_sex").text()=="男"){
+		$("#update_sex input[value='man']").attr("checked","checked");
+	}else{
+		$("#update_sex input[value='woman']").attr("checked","checked");
+	}if($("#native_card").text()=="身份证"){
+		$("#update_card[value='1']").attr("checked","checked");
+	}
+	/*身份证*/
+	$("#update_ID").blur(function(){
+		var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
+			if(!pattern.test($("#update_ID").val())){
+				alert("请填写正确的证件编号")
+			} 
+	})
+	
+	/*出生日期*/
+	$("#update_birth").blur(function(){
+		var birth=/^\d{8}$/;
+		if(($("#update_birth").val().length!==8) && !(birth.test($("#update_birth").val()))){
+			alert("出生日期的长度必须为8位数");
+		}				
+	})
+	
+	$("#summit_OK").click(function(){
+		if($("#update_name").val==""){
+			$("#update_name").val($("#native_name").text());
+		}
+		if($("#update_ID").val==""){
+			$("#update_ID").val($("#native_ID").text());
+		}
+		if($("#update_birth").val==""){
+			$("#update_birth").val($("#native_birth").text());
+		}
+	})
+}
 </script>
 
 </html>
