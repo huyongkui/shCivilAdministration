@@ -17,6 +17,8 @@
 	<script type="text/javascript" src='assets/js/jquery.min.js'></script>
 	<script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
 	<script type="text/javascript" src='js/applicationprocess.js'></script>
+	<link rel="stylesheet" href="assets/laypage-v1.3/laypage/skin/laypage.css" />
+	<script type="text/javascript" src="assets/laypage-v1.3/laypage/laypage.js" ></script>
 </head>
 
 <body>
@@ -59,8 +61,8 @@
 						<div class="col-lg-1">
 							<button type="submit" class="btn btn-primary btn-sm btn-block">查询</button>
 						</div>
-						<div class="col-lg-2 col-lg-offset-6">
-							<p class="all_amount">共计：20条</p>
+						<div class="col-lg-2 col-lg-offset-5">
+							<p class="all_amount" id="all_amount">共计：20条</p>
 						</div>
 					</div>
 				</form>
@@ -75,70 +77,19 @@
 							<th class="col-lg-2">护照编号</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="table_data">
 						<tr>
 							<td>3020161020A001</td>
 							<td>首次申请</td>
 							<td>在线</td>
-							<td>2016-05-15</td>
-							<td>张三</td>
-							<td>121212121212121212</td>
-						</tr>
-						<tr>
-							<td>3020161020A001</td>
-							<td>首次申请</td>
-							<td>在线</td>
-							<td>2016-05-15</td>
-							<td>张三</td>
-							<td>121212121212121212</td>
-						</tr>
-						<tr>
-							<td>3020161020A001</td>
-							<td>首次申请</td>
-							<td>在线</td>
-							<td>2016-05-15</td>
+							<td>2016-10-15</td>
 							<td>张三</td>
 							<td>121212121212121212</td>
 						</tr>
 					</tbody>
 				</table>
-				<!-- 分页 -->
-				<ul class="pagination">
-				<li><a href="#">&laquo;</a></li>
-				<li class="active"><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#">&raquo;</a></li>
-				</ul>
-				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					<div class="passport_certidetail_wrapper modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-								<h4 class="modal-title" id="myModalLabel">申请人详情</h4>
-							</div>
-							<div class="modal-body">
-								<dl class="dl-horizontal lead ">
-									<dt>手机号</dt>
-									<dd>121212121212</dd>
-									<dt>姓名</dt>
-									<dd>张三</dd>
-									<dt>性别</dt>
-									<dd>男</dd>
-									<dt>证件类型</dt>
-									<dd>身份证</dd>
-									<dt>证件编号</dt>
-									<dd>121212121212121212</dd>
-								</dl>
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-							</div>
-						</div>
-					</div>
-				</div>
+				<ul id="biuuu_city_list"  align="center"></ul>  
+
 			</div>
 		</div>
 	</div>
@@ -157,7 +108,51 @@ $(function() {
 		}
 	}
 	preliminary.init();
+	front_page();
 })
+
+function front_page(){
+		var tbody_len=$("#table_data tr").length;
+		var data=[
+			['3020161020A001','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A002','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A003','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A004','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A005','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A006','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A007','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A008','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A009','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A0010','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A0011','首次申请','在线','2016-10-23','张三','121212121212121212'],
+			['3020161020A0012','首次申请','在线','2016-10-23','张三','121212121212121212']
+		];
+		var nums = 10; //每页出现的数据量
+	  $("#all_amount").text("共计："+data.length+"条");
+	  //模拟渲染
+	  var render = function(curr){
+	    //此处只是演示，实际场景通常是返回已经当前页已经分组好的数据
+	    var str = '', last = curr*nums - 1;
+	    last = last >= data.length ? (data.length-1) : last;
+	    for(var i = (curr*nums - nums); i <= last; i++){
+	      str += '<tr>';
+	      for(var j=0;j<data[i].length;j++){
+	      	str+='<td>'+data[i][j]+'</td>'
+	      }
+	      str += '</tr>';
+	    }
+	    return str;
+	  };	  
+	  //调用分页
+	  laypage({
+	    cont: 'biuuu_city_list',
+	    pages: Math.ceil(data.length/nums), //得到总页数
+	    skin:'#1E9FFF',
+	    jump: function(obj){
+	      document.getElementById('table_data').innerHTML = render(obj.curr);
+	    }
+	  });
+}
 </script>
 
 </html>
