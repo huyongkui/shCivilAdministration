@@ -120,3 +120,8 @@
 .personal_information_button button{
 	width: 200px;
 }
+
+/*front-page-list居中*/
+#passport_order_list{
+	text-align: center;
+}
