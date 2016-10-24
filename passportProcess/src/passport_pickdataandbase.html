@@ -2,161 +2,182 @@
 <html>
 
 <head lang="en">
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="keywords" content="">
-	<title>护照申请表格</title>
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
-	<link rel="stylesheet" href="assets/css/build_standalone.less">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/approvallist.css">
-	<link rel="stylesheet" href="css/approvallist_bootstrap.css">
-	<script type="text/javascript" src='assets/js/jquery.min.js'></script>
-	<script type="text/javascript" src='assets/js/bootstrap-datetimepicker.min.js'></script>
-	<script type="text/javascript" src='assets/js/locales/bootstrap-datetimepicker.zh-CN.js'></script>
-	<script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
-	<script type="text/javascript" src='js/applicationprocess.js'></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <title>护照申请表格</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="assets/css/build_standalone.less">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/approvallist.css">
+    <link rel="stylesheet" href="css/approvallist_bootstrap.css">
+    <script type="text/javascript" src='assets/js/jquery.min.js'></script>
+    <script type="text/javascript" src='assets/js/bootstrap-datetimepicker.min.js'></script>
+    <script type="text/javascript" src='assets/js/locales/bootstrap-datetimepicker.zh-CN.js'></script>
+    <script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
+    <script type="text/javascript" src='js/applicationprocess.js'></script>
 </head>
 
 <body>
-	<div class='common_header_wrapper'>
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="javascript:;">申请表格</a>
-				</div>
-				<div class='common_headeruserinfo_wrapper'>
-					<span class='avatar'>
+    <div class='common_header_wrapper'>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="javascript:;">申请表格</a>
+                </div>
+                <div class='common_headeruserinfo_wrapper'>
+                    <span class='avatar'>
 						<img src="img/timg.jpg">
 					</span>
-					<label>申请人</label>
-				</div>
-			</div>
-		</nav>
-	</div>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="common_process_wrapper main">
-				<form class="passport_pickdate_wrapper form-horizontal" role="form">
-					
-					<div class="form-group col-lg-12">
-						<label class="col-lg-3 control-label">选择区域</label>
-							<div class="col-lg-3">
-								<select class="form-control ">
-										<option>上海市</option>
-								</select>
-							</div>
-							<div class="col-lg-3">
-								<select class="form-control ">
-										<option>黄浦区</option>
-										<option>徐汇区</option>
-										<option>长宁区</option>
-										<option>静安区</option>
-										<option>普陀区</option>
-										<option>虹口区</option>
-										<option>杨浦区</option>
-										<option>闵行区</option>
-										<option>宝山区</option>
-										<option>嘉定区</option>
-										<option>浦东新区</option>
-										<option>金山区</option>
-										<option>松江区</option>
-										<option>青浦区</option>
-										<option>奉贤区</option>
-								</select>
-							</div>
-					</div>
-					
-					
-					<div class="form-group col-lg-12">
-						<label class="col-lg-3 control-label">基地预约</label>
-							<div class="col-lg-9">
-								<select class="form-control ">
-										<option>环境保护基地</option>
-										<option>卫生医疗基地</option>
-								</select>
-							</div>
-					</div>
-					<div class="form-group col-lg-12">
-						<label class="col-lg-3 control-label">时间预约</label>
-						<div class="col-lg-9">
-							<input class='form-control' type="text" value="" id="datetimepicker">
-						</div>
-					</div>
-					<div class="form-group summitbtn">
-						<div class="col-lg-offset-2 col-lg-9">
-							<a href='' class="btn btn-primary btn-lg btn-block" id="submitbtn">提交</a>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <label>申请人</label>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="common_process_wrapper main">
+                <form class="passport_pickdate_wrapper form-horizontal" role="form">
+                    <div class="form-group col-lg-12">
+                        <label class="col-lg-3 control-label">选择区域</label>
+                        <div class="col-lg-3">
+                            <select class="form-control ">
+                                <option>上海市</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3">
+                            <select class="form-control ">
+                                <option>黄浦区</option>
+                                <option>徐汇区</option>
+                                <option>长宁区</option>
+                                <option>静安区</option>
+                                <option>普陀区</option>
+                                <option>虹口区</option>
+                                <option>杨浦区</option>
+                                <option>闵行区</option>
+                                <option>宝山区</option>
+                                <option>嘉定区</option>
+                                <option>浦东新区</option>
+                                <option>金山区</option>
+                                <option>松江区</option>
+                                <option>青浦区</option>
+                                <option>奉贤区</option>
+                                <option>崇明县</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label class="col-lg-3 control-label">基地预约</label>
+                        <div class="col-lg-9">
+                            <select class="form-control ">
+                                <option>环境保护基地</option>
+                                <option>卫生医疗基地</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label class="col-lg-3 control-label">时间预约</label>
+                        <div class="col-lg-9" style="position:relative;">
+                            <input style="position:absolute; opacity:0;" class='form-control' type="text" value="" id="datetimepicker">
+                            <input class='form-control' type="text" value="" id="datetimepicker1">
+                        </div>
+                    </div>
+                    <div class="form-group summitbtn">
+                        <div class="col-lg-offset-2 col-lg-9">
+                            <a href='' class="btn btn-primary btn-lg btn-block" id="submitbtn">提交</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 <script type="text/javascript">
 $(function() {
-	var application = {
-		formsetting: function() {
-			var isfulltimestaffWrapperEl = $('.application_isfulltimestaff_wrapper');
-			isfulltimestaffWrapperEl.find('input[type=radio]').click(function() {
-				if ($(this).attr('alt') == 'no') {
-					isfulltimestaffWrapperEl.find('.peoplenumber').removeAttr('disabled');
-				} else {
-					isfulltimestaffWrapperEl.find('.peoplenumber').attr('disabled', 'disabled');
-				}
-			})
-		},
-		datePicker: function() {
-			var newDate = new Date();
-			
-			var strDate = newDate.getFullYear()+"-"+(newDate.getMonth()+1)+"-"+(newDate.getDate()+5);
-			// +" "+newDate.getHours()+":"+"00"
-			 
-			// function getDate(strDate) { 
-			//   var st = strDate; 
-			  
-			//   var b = st.split("-"); 
-			//   var date = new Date(b[0], b[1], b[2]);
-			//   alert(date);
-			//   return date;
-			// }
+    var application = {
+        formsetting: function() {
+            var isfulltimestaffWrapperEl = $('.application_isfulltimestaff_wrapper');
+            isfulltimestaffWrapperEl.find('input[type=radio]').click(function() {
+                if ($(this).attr('alt') == 'no') {
+                    isfulltimestaffWrapperEl.find('.peoplenumber').removeAttr('disabled');
+                } else {
+                    isfulltimestaffWrapperEl.find('.peoplenumber').attr('disabled', 'disabled');
+                }
+            })
+        },
+        datePicker: function() {
+            var newDate = new Date();
 
-			var str = strDate.replace(/-/g,"/");
-			var date = new Date(str);
-			var t = (date).toJSON();
+            var strDate = newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + (newDate.getDate() + 5);
+            // +" "+newDate.getHours()+":"+"00"
 
-			$('#datetimepicker').datetimepicker({
-				format: 'yyyy-mm-dd hh',
-				minView :1,
-				language:'zh-CN',
-				autoclose: true,
-				todayHighlight: true,
-				startDate:new Date(t),
-			});
-		},
-		init: function() {
-			this.formsetting();
-			this.datePicker();
-		}
+            // function getDate(strDate) { 
+            //   var st = strDate; 
 
-		
-	}
-	application.init();
+            //   var b = st.split("-"); 
+            //   var date = new Date(b[0], b[1], b[2]);
+            //   alert(date);
+            //   return date;
+            // }
+            var strDate1=newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + newDate.getDate()+" "+newDate.getHours()+":00";
+            var str = strDate.replace(/-/g, "/");
+            $('#datetimepicker1').attr("value",strDate1);
+            var date = new Date(str);
+            var t = (date).toJSON();
 
-	// 日期检查
-	$("#submitbtn").click(function(){
-			if ($("#datetimepicker").val()=="") {
-				alert("日期不能为空！");
-				$("#submitbtn").attr("href","#");
-			}else{
-				$("#submitbtn").attr("href","passport_appointment_success.html");
-			}
-		});
+            
+
+            $('#datetimepicker').datetimepicker({
+                format: 'yyyy-mm-dd hh:00',
+                minView: 1,
+                language: 'zh-CN',
+                autoclose: true,
+                todayHighlight: true,
+                forceParse: false,
+                startDate: new Date(t),
+            });
+            $('#datetimepicker').focus(function(){
+            	var h1 = parseInt($('#datetimepicker').val().substring(11,13))+1;
+            	
+            	// var h2="";
+            	
+            	if (h1<10) {
+            		h1="0"+h1;
+            	}else if(h1>23){
+            		h1="00";
+            	}
+            	
+            	var vals=$('#datetimepicker').val().toString()+"--"+h1+":00";
+            	
+            	$('#datetimepicker1').val(vals);
+            
+            })
+
+        },
+        init: function() {
+            this.formsetting();
+            this.datePicker();
+        }
+
+
+    }
+    application.init();
+
+
+    // 日期检查
+    $("#submitbtn").click(function() {
+        if ($("#datetimepicker").val() == "") {
+            alert("日期不能为空！");
+            $("#submitbtn").attr("href", "#");
+        } else {
+            $("#submitbtn").attr("href", "passport_appointment_success.html");
+        }
+    });
 
 
 })

@@ -2,416 +2,430 @@
 <html>
 
 <head lang="en">
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<meta name="keywords" content="">
-	<title>护照申请表格</title>
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
-	<link rel="stylesheet" href="assets/css/build_standalone.less">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/approvallist.css">
-	<link rel="stylesheet" href="css/approvallist_bootstrap.css">
-	<script type="text/javascript" src='assets/js/jquery.min.js'></script>
-	<script type="text/javascript" src='assets/js/bootstrap-datetimepicker.min.js'></script>
-	<script type="text/javascript" src='assets/js/locales/bootstrap-datetimepicker.zh-CN.js'></script>
-	<script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
-	<script type="text/javascript" src='js/applicationprocess.js'></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <title>护照申请表格</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="assets/css/build_standalone.less">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/approvallist.css">
+    <link rel="stylesheet" href="css/approvallist_bootstrap.css">
+    <script type="text/javascript" src='assets/js/jquery.min.js'></script>
+    <script type="text/javascript" src='assets/js/bootstrap-datetimepicker.min.js'></script>
+    <script type="text/javascript" src='assets/js/locales/bootstrap-datetimepicker.zh-CN.js'></script>
+    <script type="text/javascript" src='assets/js/bootstrap.min.js'></script>
+    <script type="text/javascript" src='js/applicationprocess.js'></script>
 </head>
 
 <body>
-	<div class='common_header_wrapper'>
-		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="javascript:;">申请表格</a>
-				</div>
-				<div class='common_headeruserinfo_wrapper'>
-					<span class='avatar'>
+    <div class='common_header_wrapper'>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="javascript:;">申请表格</a>
+                </div>
+                <div class='common_headeruserinfo_wrapper'>
+                    <span class='avatar'>
 						<img src="img/timg.jpg">
 					</span>
-					<label>申请人</label>
-				</div>
-			</div>
-		</nav>
-	</div>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="common_process_wrapper main">
-				<form class="form-horizontal form" role="form">
-					<!--手机号-->
-					<div class='form-group'>
-						<label class="col-lg-2 control-label">手机号</label>
-						<div class="col-lg-8">
-							<input class='form-control' type="text" id="phone_number">
-						</div>
-						<button type="button" class="btn btn-default col-lg-2">发送验证码</button>
-					</div>
-					<!--验证码-->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">验证码</label>
-						<div class="col-lg-10">
-							<input type="text" class="form-control" id="phone_verification">
-						</div>
-					</div>
-					<!--姓名-->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">姓名</label>
-						<div class="col-lg-10">
-							<input type="text" class="form-control" id="user_name">
-						</div>
-						
-					</div>
-					<!--证件类型-->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">证件类型</label>
-						<div class="col-lg-10">
-							<select class='form-control' id="ID_type">
-								<option>身份证</option>
-							</select>
-						</div>
-					</div>
-					<!--证件编号-->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">证件编号</label>
-						<div class="col-lg-10">
-							<input id="ID_number" type="text" class="form-control">
-						</div>
-					</div>
-					<!--出生日期-->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">出生日期</label>
-						<div class="col-lg-3">
-							<input id="birth_date" type="text" class="form-control">
-						</div>
-						<!--性别-->
-						<label class="col-lg-2 control-label">性别</label>
-						<div class="col-lg-5">
-							<div class="col-lg-3">
-								<label class="radio-inline">
-									<input type="radio" name="gender" checked="checked">男
-								</label>
-							</div>
-							<div class="col-lg-2">
-								<label class="radio-inline">
-									<input type="radio" name="gender">女
-								</label>
-							</div>
-						</div>
-					</div>
-					<!--申请类别-->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">申请类别</label>
-						<div class="col-lg-10">
-							<select class='applicationtype_select form-control'>
-								<option>首次申领</option>
-								<option data="reissue">换发护照</option>
-								<option data="reissue">补发护照</option>
-							</select>
-						</div>
-					</div>
-					<div class="reissueform_wrapper">
-					<label class="col-lg-2 control-label ">原因</label>
-						<div class="col-lg-10">
-							<div class="col-lg-5">
-								<label class="radio-inline">
-									<input type="radio" name="passport" checked="checked">原护照丢失
-								</label>
-							</div>
-							<div class="col-lg-5">
-								<label class="radio-inline">
-									<input type="radio" name="passport">原护照被盗、损毁
-								</label>
-							</div>
-						</div>
-					</div>
-					<!--紧急联系人-->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">紧急联系人</label>
-					</div>
-					<!--<div class="form-group">-->
-					<div class="form-group">
-						<label class="col-lg-2 control-label">姓名</label>
-						<div class="col-lg-3">
-							<input type="text" class="form-control" id="urgent_name">
-						</div>
-						<label class="col-lg-2 control-label">电话</label>
-						<div class="col-lg-4">
-							<input  type="text" class="form-control" id="urgent_phone">
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-lg-2 control-label">住址</label>
-						<div class="col-lg-9">
-							<input type="text" class="form-control" id="urgent_address">
-						</div>
-					</div>
-					<!--</div>-->
-					<!--未成年人申请填写-->
-					<div class="form-group">
-						<label class="col-lg-3 control-label ">
-							<input class="minor_checkbox pull-left" id='juvenile' type="checkbox">
-							<label class='pull-left' for='juvenile'>未成年人申请填写</label>
-						</label>
-					</div>
-					<!--监护人信息-->
-					<div class="guardianinformation_wrapper">
-						<label class="radio-inline">
-							<input class='guardiantype' type="radio" data="guardian" name='guardiantype' id="guardiantype">监护人信息
-						</label>
-						<div class='guardian_wrapper'>
-							<div class="form-group">
-								<label class="col-lg-2 control-label">姓名</label>
-								<div class="col-lg-3">
-									<input type="text" class="form-control" disabled id="guardian_name">
-								</div>
-								<label class="col-lg-2 control-label">性别</label>
-								<div class="col-lg-4">
-									<div class="col-lg-3">
-										<label class="radio-inline">
-											<input type="radio" name="gender1" disabled checked>男
-										</label>
-									</div>
-									<div class="col-lg-2">
-										<label class="radio-inline">
-											<input type="radio" name="gender1" disabled> 女
-										</label>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-lg-2 control-label">监护人关系</label>
-								<div class="col-lg-3">
-									<input type="text" class="form-control" disabled id="guardian_relation">
-								</div>
-								<label class="col-lg-2 control-label">电话</label>
-								<div class="col-lg-4">
-									<input  type="text" class="form-control" disabled id="guardian_phone">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-lg-2 control-label">证件类型</label>
-								<div class="col-lg-9">
-									<select class='form-control' id="ID_type1" disabled>
-										<option>身份证</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-lg-2 control-label">证件编号</label>
-								<div class="col-lg-9">
-									<input id="ID_number1" type="text" class="form-control" disabled id="guardian_number">
-								</div>
-								<!--监护单位信息-->
-								<label class="radio-inline">
-									<input class='guardiantype' type="radio" data="monitoringinstitutions" name='guardiantype' id="unit_info">监护单位信息
-								</label>
-							</div>
-						</div>
-						<div class="monitoringinstitutions_wrapper">
-							<div class="form-group">
-								<label class="col-lg-2 control-label">单位名称</label>
-								<div class="col-lg-9">
-									<input type="text" class="form-control" disabled id="unit_name">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-lg-2 control-label" >组织机构代码</label>
-								<div class="col-lg-9">
-									<input id="unit_code" type="text" value="" class="form-control" disabled>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!--提交-->
-					<div class="form-group summitbtn">
-						<div class="col-lg-offset-2 col-lg-9">
-							<a href='passport_pickdataandbase.html' class="btn btn-primary btn-lg btn-block" id="summitbtn">下一步</a>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <label>申请人</label>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="common_process_wrapper main">
+                <form class="form-horizontal form" role="form">
+                    <!--手机号-->
+                    <div class='form-group'>
+                        <label class="col-lg-2 control-label">手机号</label>
+                        <div class="col-lg-8">
+                            <input class='form-control' type="text" id="phone_number">
+                        </div>
+                        <button type="button" class="btn btn-default col-lg-2">发送验证码</button>
+                    </div>
+                    <!--验证码-->
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">验证码</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="phone_verification">
+                        </div>
+                    </div>
+                    <!--姓名-->
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">姓名</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="user_name">
+                        </div>
+                    </div>
+                    <!--证件类型-->
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">证件类型</label>
+                        <div class="col-lg-10">
+                            <select class='form-control' id="ID_type">
+                                <option>身份证</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--证件编号-->
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">证件编号</label>
+                        <div class="col-lg-10">
+                            <input id="ID_number" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <!--出生日期-->
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">出生日期</label>
+                        <div class="col-lg-3">
+                            <input id="birth_date" type="text" class="form-control">
+                        </div>
+                        <!--性别-->
+                        <label class="col-lg-2 control-label">性别</label>
+                        <div class="col-lg-5">
+                            <div class="col-lg-3">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" checked="checked">男
+                                </label>
+                            </div>
+                            <div class="col-lg-2">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender">女
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--申请类别-->
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">申请类别</label>
+                        <div class="col-lg-10">
+                            <select class='applicationtype_select form-control'>
+                                <option>首次申领</option>
+                                <option data="reissue">换发护照</option>
+                                <option data="reissue">补发护照</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="reissueform_wrapper">
+                        <label class="col-lg-2 control-label ">原因</label>
+                        <div class="col-lg-10">
+                            <div class="col-lg-5">
+                                <label class="radio-inline">
+                                    <input type="radio" name="passport" checked="checked">原护照丢失
+                                </label>
+                            </div>
+                            <div class="col-lg-5">
+                                <label class="radio-inline">
+                                    <input type="radio" name="passport">原护照被盗、损毁
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--紧急联系人-->
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">紧急联系人</label>
+                    </div>
+                    <!--<div class="form-group">-->
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">姓名</label>
+                        <div class="col-lg-3">
+                            <input type="text" class="form-control" id="urgent_name">
+                        </div>
+                        <label class="col-lg-2 control-label">电话</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="urgent_phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">住址</label>
+                        <div class="col-lg-9">
+                            <input type="text" class="form-control" id="urgent_address">
+                        </div>
+                    </div>
+                    <!--</div>-->
+                    <!--未成年人申请填写-->
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label ">
+                            <input class="minor_checkbox pull-left" id='juvenile' type="checkbox">
+                            <label class='pull-left' for='juvenile'>未成年人申请填写</label>
+                        </label>
+                    </div>
+                    <!--监护人信息-->
+                    <div class="guardianinformation_wrapper">
+                        <label class="radio-inline">
+                            <input class='guardiantype' type="radio" data="guardian" name='guardiantype' id="guardiantype">监护人信息
+                        </label>
+                        <div class='guardian_wrapper'>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">姓名</label>
+                                <div class="col-lg-3">
+                                    <input type="text" class="form-control" disabled id="guardian_name">
+                                </div>
+                                <label class="col-lg-2 control-label">性别</label>
+                                <div class="col-lg-4" id="applicant_sex">
+                                    <div class="col-lg-3">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="gender1" disabled checked>男
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="gender1" disabled> 女
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">监护人关系</label>
+                                <div class="col-lg-3">
+                                    <select class='form-control' id="guardian_relation" disabled>
+                                        <option>父母</option>
+                                        <option>祖父母</option>
+                                        <option>外祖父母</option>
+                                        <option>兄/姐</option>
+                                        <option>其他</option>
+                                    </select>
+                                </div>
+                                <label class="col-lg-2 control-label">电话</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" disabled id="guardian_phone">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">证件类型</label>
+                                <div class="col-lg-9">
+                                    <select class='form-control' id="ID_type1" disabled>
+                                        <option>身份证</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">证件编号</label>
+                                <div class="col-lg-9">
+                                    <input id="ID_number1" type="text" class="form-control" disabled id="guardian_number">
+                                </div>
+                                <!--监护单位信息-->
+                                <label class="radio-inline">
+                                    <input class='guardiantype' type="radio" data="monitoringinstitutions" name='guardiantype' id="unit_info">监护单位信息
+                                </label>
+                            </div>
+                        </div>
+                        <div class="monitoringinstitutions_wrapper">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">单位名称</label>
+                                <div class="col-lg-9">
+                                    <input type="text" class="form-control" disabled id="unit_name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">组织机构代码</label>
+                                <div class="col-lg-9">
+                                    <input id="unit_code" type="text" value="" class="form-control" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--提交-->
+                    <div class="form-group summitbtn">
+                        <div class="col-lg-offset-2 col-lg-9">
+                            <a href='passport_pickdataandbase.html' class="btn btn-primary btn-lg btn-block" id="summitbtn">下一步</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 <script type="text/javascript">
 $(function() {
-	var application = {
-		choosePassportType: function() {
-			$('.applicationtype_select').change(function() {
-				if ($(this).find('option:selected').attr('data')) {
-					$('.reissueform_wrapper').show();
-				} else {
-					$('.reissueform_wrapper').hide();
-				}
-			});
-			$('.minor_checkbox').click(function() {
-				if ($(this).is(':checked')) {
-					$('.guardianinformation_wrapper').show();
-				} else {
-					$('.guardianinformation_wrapper').hide();
-				}
-			});
-			$('.guardiantype').click(function() {
-					var $this = $(this);
-					if ($this.attr('data') == 'guardian') {
-						$('.monitoringinstitutions_wrapper').find('input').each(function() {
-							$(this).attr('disabled', 'disabled');
-						})
-						$('.guardian_wrapper').find('input').each(function() {
-							$(this).removeAttr('disabled');
-						})
-						$('.guardian_wrapper').find('select').each(function() {
-							$(this).removeAttr('disabled');
-						})
-					} else if ($this.attr('data') == 'monitoringinstitutions') {
-						$('.guardian_wrapper').find('input').each(function() {
-							$(this).attr('disabled', 'disabled');
-						})
-						$('.guardian_wrapper').find('select').each(function() {
-							$(this).attr('disabled', 'disabled');
-						})
-						$('.monitoringinstitutions_wrapper').find('input').each(function() {
-							$(this).removeAttr('disabled');
-						})
-					}
-				})
-//				/*身份证验证*/
-//			$("#ID_type").change(function() {
-//					authentication();
-//				})
-			/*判断手机号是否为空*/
-			$("#phone_number").blur(function() {
-				var phone_pattern = /^\d{11}$/;
-				if (!phone_pattern.test($("#phone_number").val())) {
-					alert("手机号填写错误");
-				}
-			})
-			/*监护人证件编号*/
-			if($("#guardian_name").val()=="身份证"){
-				$("#guardian_number").blur(function(){
-					var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
-					if(!pattern.test($("#guardian_number").val())){
-						alert("请填写正确的证件编号")
-					}
-				})
-			}
-			/*出生日期*/
-			$("#birth_date").blur(function(){
-				var birth=/^\d{8}$/;
-				if(($("#birth_date").val().length!==8) && !(birth.test($("#birth_date").val()))){
-					alert("出生日期的长度必须为8位数");
-				}				
-			})
-				
-		},
-		init: function() {
-			this.choosePassportType();
-		}
-	}
-	authentication();
-	application.init();
+    var application = {
+        choosePassportType: function() {
+            $('.applicationtype_select').change(function() {
+                if ($(this).find('option:selected').attr('data')) {
+                    $('.reissueform_wrapper').show();
+                } else {
+                    $('.reissueform_wrapper').hide();
+                }
+            });
+            $('.minor_checkbox').click(function() {
+                if ($(this).is(':checked')) {
+                    $('.guardianinformation_wrapper').show();
+                } else {
+                    $('.guardianinformation_wrapper').hide();
+                }
+            });
+            $('.guardiantype').click(function() {
+                    var $this = $(this);
+                    if ($this.attr('data') == 'guardian') {
+                        $('.monitoringinstitutions_wrapper').find('input').each(function() {
+                            $(this).attr('disabled', 'disabled');
+                        })
+                        $('.guardian_wrapper').find('input').each(function() {
+                            $(this).removeAttr('disabled');
+                        })
+                        $('.guardian_wrapper').find('select').each(function() {
+                            $(this).removeAttr('disabled');
+                        })
+                    } else if ($this.attr('data') == 'monitoringinstitutions') {
+                        $('.guardian_wrapper').find('input').each(function() {
+                            $(this).attr('disabled', 'disabled');
+                        })
+                        $('.guardian_wrapper').find('select').each(function() {
+                            $(this).attr('disabled', 'disabled');
+                        })
+                        $('.monitoringinstitutions_wrapper').find('input').each(function() {
+                            $(this).removeAttr('disabled');
+                        })
+                    }
+                })
+                //				/*身份证验证*/
+                //			$("#ID_type").change(function() {
+                //					authentication();
+                //				})
+                /*判断手机号是否为空*/
+            $("#phone_number").blur(function() {
+                    var phone_pattern = /^\d{11}$/;
+                    if (!phone_pattern.test($("#phone_number").val())) {
+                        alert("手机号填写错误");
+                    }
+                })
+                /*监护人证件编号*/
+            if ($("#guardian_name").val() == "身份证") {
+                $("#guardian_number").blur(function() {
+                    var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
+                    if (!pattern.test($("#guardian_number").val())) {
+                        alert("请填写正确的证件编号")
+                    }
+                })
+            }
+            /*出生日期*/
+            $("#birth_date").blur(function() {
+                var birth = /^\d{8}$/;
+                if (($("#birth_date").val().length !== 8) && !(birth.test($("#birth_date").val()))) {
+                    alert("出生日期的长度必须为8位数");
+                }
+            })
+
+        },
+        init: function() {
+            this.choosePassportType();
+        }
+    }
+    authentication();
+    application.init();
 })
+
 function authentication() {
-	var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
-	if ($("#ID_type").val() == "身份证") {
-		$("#ID_number").blur(function() {
-			var IDNumber = $("#ID_number").val();
-			var birth_date = "";
-			if (pattern.test(IDNumber)) {
-				if (IDNumber.length == 18) {
-					birth_date = IDNumber.substring(6, 14);
-				}
-				$("#birth_date").val(birth_date);
-			} else {
-				alert("请填写正确的身份证号码");
-			}
-		})
-	}
-	// ----监护人证件编号----
-	if ($("#ID_type1").val() == "身份证") {
-		$("#ID_number1").blur(function() {
-			var IDNumber = $("#ID_number1").val();
-			var birth_date = "";
-			if (pattern.test(IDNumber)) {
-				if (IDNumber.length == 18) {
-					birth_date = IDNumber.substring(6, 14);
-				}
-				// $("#birth_date").val(birth_date);
-			} else {
-				alert("请填写正确的身份证号码");
-			}
-		})
-	}
-	// $("#guardian_phone").blur(function() {
-	// 			var phone_pattern = /^\d{11}$/;
-	// 			if (!phone_pattern.test($("#guardian_phone").val())) {
-	// 				alert("手机号填写错误");
-	// 			}
-	// 		})
+    var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
+    if ($("#ID_type").val() == "身份证") {
+        $("#ID_number").blur(function() {
+            var IDNumber = $("#ID_number").val();
+            var birth_date = "";
+            if (pattern.test(IDNumber)) {
+                if (IDNumber.length == 18) {
+                    birth_date = IDNumber.substring(6, 14);
+                }
+                $("#birth_date").val(birth_date);
+            } else {
+                alert("请填写正确的身份证号码");
+            }
+        })
+    }
+    // ----监护人证件编号----
+    if ($("#ID_type1").val() == "身份证") {
+        $("#ID_number1").blur(function() {
+            var IDNumber = $("#ID_number1").val();
+            var birth_date = "";
+            if (pattern.test(IDNumber)) {
+                if (IDNumber.length == 18) {
+                    birth_date = IDNumber.substring(6, 14);
+                }
+                // $("#birth_date").val(birth_date);
+            } else {
+             alert("请填写正确的身份证号码");
+                
+            }
+        })
+    }
+    // 组织机构代码
+    $("#unit_code").blur(function(){
+    var reg = /^[a-zA-Z\d]{8}\-[a-zA-Z\d]$/;
+    var str = $("#unit_code").val();
+    if (!reg.test(str)) {
+    	alert("请填写正确的组织机构代码");
+
+    }else{
+        return;
+    }
+})
+
+    // $("#guardian_phone").blur(function() {
+    // 			var phone_pattern = /^\d{11}$/;
+    // 			if (!phone_pattern.test($("#guardian_phone").val())) {
+    // 				alert("手机号填写错误");
+    // 			}
+    // 		})
 
 
 }
 
 /*提交页面时的一些判断*/
 $("#summitbtn").click(function() {
-	if ($("#phone_number").val() == "") {
-		alert("手机号不能为空");
-		$("#summitbtn").attr("href", "#");
-	}else if ($("#phone_verification").val() == "") {
-		alert("验证码不能为空");
-		$("#summitbtn").attr("href", "#");
-	}else if ($("#user_name").val() == "") {
-		alert("姓名不能为空");
-		$("#summitbtn").attr("href", "#");
-	} else if ($("#ID_number").val() == "") {
-		alert("证件编号不能为空");
-		$("#summitbtn").attr("href", "#");
-	} else if ($("#birth_date").val() == "") {
-		alert("出生日期不能为空");
-		$("#summitbtn").attr("href", "#");
-	} else if ($("#urgent_name").val() == "") {
-		alert("紧急联系人姓名不能为空");
-		$("#summitbtn").attr("href", "#");
-	} else if ($("#urgent_phone").val() == "") {
-		alert("紧急联系人电话不能为空");
-		$("#summitbtn").attr("href", "#");
-	}else if ($("#urgent_address").val() == "") {
-		alert("紧急联系人住址不能为空");
-		$("#summitbtn").attr("href", "#");
-	}
-	 else if ($("#guardiantype").is(":checked")) {
-		if($("#guardian_name").val() == "") {
-			alert("监护人信息不能为空");
-			$("#summitbtn").attr("href", "#");
-		}else if ($("#guardian_relation").val() == "") {
-			alert("监护人关系不能为空");
-			$("#summitbtn").attr("href", "#");
-		} else if ($("#guardian_phone").val() == "") {
-			alert("监护人电话不能为空");
-			$("#summitbtn").attr("href", "#");
-		} else if ($("#guardian_number").val() == "") {
-			alert("监护人证件编号不能为空");
-			$("#summitbtn").attr("href", "#");
-		}
-	}else if ($("#unit_info").is(":checked")) {
-		if ($("#unit_name").val() == "") {
-			alert("监护单位名称不能为空");
-			$("#summitbtn").attr("href", "#");
-		} else if ($("#unit_code").val() =="") {
-			alert("组织机构代码不能为空");
-			$("#summitbtn").attr("href", "#");
-		}
-	}else{
-		$("#summitbtn").attr("href", "passport_pickdataandbase.html");
-	}
+	authentication();
+    if ($("#phone_number").val() == "") {
+        alert("手机号不能为空");
+        $("#summitbtn").attr("href", "#");
+    } else if ($("#phone_verification").val() == "") {
+        alert("验证码不能为空");
+        $("#summitbtn").attr("href", "#");
+    } else if ($("#user_name").val() == "") {
+        alert("姓名不能为空");
+        $("#summitbtn").attr("href", "#");
+    } else if ($("#ID_number").val() == "") {
+        alert("证件编号不能为空");
+        $("#summitbtn").attr("href", "#");
+    } else if ($("#birth_date").val() == "") {
+        alert("出生日期不能为空");
+        $("#summitbtn").attr("href", "#");
+    } else if ($("#urgent_name").val() == "") {
+        alert("紧急联系人姓名不能为空");
+        $("#summitbtn").attr("href", "#");
+    } else if ($("#urgent_phone").val() == "") {
+        alert("紧急联系人电话不能为空");
+        $("#summitbtn").attr("href", "#");
+    } else if ($("#urgent_address").val() == "") {
+        alert("紧急联系人住址不能为空");
+        $("#summitbtn").attr("href", "#");
+    } else if ($("#guardiantype").is(":checked")) {
+        if ($("#guardian_name").val() == "") {
+            alert("监护人信息不能为空");
+            $("#summitbtn").attr("href", "#");
+        } else if ($("#guardian_phone").val() == "") {
+            alert("监护人电话不能为空");
+            $("#summitbtn").attr("href", "#");
+        } else if ($("#guardian_number").val() == "") {
+            alert("监护人证件编号不能为空");
+            $("#summitbtn").attr("href", "#");
+        }
+    } else if ($("#unit_info").is(":checked")) {
+        if ($("#unit_name").val() == "") {
+            alert("监护单位名称不能为空");
+            $("#summitbtn").attr("href", "#");
+        } else if ($("#unit_code").val() == "") {
+            alert("组织机构代码不能为空");
+            $("#summitbtn").attr("href", "#");
+        }
+    } else {
+        $("#summitbtn").attr("href", "passport_pickdataandbase.html");
+    }
 })
-
 </script>
 
 </html>
-
