@@ -92,7 +92,7 @@
                         <div class="col-lg-5" id="applicant_sex" >
                             <div class="col-lg-3" >
                                 <label class="radio-inline">
-                                    <input value="男" type="radio" class="applicant_sex" id="applicant_sex_man" name="gender" >男
+                                    <input value="男" type="radio" class="applicant_sex" id="applicant_sex_man" name="gender" checked>男
                                 </label>
                             </div>
                             <div class="col-lg-2">
@@ -174,7 +174,7 @@
                                         <option>父母</option>
                                         <option>祖父母</option>
                                         <option>外祖父母</option>
-                                        <option>兄/姐</option>
+                                        <option>兄姐</option>
                                         <option>其他</option>
                                     </select>
                                 </div>
@@ -380,9 +380,8 @@ function authentication() {
     }
 
     // ----监护人证件编号----
-    if ($("#ID_type1").val() == "身份证") {
         $("#ID_number1").blur(function() {
-        	sex2();
+        	sexChecked("#ID_number1","#applicant_sex_man1","#applicant_sex_woman1");
             var IDNumber = $("#ID_number1").val();
             var birth_date = "";
             if (pattern.test(IDNumber)) {
@@ -398,7 +397,6 @@ function authentication() {
                 
             }
         })
-    }
     // 组织机构代码
     $("#unit_code").blur(function(){
     var reg = /^[a-zA-Z\d]{8}\-[a-zA-Z\d]$/;
@@ -411,28 +409,14 @@ function authentication() {
     }
 })
 
-		   
-    // $("#guardian_phone").blur(function() {
-    // 			var phone_pattern = /^\d{11}$/;
-    // 			if (!phone_pattern.test($("#guardian_phone").val())) {
-    // 				alert("手机号填写错误");
-    // 			}
-    // 		})
+	
 
 
 }
 
 /*提交页面时的一些判断*/
 $("#summitbtn").click(function() {
-	// authentication();
-	// var applicant_id = $("#ID_number1").val();
-	// var applicant_sex=null;
-	// var applicant_sex_last = applicant_id[psidno.length - 2];
- //     if(applicant_sex_last % 2 != 0){
- //      applicant_sex="男";
- //     }else{
- //       applicant_sex="女";
- //     }
+	
     if ($("#phone_number").val() == "") {
         alert("手机号不能为空");
         $("#summitbtn").attr("href", "#");
