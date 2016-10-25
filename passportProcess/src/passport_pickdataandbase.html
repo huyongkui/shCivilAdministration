@@ -141,22 +141,22 @@ $(function() {
                 forceParse: false,
                 startDate: new Date(t),
             });
-            $('#datetimepicker').focus(function(){
-            	var h1 = parseInt($('#datetimepicker').val().substring(11,13))+1;
+            // $('#datetimepicker').focus(function(){
+            // 	var h1 = parseInt($('#datetimepicker').val().substring(11,13))+1;
             	
-            	// var h2="";
+            // 	// var h2="";
             	
-            	if (h1<10) {
-            		h1="0"+h1;
-            	}else if(h1>23){
-            		h1="00";
-            	}
+            // 	if (h1<10) {
+            // 		h1="0"+h1;
+            // 	}else if(h1>23){
+            // 		h1="00";
+            // 	}
             	
-            	var vals=$('#datetimepicker').val().toString()+"--"+h1+":00";
+            // 	var vals=$('#datetimepicker').val().toString()+"--"+h1+":00";
             	
-            	$('#datetimepicker1').val(vals);
+            // 	$('#datetimepicker1').val(vals);
             
-            })
+            // })
 
         },
         init: function() {

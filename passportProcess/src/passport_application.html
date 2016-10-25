@@ -89,15 +89,15 @@
                         </div>
                         <!--性别-->
                         <label class="col-lg-2 control-label">性别</label>
-                        <div class="col-lg-5">
-                            <div class="col-lg-3">
+                        <div class="col-lg-5" id="applicant_sex" >
+                            <div class="col-lg-3" >
                                 <label class="radio-inline">
-                                    <input type="radio" name="gender" checked="checked">男
+                                    <input value="男" type="radio" class="applicant_sex" id="applicant_sex_man" name="gender" >男
                                 </label>
                             </div>
                             <div class="col-lg-2">
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender">女
+                                <label class="radio-inline" >
+                                    <input value="女" type="radio" class="applicant_sex" id="applicant_sex_woman" name="gender">女
                                 </label>
                             </div>
                         </div>
@@ -165,24 +165,9 @@
                         <div class='guardian_wrapper'>
                             <div class="form-group">
                                 <label class="col-lg-2 control-label">姓名</label>
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <input type="text" class="form-control" disabled id="guardian_name">
                                 </div>
-                                <label class="col-lg-2 control-label">性别</label>
-                                <div class="col-lg-4" id="applicant_sex">
-                                    <div class="col-lg-3">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="gender1" disabled checked>男
-                                        </label>
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="gender1" disabled> 女
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-lg-2 control-label">监护人关系</label>
                                 <div class="col-lg-3">
                                     <select class='form-control' id="guardian_relation" disabled>
@@ -193,12 +178,9 @@
                                         <option>其他</option>
                                     </select>
                                 </div>
-                                <label class="col-lg-2 control-label">电话</label>
-                                <div class="col-lg-4">
-                                    <input type="text" class="form-control" disabled id="guardian_phone">
-                                </div>
+                                
                             </div>
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label class="col-lg-2 control-label">证件类型</label>
                                 <div class="col-lg-9">
                                     <select class='form-control' id="ID_type1" disabled>
@@ -211,6 +193,29 @@
                                 <div class="col-lg-9">
                                     <input id="ID_number1" type="text" class="form-control" disabled id="guardian_number">
                                 </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              
+                                 <label class="col-lg-2 control-label">性别</label>
+                                <div class="col-lg-3" id="applicant_sex1">
+                                    <div class="col-lg-4">
+                                        <label class="radio-inline">
+                                            <input id="applicant_sex_man1" type="radio" name="gender1" disabled checked="check">男
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <label class="radio-inline">
+                                            <input id="applicant_sex_woman1" type="radio" name="gender1" disabled> 女
+                                        </label>
+                                    </div>
+                                </div>
+                                <label class="col-lg-2 control-label">电话</label>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" disabled id="guardian_phone">
+                                </div>
+                            </div>
+                            <div  class="form-group">
                                 <!--监护单位信息-->
                                 <label class="radio-inline">
                                     <input class='guardiantype' type="radio" data="monitoringinstitutions" name='guardiantype' id="unit_info">监护单位信息
@@ -297,14 +302,16 @@ $(function() {
                     }
                 })
                 /*监护人证件编号*/
-            if ($("#guardian_name").val() == "身份证") {
-                $("#guardian_number").blur(function() {
-                    var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
-                    if (!pattern.test($("#guardian_number").val())) {
-                        alert("请填写正确的证件编号")
-                    }
-                })
-            }
+                // $("#guardian_number").blur(function() {
+                //     var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
+                //     if (!pattern.test($("#guardian_number").val())) {
+                //         alert("请填写正确的证件编号")
+                //     }else{
+                //         $("#ID_number1").blur(function(){
+                //             sexChecked("#ID_number1","#applicant_sex_man1","#applicant_sex_woman1");
+                //         })
+                //     }
+                // })
             /*出生日期*/
             $("#birth_date").blur(function() {
                 var birth = /^\d{8}$/;
@@ -312,6 +319,9 @@ $(function() {
                     alert("出生日期的长度必须为8位数");
                 }
             })
+           
+           //性别验证
+           
 
         },
         init: function() {
@@ -319,16 +329,46 @@ $(function() {
         }
     }
     authentication();
+    
     application.init();
 })
-
+			// 性别验证
+          
+            function sexChecked(ID_number,sex_man,sex_woman){
+            	var applicant_sex=null;
+		     var psidno = $(ID_number).val();
+		     var last = psidno[psidno.length - 2];
+		     if(last % 2 != 0){
+		       $(sex_man).attr("checked","checked");
+		       applicant_sex="男";
+		       
+		     }else{
+		       $(sex_woman).attr("checked","checked");
+		       applicant_sex="女";
+		     }
+		   }
+		   // function sex2(){
+		   //   var psidno = $("#ID_number1").val();
+		   //   var last = psidno[psidno.length - 2];
+		   //   if(last % 2 != 0){
+		   //     $("#applicant_sex_man1").attr("checked","checked");
+		   //   }else{
+		   //     $("#applicant_sex_woman1").attr("checked","checked");
+		   //   }
+		   // }
+		   // $("#js_Idcard").blur(function(){
+		   //  go();
+		   // });
 function authentication() {
     var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
     if ($("#ID_type").val() == "身份证") {
-        $("#ID_number").blur(function() {
+        $("#ID_number").blur(function() {        	
             var IDNumber = $("#ID_number").val();
             var birth_date = "";
             if (pattern.test(IDNumber)) {
+                $("#ID_number").blur(function(){
+                    sexChecked("#ID_number","#applicant_sex_man","#applicant_sex_woman");
+                })
                 if (IDNumber.length == 18) {
                     birth_date = IDNumber.substring(6, 14);
                 }
@@ -338,12 +378,17 @@ function authentication() {
             }
         })
     }
+
     // ----监护人证件编号----
     if ($("#ID_type1").val() == "身份证") {
         $("#ID_number1").blur(function() {
+        	sex2();
             var IDNumber = $("#ID_number1").val();
             var birth_date = "";
             if (pattern.test(IDNumber)) {
+                $("#ID_number1").blur(function(){
+                    sexChecked("#ID_number1","#applicant_sex_man1","#applicant_sex_woman1");
+                })
                 if (IDNumber.length == 18) {
                     birth_date = IDNumber.substring(6, 14);
                 }
@@ -362,10 +407,11 @@ function authentication() {
     	alert("请填写正确的组织机构代码");
 
     }else{
-        return;
+        return flase;
     }
 })
 
+		   
     // $("#guardian_phone").blur(function() {
     // 			var phone_pattern = /^\d{11}$/;
     // 			if (!phone_pattern.test($("#guardian_phone").val())) {
@@ -378,7 +424,15 @@ function authentication() {
 
 /*提交页面时的一些判断*/
 $("#summitbtn").click(function() {
-	authentication();
+	// authentication();
+	// var applicant_id = $("#ID_number1").val();
+	// var applicant_sex=null;
+	// var applicant_sex_last = applicant_id[psidno.length - 2];
+ //     if(applicant_sex_last % 2 != 0){
+ //      applicant_sex="男";
+ //     }else{
+ //       applicant_sex="女";
+ //     }
     if ($("#phone_number").val() == "") {
         alert("手机号不能为空");
         $("#summitbtn").attr("href", "#");
@@ -394,7 +448,7 @@ $("#summitbtn").click(function() {
     } else if ($("#birth_date").val() == "") {
         alert("出生日期不能为空");
         $("#summitbtn").attr("href", "#");
-    } else if ($("#urgent_name").val() == "") {
+    }  else if ($("#urgent_name").val() == "") {
         alert("紧急联系人姓名不能为空");
         $("#summitbtn").attr("href", "#");
     } else if ($("#urgent_phone").val() == "") {
