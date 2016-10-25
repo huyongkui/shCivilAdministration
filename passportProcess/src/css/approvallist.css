@@ -93,7 +93,7 @@
 }
 /*passport_certificating.html按钮*/
 .government_back{
-	margin-left: 130px;
+	margin-left: 100px;
 }
 /*passport_certificating.html查询结果框*/
 .personal_information_box{
@@ -124,4 +124,20 @@
 /*front-page-list居中*/
 #passport_order_list{
 	text-align: center;
+}
+
+
+
+/*间距的问题*/
+@media screen and (min-width:750px) and (max-width:1200px){
+	.control_margin{
+		margin-bottom:16px;
+	}
+
+}
+
+@media screen and (max-width:750px){
+	.control_margin_bottom{
+		margin-bottom:16px;
+	}
 }

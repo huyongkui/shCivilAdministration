@@ -83,7 +83,7 @@
                     <div class="form-group col-lg-12">
                         <label class="col-lg-3 control-label">时间预约</label>
                         <div class="col-lg-9" style="position:relative;">
-                            <input style="position:absolute; opacity:0;" class='form-control' type="text" value="" id="datetimepicker">
+                           	<input style="position:absolute; opacity:0;" class='form-control' type="text" value="" id="datetimepicker">
                             <input class='form-control' type="text" value="" id="datetimepicker1">
                         </div>
                     </div>
@@ -100,37 +100,13 @@
 <script type="text/javascript">
 $(function() {
     var application = {
-        formsetting: function() {
-            var isfulltimestaffWrapperEl = $('.application_isfulltimestaff_wrapper');
-            isfulltimestaffWrapperEl.find('input[type=radio]').click(function() {
-                if ($(this).attr('alt') == 'no') {
-                    isfulltimestaffWrapperEl.find('.peoplenumber').removeAttr('disabled');
-                } else {
-                    isfulltimestaffWrapperEl.find('.peoplenumber').attr('disabled', 'disabled');
-                }
-            })
-        },
+       
         datePicker: function() {
-            var newDate = new Date();
-
-            var strDate = newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + (newDate.getDate() + 5);
-            // +" "+newDate.getHours()+":"+"00"
-
-            // function getDate(strDate) { 
-            //   var st = strDate; 
-
-            //   var b = st.split("-"); 
-            //   var date = new Date(b[0], b[1], b[2]);
-            //   alert(date);
-            //   return date;
-            // }
-            var strDate1=newDate.getFullYear() + "-" + (newDate.getMonth() + 1) + "-" + newDate.getDate()+" "+newDate.getHours()+":00";
-            var str = strDate.replace(/-/g, "/");
-            $('#datetimepicker1').attr("value",strDate1);
-            var date = new Date(str);
-            var t = (date).toJSON();
-
-            
+        	var date = new Date();			
+			var staDate = new Date(date);
+			var enDate = new Date(date);
+			staDate.setDate(date.getDate()+5);
+			enDate.setDate(date.getDate()+10);
 
             $('#datetimepicker').datetimepicker({
                 format: 'yyyy-mm-dd hh:00',
@@ -139,32 +115,28 @@ $(function() {
                 autoclose: true,
                 todayHighlight: true,
                 forceParse: false,
-                startDate: new Date(t),
+                startDate: new Date(staDate), 
+                endDate: new Date(enDate)
             });
-            // $('#datetimepicker').focus(function(){
-            // 	var h1 = parseInt($('#datetimepicker').val().substring(11,13))+1;
-            	
-            // 	// var h2="";
-            	
-            // 	if (h1<10) {
-            // 		h1="0"+h1;
-            // 	}else if(h1>23){
-            // 		h1="00";
-            // 	}
-            	
-            // 	var vals=$('#datetimepicker').val().toString()+"--"+h1+":00";
-            	
-            // 	$('#datetimepicker1').val(vals);
-            
-            // })
 
         },
+        dateRange: function(){
+			$('#datetimepicker').change(function(){
+				var h1 = parseInt($('#datetimepicker').val().substring(11,13))+1;		
+				if(h1==24){
+					h1="00";
+				}else if(h1>0&&h1<10){
+					h1="0"+h1;
+				}
+				var vals=$('#datetimepicker').val().toString()+"--"+h1+":00";    	
+				$('#datetimepicker1').val(vals);
+			});        	
+        },
         init: function() {
-            this.formsetting();
-            this.datePicker();
-        }
-
-
+           
+            this.datePicker();	
+            this.dateRange();
+        }        
     }
     application.init();
 
