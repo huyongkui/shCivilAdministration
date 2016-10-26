@@ -87,7 +87,7 @@
                         <label class="col-lg-2 control-label">时间段</label>
                         <div class="col-lg-4">
                             <select class="form-control" id="timelist">
-                                <option>00:00--01:00</option>
+                                
                             </select>
                         </div>
                     </div>
@@ -150,11 +150,16 @@ $(function() {
 
     // 日期检查
     $("#submitbtn").click(function() {
-        if ($("#datetimepicker").val() == "") {
-            alert("日期不能为空！");
+        if ($("#datetimepicker").val() == "" || $("#timelist").val()=="") {
+            alert("日期或时间不能为空！");
             $("#submitbtn").attr("href", "#");
         } else {
+            if (confirm("请确认预约时间！")) {
+                $("#submitbtn").fadeOut(500);
+
             $("#submitbtn").attr("href", "passport_appointment_success.html");
+            }
+            
         }
     });
 //	基地预约

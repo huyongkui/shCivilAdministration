@@ -21,7 +21,7 @@ $(function(e){
 	multiTime();
 	alertTime();
 	//appointPeople();
-	$('.k-btn-previous-year,.k-btn-next-year,.k-btn-previous-month,.k-btn-next-month').hide();
+	//$('.k-btn-previous-year,.k-btn-next-year,.k-btn-previous-month,.k-btn-next-month').hide();
 	$("#times li").click(function(){
 		alertTime();
 	})
@@ -54,7 +54,7 @@ $(function(e){
 <body>
 <label>请选择日期(可多选)：</label>
 <input id="date_check" type="text" class="auto-kal" 
-	data-kal="mode:'multiple',months:2,direction:'only-future'" style="width: 400px;" readonly="readonly">
+	data-kal="mode:'multiple',months:2,direction:'future5'" style="width: 400px;" readonly="readonly">
 	
 <br><br>
 	<div id="times" style="display: none; background: #efefef;"></div>
@@ -64,7 +64,7 @@ $(function(e){
 
 <br><br>
 <label>每天预约量：</label>
-<input type="text" style="width:200px; " id="appointInput" value="30" disabled>
+<input type="text" style="width:200px; " id="appointInput" value="30"  readonly="readonly">
 
 <br><br>
 <button type="button" id="date_check_btn" >确定</button>

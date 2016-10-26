@@ -317,7 +317,7 @@ Kalendae.prototype = {
 		dayAttributeFormat    :'YYYY-MM-DD',    /* format mask for the data-date attribute set on every span */
 		parseSplitDelimiter   : /,\s*|\s+-\s+/, /* regex to use for splitting multiple dates from a passed string */
 		rangeDelimiter        :' - ',           /* string to use between dates when outputting in range mode */
-		multipleDelimiter     :'; ',            /* string to use between dates when outputting in multiple mode */
+		multipleDelimiter     :';',            /* string to use between dates when outputting in multiple mode */
 		useYearNav            :true,
 
 		dateClassMap          :{}
@@ -363,7 +363,16 @@ Kalendae.prototype = {
 		'today-past'    :function (date) {return moment(date).startOf('day').yearDay() > getTodayYearDate();},
 		'any'           :function (date) {return false;},
 		'today-future'  :function (date) {return moment(date).startOf('day').yearDay() < getTodayYearDate();},
-		'future'        :function (date) {return moment(date).startOf('day').yearDay() <= getTodayYearDate();}
+		'future'        :function (date) {return moment(date).startOf('day').yearDay() <= getTodayYearDate();},
+		'future5'       :function (date) {
+			//今天之后的第五天可以选择
+			var now = (new Date()).getTime();
+			var future = now + 4* 24 * 3600 * 1000;
+			var futuress=Math.floor(future/86400000)
+			return moment(date).startOf('day').yearDay()<futuress;
+			//alert(moment(date).startOf('day').yearDay()) 
+//			alert(futuress)
+		}
 	},
 
 	getSelectedAsDates : function () {
