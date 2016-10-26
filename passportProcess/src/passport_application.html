@@ -247,6 +247,7 @@
 </body>
 <script type="text/javascript">
 $(function() {
+		
 
         var application = {
             choosePassportType: function() {
@@ -405,7 +406,6 @@ function authentication() {
             alert("请填写正确的组织机构代码");
 
         } else {
-            return flase;
         }
         form_judgment();
     });
@@ -414,50 +414,57 @@ function authentication() {
 
 
 
-
 function form_judgment() {
-    if ($("#phone_number").val() == "" || $("#phone_verification").val() == "" || $("#user_name").val() == "" || $("#ID_number").val() == "" || $("#birth_date").val() == "" || $("#urgent_name").val() == "" || $("#urgent_phone").val() == "" || $("#urgent_address").val() == "") {
+
+
+   //对未成年人以上内容进行验证，如果为null设置下一步不可点
+   if ($("#phone_number").val() == "" || $("#phone_verification").val() == "" || $("#user_name").val() == "" || $("#ID_number").val() == "" || $("#birth_date").val() == "" || $("#urgent_name").val() == "" || $("#urgent_phone").val() == "" || $("#urgent_address").val() == "") {
         // console.log('11111111111')
         $("#summitbtn").attr("disabled", "disabled");
-    } else if ($("#juvenile").is(":checked")) {
-        if ($("#juvenile").is(":checked")) {
-            $("#summitbtn").attr("disabled", "disabled");
-            console.log('选中未成年');
-        }else{
-             $("#summitbtn").removeAttr("disabled");
-             console.log('wei选中未成年');
-        }
-         
-         console.log('选中未成年');
+    } 
+    //对未成年人申请内容进行验证，如果为null设置下一步不可点
+    else if ($("#juvenile").is(":checked")) {
+         $("#summitbtn").attr("disabled", "disabled");
+        //如果监护人信息已选中
         if ($("#guardiantype").is(":checked")) {
-            if ($("#guardian_name").val() == "" || $("#guardian_phone").val() == "" || $("#guardian_number").val() == "") {
+            $("#unit_name").val("");
+            $("#unit_code").val("");
+            //对监护人信息进行判断是否为空
+            if ($("#guardian_name").val() == "" || $("#guardian_phone").val() == "" || $("#ID_number1").val() == "") {
                 $("#summitbtn").attr("disabled", "disabled");
             } else {
                 $("#summitbtn").removeAttr("disabled");
             }
+                //如果未选中监护人
+        }else if (!$("#guardiantype").is(":checked")) 
 
-        } else if ($("#unit_info").is(":checked")) {
+        {
+           $("#guardian_name").val("");
+           $("#guardian_phone").val("");
+           $("#ID_number1").val("")
+          //如果监护单位是选中的
+          if ($("#unit_info").is(":checked")) {
             if ($("#unit_name").val() == "" || $("#unit_code").val() == "") {
                 $("#summitbtn").attr("disabled", "disabled");
             } else {
                 $("#summitbtn").removeAttr("disabled");
             }
-        } else {
-            $("#summitbtn").removeAttr("disabled");
         }
-    } else {
-        // console.log('111111111111111111111111111111111111111111')
+        }
+    }else{
+        //移除按钮禁用
         $("#summitbtn").removeAttr("disabled");
     }
 }
-$("#phone_verification,#user_name,#urgent_name,#urgent_phone,#urgent_address,#guardian_name,#guardian_phone,#unit_name").change(function(){
+//为需要验证的输入项
+$("#phone_verification,#user_name,#urgent_name,#urgent_phone,#urgent_address,#guardian_name,#guardian_phone,#unit_name,#juvenile").change(function(){
     form_judgment();
 });
-$("#juvenile").click(function(){
-    console.log("1111111111111111");
-    form_judgment();
-
+$("#guardiantype,#unit_info").click(function(){
+    // console.log("监护单位已选中")
+	form_judgment();
 })
+
 
 /*提交页面时的一些判断*/
 // $("#summitbtn").click(function() {
@@ -509,7 +516,6 @@ $("#juvenile").click(function(){
 //         $("#summitbtn").attr("href", "passport_pickdataandbase.html");
 //     }
 // })
-
 
 
 </script>
