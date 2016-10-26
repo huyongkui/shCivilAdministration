@@ -317,7 +317,7 @@ Kalendae.prototype = {
 		dayAttributeFormat    :'YYYY-MM-DD',    /* format mask for the data-date attribute set on every span */
 		parseSplitDelimiter   : /,\s*|\s+-\s+/, /* regex to use for splitting multiple dates from a passed string */
 		rangeDelimiter        :' - ',           /* string to use between dates when outputting in range mode */
-		multipleDelimiter     :', ',            /* string to use between dates when outputting in multiple mode */
+		multipleDelimiter     :'; ',            /* string to use between dates when outputting in multiple mode */
 		useYearNav            :true,
 
 		dateClassMap          :{}
@@ -1049,7 +1049,7 @@ Kalendae.Input = function (targetElement, options) {
 
 Kalendae.Input.prototype = util.merge(Kalendae.prototype, {
 	defaults : util.merge(Kalendae.prototype.defaults, {
-		format: 'MM/DD/YYYY',
+		format: 'YYYY-MM-DD',
 		side: 'bottom',
 		closeButton: true,
 		offsetLeft: 0,

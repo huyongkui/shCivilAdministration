@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="ru-RU">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="assets/build/kalendae.css" type="text/css" charset="utf-8">
+	<link rel="stylesheet" href="css/multiTime.css" />
+
+	<script src="assets/build/kalendae.standalone.js" type="text/javascript" charset="utf-8"></script>	
+	<script src="assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/multiTime.js" ></script>
+	<style type="text/css" media="screen">
+		.kalendae .k-days span.closed {
+			background:red;
+		}
+	</style>
+</head>
+
+<script type="text/javascript" charset="utf-8">		
+$(function(e){
+	multiTime();
+	alertTime();
+	//appointPeople();
+	$('.k-btn-previous-year,.k-btn-next-year,.k-btn-previous-month,.k-btn-next-month').hide();
+	$("#times li").click(function(){
+		alertTime();
+	})
+	$("html").click(function(e){
+		var Y=$("#timesInput").offset().top;
+		var X=$("#timesInput").offset().left;
+		if(e.target.id=="timesInput" || e.target.className=="hide_checkbox" || e.target.className=="Multi_time"
+		|| e.target.id=="timeUl" ){
+			$("#times").css({
+			'display':'block',
+			'position':'absolute',
+			'top':Y+20+'px',
+			'left':X+'px',
+			'z-index':9,
+			});
+		}else {
+			$("#times").css({
+			'display':'none'
+			});			
+		}				
+	})
+	//点击确定按钮后获取三个文本框的内容
+	$("#date_check_btn").click(function(){
+		console.log($("#date_check").val());
+		console.log($("#timesInput").val());
+		console.log($("#appointInput").val());
+	})
+})
+</script>
+<body>
+<label>请选择日期(可多选)：</label>
+<input id="date_check" type="text" class="auto-kal" 
+	data-kal="mode:'multiple',months:2,direction:'only-future'" style="width: 400px;" readonly="readonly">
+	
+<br><br>
+	<div id="times" style="display: none; background: #efefef;"></div>
+	<label>请选择时间(可多选)：</label>
+	<input type="text" style="width:400px;" id="timesInput" readonly="readonly">
+<!--<button type="button" onclick="alertTime()" id="timesBtn">提交按钮时间</button>-->
+
+<br><br>
+<label>每天预约量：</label>
+<input type="text" style="width:200px; " id="appointInput" value="30" disabled>
+
+<br><br>
+<button type="button" id="date_check_btn" >确定</button>
+</body>
+</html>
+

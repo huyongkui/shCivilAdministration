@@ -1,0 +1,29 @@
+ul,li{
+		padding: 0px;
+		margin: 0px;
+		list-style: none;
+	}
+
+	.currnet{
+		background: #6DD4FE;
+	}
+	.Multi_time{
+		float: left;
+		position: relative;
+		width:40px;
+		height:20px;
+		margin:4px ;
+		border: 1px solid #eee;
+	}
+	.hide_checkbox{
+		opacity: 0;
+		filter:alpha(opacity=0);
+		width:40px;
+		height:20px;
+		line-height: 20px;
+		display:block;
+		position:absolute;
+		top:0px;
+		left:0px;
+		cursor: pointer;
+	}

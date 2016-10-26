@@ -267,62 +267,58 @@ $(function() {
                 }
             });
             $('.guardiantype').click(function() {
-                    var $this = $(this);
-                    if ($this.attr('data') == 'guardian') {
-                        $('.monitoringinstitutions_wrapper').find('input').each(function() {
-                            $(this).attr('disabled', 'disabled');
-                        })
-                        $('.guardian_wrapper').find('input').each(function() {
-                            $(this).removeAttr('disabled');
-                        })
-                        $('.guardian_wrapper').find('select').each(function() {
-                            $(this).removeAttr('disabled');
-                        })
-                    } else if ($this.attr('data') == 'monitoringinstitutions') {
-                        $('.guardian_wrapper').find('input').each(function() {
-                            $(this).attr('disabled', 'disabled');
-                        })
-                        $('.guardian_wrapper').find('select').each(function() {
-                            $(this).attr('disabled', 'disabled');
-                        })
-                        $('.monitoringinstitutions_wrapper').find('input').each(function() {
-                            $(this).removeAttr('disabled');
-                        })
-                    }
-                })
-                //				/*身份证验证*/
-                //			$("#ID_type").change(function() {
-                //					authentication();
-                //				})
-                /*判断手机号是否为空*/
-            $("#phone_number").blur(function() {
-                    var phone_pattern = /^\d{11}$/;
-                    if (!phone_pattern.test($("#phone_number").val())) {
-                        alert("手机号填写错误");
-                    }
-                })
-                /*监护人证件编号*/
-                // $("#guardian_number").blur(function() {
-                //     var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
-                //     if (!pattern.test($("#guardian_number").val())) {
-                //         alert("请填写正确的证件编号")
-                //     }else{
-                //         $("#ID_number1").blur(function(){
-                //             sexChecked("#ID_number1","#applicant_sex_man1","#applicant_sex_woman1");
-                //         })
-                //     }
-                // })
+                var $this = $(this);
+                if ($this.attr('data') == 'guardian') {
+                    $('.monitoringinstitutions_wrapper').find('input').each(function() {
+                        $(this).attr('disabled', 'disabled');
+                    })
+                    $('.guardian_wrapper').find('input').each(function() {
+                        $(this).removeAttr('disabled');
+                    })
+                    $('.guardian_wrapper').find('select').each(function() {
+                        $(this).removeAttr('disabled');
+                    })
+                } else if ($this.attr('data') == 'monitoringinstitutions') {
+                    $('.guardian_wrapper').find('input').each(function() {
+                        $(this).attr('disabled', 'disabled');
+                    })
+                    $('.guardian_wrapper').find('select').each(function() {
+                        $(this).attr('disabled', 'disabled');
+                    })
+                    $('.monitoringinstitutions_wrapper').find('input').each(function() {
+                        $(this).removeAttr('disabled');
+                    })
+                }
+            });
+//			/*身份证验证*/
+//			$("#ID_type").change(function() {
+//					authentication();
+//			});
+			/*判断手机号是否为空*/
+            $("#phone_number").change(function() {
+                var phone_pattern = /^\d{11}$/;
+                if (!phone_pattern.test($("#phone_number").val())) {
+                    alert("手机号填写错误");
+                }
+           });
+            /*监护人证件编号*/
+//			$("#guardian_number").blur(function() {
+//				var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
+//				if (!pattern.test($("#guardian_number").val())) {
+//					alert("请填写正确的证件编号");
+//				}else{
+//					$("#ID_number1").blur(function(){
+//						sexChecked("#ID_number1","#applicant_sex_man1","#applicant_sex_woman1");
+//					});
+//				}
+//			});
             /*出生日期*/
-            $("#birth_date").blur(function() {
+            $("#birth_date").change(function() {
                 var birth = /^\d{8}$/;
                 if (($("#birth_date").val().length !== 8) && !(birth.test($("#birth_date").val()))) {
                     alert("出生日期的长度必须为8位数");
                 }
-            })
-           
-           //性别验证
-           
-
+            });
         },
         init: function() {
             this.choosePassportType();
@@ -332,46 +328,43 @@ $(function() {
     
     application.init();
 })
-			// 性别验证
-          
-            function sexChecked(ID_number,sex_man,sex_woman){
-            	var applicant_sex=null;
-		     var psidno = $(ID_number).val();
-		     var last = psidno[psidno.length - 2];
-		     if(last % 2 != 0){
-		       // $(sex_man).attr("checked","checked");
-               $(sex_man).click();
-		       applicant_sex="男";
-		       
-		     }else{
-		       // $(sex_woman).attr("checked","checked");
-               $(sex_woman).click();
-		       applicant_sex="女";
-		     }
-		   }
-		   // function sex2(){
-		   //   var psidno = $("#ID_number1").val();
-		   //   var last = psidno[psidno.length - 2];
-		   //   if(last % 2 != 0){
-		   //     $("#applicant_sex_man1").attr("checked","checked");
-		   //   }else{
-		   //     $("#applicant_sex_woman1").attr("checked","checked");
-		   //   }
-		   // }
-		   // $("#js_Idcard").blur(function(){
-		   //  go();
-		   // });
+		// 性别验证
+        function sexChecked(ID_number, sex_man, sex_woman) {
+          	var applicant_sex = null;
+          	var psidno = $(ID_number).val();
+          	var last = psidno[psidno.length - 2];
+          	if(last % 2 != 0) {
+          		// $(sex_man).attr("checked","checked");
+          		$(sex_man).click();
+          		applicant_sex = "男";
+          	} else {
+          		// $(sex_woman).attr("checked","checked");
+          		$(sex_woman).click();
+          		applicant_sex = "女";
+          	}
+        }
+//      function sex2(){
+//			var psidno = $("#ID_number1").val();
+//		    var last = psidno[psidno.length - 2];
+//		    if(last % 2 != 0){
+//		    	$("#applicant_sex_man1").attr("checked","checked");
+//		    }else{
+//		    	$("#applicant_sex_woman1").attr("checked","checked");
+//		    }
+//	    }
+//	    $("#js_Idcard").blur(function(){
+//		    go();
+//	    });
 function authentication() {
     var pattern = /^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
     if ($("#ID_type").val() == "身份证") {
-        $("#ID_number").blur(function() {
-        // 申请人性别
-         sexChecked("#ID_number","#applicant_sex_man","#applicant_sex_woman");        	
+        $("#ID_number").change(function() {
+        	// 申请人性别
+        	sexChecked("#ID_number","#applicant_sex_man","#applicant_sex_woman");        	
             var IDNumber = $("#ID_number").val();
             var birth_date = "";
            
             if (pattern.test(IDNumber)) {
-                
                 if (IDNumber.length == 18) {
                     birth_date = IDNumber.substring(6, 14);
                 }
@@ -379,41 +372,37 @@ function authentication() {
             } else {
                 alert("请填写正确的身份证号码");
             }
-        })
+        });
     }
 
     // ----监护人证件编号----
-        $("#ID_number1").blur(function() {
-            // 监护人性别
-        	sexChecked("#ID_number1","#applicant_sex_man1","#applicant_sex_woman1");
-            var IDNumber = $("#ID_number1").val();
-            var birth_date = "";
-            if (pattern.test(IDNumber)) {
-                
-                if (IDNumber.length == 18) {
-                    birth_date = IDNumber.substring(6, 14);
-                }
-                // $("#birth_date").val(birth_date);
-            } else {
-             alert("请填写正确的身份证号码");
-                
+    $("#ID_number1").change(function() {
+        // 监护人性别
+    	sexChecked("#ID_number1","#applicant_sex_man1","#applicant_sex_woman1");
+        var IDNumber = $("#ID_number1").val();
+        var birth_date = "";
+        if (pattern.test(IDNumber)) {
+            
+            if (IDNumber.length == 18) {
+                birth_date = IDNumber.substring(6, 14);
             }
-        })
+            // $("#birth_date").val(birth_date);
+        } else {
+         alert("请填写正确的身份证号码");
+            
+        }
+    });
     // 组织机构代码
-    $("#unit_code").blur(function(){
-    var reg = /^[a-zA-Z\d]{8}\-[a-zA-Z\d]$/;
-    var str = $("#unit_code").val();
-    if (!reg.test(str)) {
-    	alert("请填写正确的组织机构代码");
-
-    }else{
-        return flase;
-    }
-})
-
+    $("#unit_code").change(function(){
+	    var reg = /^[a-zA-Z\d]{8}\-[a-zA-Z\d]$/;
+	    var str = $("#unit_code").val();
+	    if (!reg.test(str)) {
+	    	alert("请填写正确的组织机构代码");
 	
-
-
+	    }else{
+	        return flase;
+	    }
+	});
 }
 
 /*提交页面时的一些判断*/
